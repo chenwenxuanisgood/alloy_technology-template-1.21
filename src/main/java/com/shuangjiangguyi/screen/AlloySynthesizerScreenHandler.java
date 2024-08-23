@@ -2,11 +2,13 @@ package com.shuangjiangguyi.screen;
 
 import com.shuangjiangguyi.block.data.AlloySynthesizerData;
 import com.shuangjiangguyi.block.entity.AlloySynthesizerBlockEntity;
+import com.shuangjiangguyi.item.ModItems;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -25,11 +27,36 @@ public class AlloySynthesizerScreenHandler extends ScreenHandler {
         this.propertyDelegate = propertyDelegate;
         this.blockEntity = (AlloySynthesizerBlockEntity) blockEntity;
 
-        this.addSlot(new Slot(inventory, 0, 28, 12));
-        this.addSlot(new Slot(inventory, 1, 28, 32));
-        this.addSlot(new Slot(inventory, 2, 58, 42));
-        this.addSlot(new Slot(inventory, 3, 87, 42));
-        this.addSlot(new Slot(inventory, 4, 113, 21));
+        this.addSlot(new Slot(inventory, 0, 28, 12){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() == Items.IRON_INGOT || stack.getItem() == Items.COPPER_INGOT;
+            }
+        });
+        this.addSlot(new Slot(inventory, 1, 28, 32){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() == Items.IRON_INGOT || stack.getItem() == Items.COPPER_INGOT;
+            }
+        });
+        this.addSlot(new Slot(inventory, 2, 58, 42){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() == Items.LAVA_BUCKET;
+            }
+        });
+        this.addSlot(new Slot(inventory, 3, 87, 42){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() == Items.WATER_BUCKET;
+            }
+        });
+        this.addSlot(new Slot(inventory, 4, 113, 21){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() == ModItems.COPPER_IRON_ALLOY_INGOT;
+            }
+        });
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
