@@ -1,0 +1,11 @@
+{
+  "type": "alloy_technology:alloy_synthesizer",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "id": "alloy_technology.item:copper_iron_alloy_ingot"
+  }
+}
