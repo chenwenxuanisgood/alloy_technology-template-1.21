@@ -27,31 +27,31 @@ public class AlloySynthesizerScreenHandler extends ScreenHandler {
         this.propertyDelegate = propertyDelegate;
         this.blockEntity = (AlloySynthesizerBlockEntity) blockEntity;
 
-        this.addSlot(new Slot(inventory, 0, 28, 12){
+        this.addSlot(new Slot(inventory, 0, 28, 17){
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.getItem() == Items.IRON_INGOT || stack.getItem() == Items.COPPER_INGOT;
             }
         });
-        this.addSlot(new Slot(inventory, 1, 28, 32){
+        this.addSlot(new Slot(inventory, 1, 28, 37){
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.getItem() == Items.IRON_INGOT || stack.getItem() == Items.COPPER_INGOT;
             }
         });
-        this.addSlot(new Slot(inventory, 2, 58, 42){
+        this.addSlot(new Slot(inventory, 2, 58, 47){
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.getItem() == Items.LAVA_BUCKET;
             }
         });
-        this.addSlot(new Slot(inventory, 3, 87, 42){
+        this.addSlot(new Slot(inventory, 3, 87, 47){
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.getItem() == Items.WATER_BUCKET;
             }
         });
-        this.addSlot(new Slot(inventory, 4, 113, 21){
+        this.addSlot(new Slot(inventory, 4, 113, 26){
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.getItem() == ModItems.COPPER_IRON_ALLOY_INGOT;
@@ -69,14 +69,14 @@ public class AlloySynthesizerScreenHandler extends ScreenHandler {
 
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 137));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
 
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(playerInventory,j + i * 9 + 9, 8 + j * 18, 79 + i *18));
+                this.addSlot(new Slot(playerInventory,j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
     }
@@ -114,7 +114,7 @@ public class AlloySynthesizerScreenHandler extends ScreenHandler {
     public int getScaledProgress() {
         int progress = propertyDelegate.get(0);
         int maxProgress = propertyDelegate.get(1);
-        int progressArrowSize = 26;
+        int progressArrowSize = 52;
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 }

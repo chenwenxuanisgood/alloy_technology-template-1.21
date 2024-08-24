@@ -13,10 +13,7 @@ public class AlloySynthesizerScreen extends HandledScreen<AlloySynthesizerScreen
     private static final Identifier TEXTURE = Identifier.of(AlloyTechnology.MOD_ID, "textures/gui/container/alloy_synthesizer.png");
     public AlloySynthesizerScreen(AlloySynthesizerScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
-        this.titleX = 8;
-        this.titleY = 1;
-        this.playerInventoryTitleX = 8;
-        this.playerInventoryTitleY = 68;
+
     }
 
     @Override
@@ -25,7 +22,7 @@ public class AlloySynthesizerScreen extends HandledScreen<AlloySynthesizerScreen
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (this.width - this.backgroundWidth) / 2;
-        int y = (this.height - this.backgroundWidth) / 2;
+        int y = (this.height - this.backgroundHeight) / 2;
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
@@ -34,7 +31,7 @@ public class AlloySynthesizerScreen extends HandledScreen<AlloySynthesizerScreen
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if (handler.isCraft()) {
-            context.drawTexture(TEXTURE, x + 55, y + 34, 176, 22, 8, handler.getScaledProgress());
+            context.drawTexture(TEXTURE, x + 55, y + 28, 176, -2, 52, handler.getScaledProgress());
         }
     }
 }
