@@ -17,6 +17,7 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(ModItems.COPPER_IRON_ALLOY_INGOT, "铜铁合金锭");
+        translationBuilder.add(ModItems.COPPER_TIN_ALLOY_INGOT, "铜锡合金锭");
 
         translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "铜铁合金块");
         translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "合金合成器");

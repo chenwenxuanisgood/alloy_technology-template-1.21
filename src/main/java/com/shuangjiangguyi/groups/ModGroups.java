@@ -24,6 +24,7 @@ public class ModGroups {
                                         .icon(() -> new ItemStack(ModItems.COPPER_IRON_ALLOY_INGOT))
                         .entries((displayContext, entries) -> {
                             entries.add(ModItems.COPPER_IRON_ALLOY_INGOT);
+                            entries.add(ModItems.COPPER_TIN_ALLOY_INGOT);
                             entries.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK);
                             entries.add(ModBlocks.ALLOY_SYNTHESIZER);
                         }).build());

@@ -16,10 +16,12 @@ public class ModModelsProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COPPER_IRON_ALLOY_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ALLOY_SYNTHESIZER);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.COPPER_IRON_ALLOY_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_TIN_ALLOY_INGOT, Models.GENERATED);
     }
 }

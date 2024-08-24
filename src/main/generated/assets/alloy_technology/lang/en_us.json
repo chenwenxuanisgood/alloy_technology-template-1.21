@@ -3,5 +3,6 @@
   "block.alloy_technology.alloy_synthesizer": "Alloy Synthesizer",
   "block.alloy_technology.copper_iron_alloy_block": "Copper Iron Alloy Block",
   "connect.alloy_synthesizer": "Connect Alloy Synthesizer",
-  "item.alloy_technology.copper_iron_alloy_ingot": "Copper Iron Alloy Ingot"
+  "item.alloy_technology.copper_iron_alloy_ingot": "Copper Iron Alloy Ingot",
+  "item.alloy_technology.copper_tin_alloy_ingot": "Copper Tin Alloy Ingot"
 }

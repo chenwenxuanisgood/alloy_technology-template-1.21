@@ -1,5 +1,6 @@
-// 1.21	2024-08-22T16:30:31.6379153	alloy_technology/Model Definitions
+// 1.21	2024-08-24T21:27:20.8888404	alloy_technology/Model Definitions
 8ba510e6e3b04df8c9e999955c9123d5eabe4fc6 assets\alloy_technology\blockstates\copper_iron_alloy_block.json
+bb43970c411ba7d147ec255bb5dedb1d9f3a12d8 assets\alloy_technology\models\item\copper_tin_alloy_ingot.json
 b0ff89b70137f41d3222265757829c6a69ce4b64 assets\alloy_technology\models\block\alloy_synthesizer.json
 87be736ff974d41a66df506b08187d8ad4a20d04 assets\alloy_technology\models\block\copper_iron_alloy_block.json
 b0776359f05de63c4ea4ca5be55335269161be88 assets\alloy_technology\models\item\alloy_synthesizer.json

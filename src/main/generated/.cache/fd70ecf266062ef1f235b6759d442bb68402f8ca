@@ -1,5 +1,7 @@
-// 1.21	2024-08-22T16:30:31.6359166	alloy_technology/Recipes
+// 1.21	2024-08-24T21:27:20.8878411	alloy_technology/Recipes
 7f522ee630c0426f347ffe692e2102634d5c6247 data\alloy_technology\advancement\recipes\misc\copper_iron_alloy_ingot.json
 520d6fabb13452b840a9a319339f9f59d3aa91bb data\alloy_technology\advancement\recipes\building_blocks\copper_iron_alloy_block.json
+29d76373e01101eb790813a337971c01c4608eaa data\alloy_technology\recipe\alloy_synthesizer.json
 a84f3c4cf99f4fe2e271ea7f04263cfeeae6ac5a data\alloy_technology\recipe\copper_iron_alloy_ingot.json
+a23e1b580f14e2e8c594323eff35862639a5bfd5 data\alloy_technology\advancement\recipes\misc\alloy_synthesizer.json
 f72013c64de2a2762ffb78d303501ea3916f3ccb data\alloy_technology\recipe\copper_iron_alloy_block.json
