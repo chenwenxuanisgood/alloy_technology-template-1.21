@@ -19,6 +19,7 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModItems.COPPER_IRON_ALLOY_INGOT, "Copper Iron Alloy Ingot");
         translationBuilder.add(ModItems.COPPER_TIN_ALLOY_INGOT, "Copper Tin Alloy Ingot");
 
+        translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "Copper TIN Alloy Block");
         translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "Copper Iron Alloy Block");
         translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "Alloy Synthesizer");
 

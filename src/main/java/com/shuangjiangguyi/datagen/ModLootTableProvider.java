@@ -16,5 +16,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     public void generate() {
         addDrop(ModBlocks.COPPER_IRON_ALLOY_BLOCK);
         addDrop(ModBlocks.ALLOY_SYNTHESIZER);
+        addDrop(ModBlocks.COPPER_TIN_ALLOY_BLOCK);
     }
 }

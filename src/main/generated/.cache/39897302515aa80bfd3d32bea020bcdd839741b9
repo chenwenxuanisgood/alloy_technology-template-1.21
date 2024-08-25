@@ -1,3 +1,4 @@
-// 1.21	2024-08-24T21:27:20.8848424	alloy_technology/Block Loot Tables
+// 1.21	2024-08-25T09:40:53.1514769	alloy_technology/Block Loot Tables
 3e846ba72e790817390a1b7497ce7275420b89ba data\alloy_technology\loot_table\blocks\alloy_synthesizer.json
 60af40e9ff524251b9eb9d5a6618dc8372b5859c data\alloy_technology\loot_table\blocks\copper_iron_alloy_block.json
+bef1d420b27e86ab3d4e9ac1ec9b12cdeb816958 data\alloy_technology\loot_table\blocks\copper_tin_alloy_block.json

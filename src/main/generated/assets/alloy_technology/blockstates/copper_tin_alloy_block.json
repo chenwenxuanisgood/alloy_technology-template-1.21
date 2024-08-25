@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "alloy_technology:block/copper_tin_alloy_block"
+    }
+  }
+}
