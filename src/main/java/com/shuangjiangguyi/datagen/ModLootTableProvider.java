@@ -1,6 +1,7 @@
 package com.shuangjiangguyi.datagen;
 
 import com.shuangjiangguyi.block.ModBlocks;
+import com.shuangjiangguyi.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -17,5 +18,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.COPPER_IRON_ALLOY_BLOCK);
         addDrop(ModBlocks.ALLOY_SYNTHESIZER);
         addDrop(ModBlocks.COPPER_TIN_ALLOY_BLOCK);
+        addDrop(ModBlocks.TIN_ORE, oreDrops(ModBlocks.TIN_ORE, ModItems.RAW_TIN));
     }
 }

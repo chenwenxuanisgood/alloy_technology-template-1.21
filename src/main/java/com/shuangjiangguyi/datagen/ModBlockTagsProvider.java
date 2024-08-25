@@ -18,8 +18,10 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.ALLOY_SYNTHESIZER)
                 .add(ModBlocks.COPPER_IRON_ALLOY_BLOCK)
-                .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK);
-        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL);
+                .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK)
+                .add(ModBlocks.TIN_ORE);
+        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
+                .add(ModBlocks.TIN_ORE);
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.ALLOY_SYNTHESIZER)
                 .add(ModBlocks.COPPER_IRON_ALLOY_BLOCK)
