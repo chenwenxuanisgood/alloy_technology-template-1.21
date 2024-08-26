@@ -30,6 +30,6 @@ public class AlloyTechnology implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
 		ModWorldGeneration.generateModWorldGen();
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Mod Name:Alloy Technology");
 	}
 }

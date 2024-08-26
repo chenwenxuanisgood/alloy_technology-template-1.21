@@ -5,9 +5,12 @@
   "block.alloy_technology.copper_tin_alloy_block": "铜锡合金块",
   "block.alloy_technology.tin_block": "锡块",
   "block.alloy_technology.tin_ore": "锡矿",
+  "block.alloy_technology.tungsten_block": "钨块",
+  "block.alloy_technology.tungsten_ore": "钨矿",
   "connect.alloy_synthesizer": "合金合成器",
   "item.alloy_technology.copper_iron_alloy_ingot": "铜铁合金锭",
   "item.alloy_technology.copper_tin_alloy_ingot": "铜锡合金锭",
   "item.alloy_technology.raw_tin": "粗锡",
-  "item.alloy_technology.tin_ingot": "锡锭"
+  "item.alloy_technology.tin_ingot": "锡锭",
+  "item.alloy_technology.tungsten_ingot": "钨锭"
 }

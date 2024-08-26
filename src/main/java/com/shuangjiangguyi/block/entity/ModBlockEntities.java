@@ -19,6 +19,6 @@ public class ModBlockEntities {
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(AlloyTechnology.MOD_ID,id), builder.build(type));
     }
     public static void registerBlockEntities() {
-
+        AlloyTechnology.LOGGER.info("Alloy Technology Registering Block Entities");
     }
 }

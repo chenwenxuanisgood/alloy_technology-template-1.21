@@ -14,6 +14,7 @@ public class ModItems {
     public static final Item COPPER_IRON_ALLOY_INGOT = registerItems("copper_iron_alloy_ingot", new Item(new Item.Settings()));
     public static final Item COPPER_TIN_ALLOY_INGOT = registerItems("copper_tin_alloy_ingot", new Item(new Item.Settings()));
     public static final Item TIN_INGOT = registerItems("tin_ingot", new Item(new Item.Settings()));
+    public static final Item TUNGSTEN_INGOT = registerItems("tungsten_ingot", new Item(new Item.Settings()));
     public static final Item RAW_TIN = registerItems("raw_tin", new Item(new Item.Settings()));
     private static Item registerItems(String id, Item item){
         return Registry.register(Registries.ITEM, RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(AlloyTechnology.MOD_ID, id)),item);
@@ -22,10 +23,11 @@ public class ModItems {
         fabricItemGroupEntries.add(COPPER_IRON_ALLOY_INGOT);
         fabricItemGroupEntries.add(COPPER_TIN_ALLOY_INGOT);
         fabricItemGroupEntries.add(TIN_INGOT);
+        fabricItemGroupEntries.add(TUNGSTEN_INGOT);
         fabricItemGroupEntries.add(RAW_TIN);
     }
     public static void registerModItems(){
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemToIG);
-        AlloyTechnology.LOGGER.info("Registering Items");
+        AlloyTechnology.LOGGER.info("Alloy Technology Registering Items");
     }
 }

@@ -18,15 +18,21 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_PLACED_KEY = registerKey("tin_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TUNGSTEN_ORE_PLACED_KEY = registerKey("tungsten_ore");
 
     public static void boostrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stonePlace = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
+        RuleTest deepslatePlace = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
         List<OreFeatureConfig.Target> overWorld =
-                List.of(OreFeatureConfig.createTarget(stonePlace, ModBlocks.TIN_ORE.getDefaultState())
+                List.of(OreFeatureConfig.createTarget(stonePlace, ModBlocks.TIN_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(stonePlace, ModBlocks.TUNGSTEN_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslatePlace, ModBlocks.TIN_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslatePlace, ModBlocks.TUNGSTEN_ORE.getDefaultState())
                 );
 
-        register(context, TIN_ORE_PLACED_KEY, Feature.ORE, new OreFeatureConfig(overWorld, 20));
+        register(context, TIN_ORE_PLACED_KEY, Feature.ORE, new OreFeatureConfig(overWorld, 8));
+        register(context, TUNGSTEN_ORE_PLACED_KEY, Feature.ORE, new OreFeatureConfig(overWorld, 8));
     }
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

@@ -2,7 +2,6 @@ package com.shuangjiangguyi.block.entity;
 
 import com.shuangjiangguyi.block.data.AlloySynthesizerData;
 import com.shuangjiangguyi.item.ModItems;
-import com.shuangjiangguyi.recipe.AlloySynthesizerRecipe;
 import com.shuangjiangguyi.screen.AlloySynthesizerScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -10,13 +9,10 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -26,8 +22,6 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
 
 public class AlloySynthesizerBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<AlloySynthesizerData>, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);

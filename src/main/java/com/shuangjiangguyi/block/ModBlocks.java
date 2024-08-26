@@ -16,7 +16,9 @@ public class ModBlocks {
     public static final Block COPPER_TIN_ALLOY_BLOCK = register("copper_tin_alloy_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
     public static final Block COPPER_IRON_ALLOY_BLOCK = register("copper_iron_alloy_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
     public static final Block TIN_BLOCK = register("tin_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(4.0f,5.0f)));
+    public static final Block TUNGSTEN_BLOCK = register("tungsten_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
     public static final Block TIN_ORE = register("tin_ore", new Block(AbstractBlock.Settings.create().requiresTool().strength(2.0f,3.0f)));
+    public static final Block TUNGSTEN_ORE = register("tungsten_ore", new Block(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
     public static final Block ALLOY_SYNTHESIZER = register("alloy_synthesizer",
             new AlloySynthesizer(AbstractBlock.Settings.copy(Blocks.STONE)));
     public static void registerBlockItem(String id, Block block) {
@@ -30,6 +32,6 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, RegistryKey.of(Registries.BLOCK.getKey(), Identifier.of(AlloyTechnology.MOD_ID, id)),block);
     }
     public static void registerModBlocks() {
-        AlloyTechnology.LOGGER.info("Registering Block");
+        AlloyTechnology.LOGGER.info("Alloy Technology Registering Block");
     }
 }

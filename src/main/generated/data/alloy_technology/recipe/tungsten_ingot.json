@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "alloy_technology:tungsten_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "alloy_technology:tungsten_ingot"
+  }
+}
