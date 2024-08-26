@@ -23,6 +23,7 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "铜铁合金块");
         translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "铜锡合金块");
+        translationBuilder.add(ModBlocks.TIN_BLOCK, "锡块");
         translationBuilder.add(ModBlocks.TIN_ORE, "锡矿");
         translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "合金合成器");
 

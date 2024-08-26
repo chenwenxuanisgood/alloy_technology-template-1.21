@@ -29,6 +29,7 @@ public class ModGroups {
                             entries.add(ModItems.RAW_TIN);
                             entries.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK);
                             entries.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK);
+                            entries.add(ModBlocks.TIN_BLOCK);
                             entries.add(ModBlocks.TIN_ORE);
                             entries.add(ModBlocks.ALLOY_SYNTHESIZER);
                         }).build());

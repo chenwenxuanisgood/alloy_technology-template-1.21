@@ -19,13 +19,15 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALLOY_SYNTHESIZER)
                 .add(ModBlocks.COPPER_IRON_ALLOY_BLOCK)
                 .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK)
-                .add(ModBlocks.TIN_ORE);
+                .add(ModBlocks.TIN_ORE)
+                .add(ModBlocks.TIN_BLOCK);
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_ORE);
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.ALLOY_SYNTHESIZER)
                 .add(ModBlocks.COPPER_IRON_ALLOY_BLOCK)
-                .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK);
+                .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK)
+                .add(ModBlocks.TIN_BLOCK);
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
     }
 }

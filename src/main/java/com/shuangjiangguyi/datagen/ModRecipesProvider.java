@@ -26,6 +26,8 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPER_IRON_ALLOY_BLOCK);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.COPPER_TIN_ALLOY_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPER_TIN_ALLOY_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TIN_INGOT,
+                RecipeCategory.BUILDING_BLOCKS, ModBlocks.TIN_BLOCK);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ALLOY_SYNTHESIZER).pattern("bib").pattern("iii").pattern("iii")
                 .input('i', Items.IRON_INGOT)
                 .input('b', Items.BUCKET)

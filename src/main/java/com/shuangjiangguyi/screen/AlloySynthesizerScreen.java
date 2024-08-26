@@ -31,7 +31,7 @@ public class AlloySynthesizerScreen extends HandledScreen<AlloySynthesizerScreen
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if (handler.isCraft()) {
-            context.drawTexture(TEXTURE, x + 55, y + 28, 176, -2, 52, handler.getScaledProgress());
+            context.drawTexture(TEXTURE, x + 55, y + 24, 176, 12,  handler.getScaledProgress(), 60);
         }
     }
 }

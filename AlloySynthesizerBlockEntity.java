@@ -38,9 +38,6 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     private static final int INPUT_SLOT_4 = 3;
     private static final int OUTPUT_SLOT_1 = 4;
 
-    public static String recipes = null;
-    public static String left_is_what = null;
-
     private static final String NBT_PROGRESS_KEY = "alloy_synthesizer";
 
     private static final int PROGRESS_INDEX = 0;
@@ -141,33 +138,12 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     }
 
     private void craftItem() {
-        if (recipes == "COPPER_IRON_ALLOY_INGOT") {
-            if (left_is_what == "IRON_INGOT") {
-                // 确定铜锭和铁锭分别在哪个槽位
-                decrementInputIfItemMatches(INPUT_SLOT_1, Items.IRON_INGOT);
-                decrementInputIfItemMatches(INPUT_SLOT_2, Items.COPPER_INGOT);
-            }
-            else {
-                decrementInputIfItemMatches(INPUT_SLOT_1, Items.COPPER_INGOT);
-                decrementInputIfItemMatches(INPUT_SLOT_2, Items.IRON_INGOT);
-            }
-            // 合成物品并放入输出槽
-            addOutputItem(new ItemStack(ModItems.COPPER_IRON_ALLOY_INGOT));
-        }
-        else if (recipes == "COPPER_TIN_ALLOY_INGOT") {
-            if (left_is_what == "TIN_INGOT") {
-                decrementInputIfItemMatches(INPUT_SLOT_1, ModItems.TIN_INGOT);
-                decrementInputIfItemMatches(INPUT_SLOT_2, Items.COPPER_INGOT);
-            }
-            else {
-                decrementInputIfItemMatches(INPUT_SLOT_1, Items.COPPER_INGOT);
-                decrementInputIfItemMatches(INPUT_SLOT_2, ModItems.TIN_INGOT);
-            }
-            // 合成物品并放入输出槽
-            addOutputItem(new ItemStack(ModItems.COPPER_TIN_ALLOY_INGOT));
-            recipes = null;
-            left_is_what = null;
-        }
+        // 确定铜锭和铁锭分别在哪个槽位
+        decrementInputIfItemMatches(INPUT_SLOT_1, Items.IRON_INGOT);
+        decrementInputIfItemMatches(INPUT_SLOT_2, Items.COPPER_INGOT);
+
+        // 合成物品并放入输出槽
+        addOutputItem(new ItemStack(ModItems.COPPER_IRON_ALLOY_INGOT));
     }
 
     private boolean hasCraftingFinished() {
@@ -179,41 +155,16 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     }
 
     private boolean hasRecipe() {
-        left_is_what = null;
-        recipes = null;
         // 检查铁锭和铜锭是否存在于 INPUT_SLOT_1 和 INPUT_SLOT_2
         boolean hasIron = containsItem(INPUT_SLOT_1, Items.IRON_INGOT) || containsItem(INPUT_SLOT_2, Items.IRON_INGOT);
         boolean hasCopper = containsItem(INPUT_SLOT_1, Items.COPPER_INGOT) || containsItem(INPUT_SLOT_2, Items.COPPER_INGOT);
-        boolean hasTin = containsItem(INPUT_SLOT_1, ModItems.TIN_INGOT) || containsItem(INPUT_SLOT_2, ModItems.TIN_INGOT);
 
         // 检查岩浆桶和水桶是否在特定的槽位上
         boolean hasLava = getStack(INPUT_SLOT_3).getItem() == Items.LAVA_BUCKET;
         boolean hasWater = getStack(INPUT_SLOT_4).getItem() == Items.WATER_BUCKET;
 
         // 只有当所有条件满足且输出槽可用时，才返回 true
-        if (hasIron && hasCopper && hasLava && hasWater && canInsertIntoOutputSlot(ModItems.COPPER_IRON_ALLOY_INGOT)) {
-            recipes = "COPPER_IRON_ALLOY_INGOT";
-            if (containsItem(INPUT_SLOT_1, Items.IRON_INGOT)) {
-                left_is_what = "IRON_INGOT";
-            }
-            else {
-                left_is_what = "COPPER_INGOT";
-            }
-            return true;
-        }
-        else if (hasCopper && hasTin && hasLava && hasWater && canInsertIntoOutputSlot(ModItems.COPPER_TIN_ALLOY_INGOT)) {
-            recipes = "COPPER_TIN_ALLOY_INGOT";
-            if (containsItem(INPUT_SLOT_1, ModItems.TIN_INGOT)) {
-                left_is_what = "TIN_INGOT";
-            }
-            else {
-                left_is_what = "COPPER_INGOT";
-            }
-            return true;
-        }
-        else {
-            return false;
-        }
+        return hasIron && hasCopper && hasLava && hasWater && canInsertIntoOutputSlot(ModItems.COPPER_IRON_ALLOY_INGOT);
     }
 
     private boolean containsItem(int slot, Item item) {

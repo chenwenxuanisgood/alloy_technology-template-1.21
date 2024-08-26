@@ -30,13 +30,13 @@ public class AlloySynthesizerScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 0, 28, 17){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.getItem() == Items.IRON_INGOT || stack.getItem() == Items.COPPER_INGOT;
+                return stack.getItem() == Items.IRON_INGOT || stack.getItem() == Items.COPPER_INGOT || stack.getItem() == ModItems.TIN_INGOT;
             }
         });
         this.addSlot(new Slot(inventory, 1, 28, 37){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.getItem() == Items.IRON_INGOT || stack.getItem() == Items.COPPER_INGOT;
+                return stack.getItem() == Items.IRON_INGOT || stack.getItem() == Items.COPPER_INGOT || stack.getItem() == ModItems.TIN_INGOT;
             }
         });
         this.addSlot(new Slot(inventory, 2, 58, 47){
@@ -54,7 +54,7 @@ public class AlloySynthesizerScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 4, 113, 26){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.getItem() == ModItems.COPPER_IRON_ALLOY_INGOT;
+                return stack.getItem() == ModItems.COPPER_IRON_ALLOY_INGOT || stack.getItem() == ModItems.COPPER_TIN_ALLOY_INGOT;
             }
         });
 
