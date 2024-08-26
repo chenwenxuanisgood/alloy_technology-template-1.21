@@ -6,8 +6,8 @@ import com.shuangjiangguyi.groups.ModGroups;
 import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.recipe.ModRecipeTypes;
 import com.shuangjiangguyi.screen.ModScreenHandlers;
+import com.shuangjiangguyi.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +29,7 @@ public class AlloyTechnology implements ModInitializer {
 		ModRecipeTypes.registerRecipeType();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
+		ModWorldGeneration.generateModWorldGen();
 		LOGGER.info("Hello Fabric world!");
 	}
 }
