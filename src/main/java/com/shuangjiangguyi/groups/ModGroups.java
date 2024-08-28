@@ -25,16 +25,21 @@ public class ModGroups {
                         .entries((displayContext, entries) -> {
                             entries.add(ModItems.COPPER_IRON_ALLOY_INGOT);
                             entries.add(ModItems.COPPER_TIN_ALLOY_INGOT);
+                            entries.add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT);
+                            entries.add(ModItems.ALUMINIUM_TIN_ALLOY_INGOT);
                             entries.add(ModItems.TIN_INGOT);
                             entries.add(ModItems.TUNGSTEN_INGOT);
+                            entries.add(ModItems.ALUMINIUM_INGOT);
                             entries.add(ModItems.RAW_TIN);
                             entries.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK);
                             entries.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK);
+                            entries.add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK);
                             entries.add(ModBlocks.TIN_BLOCK);
                             entries.add(ModBlocks.TUNGSTEN_BLOCK);
                             entries.add(ModBlocks.TIN_ORE);
                             entries.add(ModBlocks.TUNGSTEN_ORE);
                             entries.add(ModBlocks.ALLOY_SYNTHESIZER);
+                            entries.add(ModItems.TUNGSTEN_IRON_ALLOY_SWORD);
                         }).build());
         AlloyTechnology.LOGGER.info("Alloy Technology Registering Item Groups");
     }

@@ -19,6 +19,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALLOY_SYNTHESIZER)
                 .add(ModBlocks.COPPER_IRON_ALLOY_BLOCK)
                 .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK)
+                .add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.TUNGSTEN_ORE)
                 .add(ModBlocks.TIN_BLOCK);

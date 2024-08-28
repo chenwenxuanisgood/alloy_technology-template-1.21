@@ -1,8 +1,9 @@
-// 1.21	2024-08-26T21:28:57.3763938	alloy_technology/Block Loot Tables
+// 1.21	2024-08-28T17:12:43.2637873	alloy_technology/Block Loot Tables
 0c6454f74eac09a74e930ada5bdf4b14fc6a020f data\alloy_technology\loot_table\blocks\tin_ore.json
 3e846ba72e790817390a1b7497ce7275420b89ba data\alloy_technology\loot_table\blocks\alloy_synthesizer.json
 60af40e9ff524251b9eb9d5a6618dc8372b5859c data\alloy_technology\loot_table\blocks\copper_iron_alloy_block.json
 72845d310c5a2876e7e40beaead0e937296b2303 data\alloy_technology\loot_table\blocks\tungsten_ore.json
 bef1d420b27e86ab3d4e9ac1ec9b12cdeb816958 data\alloy_technology\loot_table\blocks\copper_tin_alloy_block.json
 40b4afea9e1671cd13bb5b0bd1e280c2e1a3f346 data\alloy_technology\loot_table\blocks\tin_block.json
+31033e75df7ab431f077086eaa05340c3a8d01a4 data\alloy_technology\loot_table\blocks\tungsten_iron_alloy_block.json
 86a9b5306fa787e7cac6d9ddc18cdaa4d33b929c data\alloy_technology\loot_table\blocks\tungsten_block.json

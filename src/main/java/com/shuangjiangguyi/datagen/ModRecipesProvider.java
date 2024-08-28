@@ -22,13 +22,15 @@ public class ModRecipesProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.COPPER_IRON_ALLOY_INGOT,
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.COPPER_IRON_ALLOY_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPER_IRON_ALLOY_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.COPPER_TIN_ALLOY_INGOT,
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.COPPER_TIN_ALLOY_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPER_TIN_ALLOY_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TIN_INGOT,
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TUNGSTEN_IRON_ALLOY_INGOT,
+                RecipeCategory.BUILDING_BLOCKS, ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TIN_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.TIN_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TUNGSTEN_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.TUNGSTEN_BLOCK);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ALLOY_SYNTHESIZER).pattern("bib").pattern("iii").pattern("iii")
                 .input('i', Items.IRON_INGOT)
@@ -37,6 +39,14 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(Items.BUCKET))
                 .criterion(FabricRecipeProvider.hasItem(Items.IRON_INGOT),
                         FabricRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.TUNGSTEN_IRON_ALLOY_SWORD).pattern("t").pattern("t").pattern("s")
+                .input('t', ModItems.TUNGSTEN_IRON_ALLOY_INGOT)
+                .input('s', Items.STICK)
+                .criterion(FabricRecipeProvider.hasItem(Items.STICK),
+                        FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT))
                 .offerTo(exporter);
         offerSmelting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 600, "tin_ingot");
         offerBlasting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 300, "tin_ingot");

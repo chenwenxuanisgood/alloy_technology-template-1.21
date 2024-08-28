@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "alloy_technology:block/tungsten_iron_alloy_block"
+  }
+}

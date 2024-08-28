@@ -3,11 +3,11 @@
   "category": "building",
   "ingredients": [
     {
-      "item": "alloy_technology:tungsten_block"
+      "item": "alloy_technology:tungsten_iron_alloy_block"
     }
   ],
   "result": {
     "count": 9,
-    "id": "alloy_technology:tungsten_ingot"
+    "id": "alloy_technology:tungsten_iron_alloy_ingot"
   }
 }
