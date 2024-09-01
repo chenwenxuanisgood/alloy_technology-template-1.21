@@ -20,6 +20,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.COPPER_IRON_ALLOY_BLOCK)
                 .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK)
                 .add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK)
+                .add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.TUNGSTEN_ORE)
                 .add(ModBlocks.TIN_BLOCK);
@@ -31,6 +32,8 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK)
                 .add(ModBlocks.TIN_BLOCK);
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK)
+                .add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK)
                 .add(ModBlocks.TUNGSTEN_BLOCK)
                 .add(ModBlocks.TUNGSTEN_ORE);
     }

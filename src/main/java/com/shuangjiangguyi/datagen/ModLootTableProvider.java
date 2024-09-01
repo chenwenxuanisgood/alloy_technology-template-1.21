@@ -18,6 +18,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.COPPER_IRON_ALLOY_BLOCK);
         addDrop(ModBlocks.COPPER_TIN_ALLOY_BLOCK);
         addDrop(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK);
+        addDrop(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK);
         addDrop(ModBlocks.TIN_BLOCK);
         addDrop(ModBlocks.TUNGSTEN_BLOCK);
 

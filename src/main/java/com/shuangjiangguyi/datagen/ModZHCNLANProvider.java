@@ -29,6 +29,7 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "铜铁合金块");
         translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "铜锡合金块");
         translationBuilder.add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK, "钨铁合金块");
+        translationBuilder.add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, "铝锡合金块");
         translationBuilder.add(ModBlocks.TIN_BLOCK, "锡块");
         translationBuilder.add(ModBlocks.TUNGSTEN_BLOCK, "钨块");
         translationBuilder.add(ModBlocks.TIN_ORE, "锡矿");
@@ -38,5 +39,7 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "合金科技");
 
         translationBuilder.add("connect.alloy_synthesizer", "合金合成器");
+
+        translationBuilder.add("entity.minecraft.villager.alloy_master", "合金商人");
     }
 }

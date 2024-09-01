@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "alloy_technology:copper_iron_alloy_block"
+      "item": "alloy_technology:aluminium_tin_alloy_block"
     }
   ],
   "result": {
     "count": 9,
-    "id": "alloy_technology:copper_iron_alloy_ingot"
+    "id": "alloy_technology:aluminium_tin_alloy_ingot"
   }
 }

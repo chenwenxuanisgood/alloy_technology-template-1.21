@@ -34,6 +34,7 @@ public class ModItems {
         fabricItemGroupEntries.add(TUNGSTEN_IRON_ALLOY_INGOT);
         fabricItemGroupEntries.add(TIN_INGOT);
         fabricItemGroupEntries.add(TUNGSTEN_INGOT);
+        fabricItemGroupEntries.add(ALUMINIUM_INGOT);
         fabricItemGroupEntries.add(RAW_TIN);
     }
     public static void registerModItems(){

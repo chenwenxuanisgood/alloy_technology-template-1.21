@@ -22,15 +22,17 @@ public class ModRecipesProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.COPPER_IRON_ALLOY_INGOT,
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.COPPER_IRON_ALLOY_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPER_IRON_ALLOY_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.COPPER_TIN_ALLOY_INGOT,
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.COPPER_TIN_ALLOY_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPER_TIN_ALLOY_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TUNGSTEN_IRON_ALLOY_INGOT,
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TUNGSTEN_IRON_ALLOY_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TIN_INGOT,
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TIN_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.TIN_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TUNGSTEN_INGOT,
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ALUMINIUM_TIN_ALLOY_INGOT,
+                RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.TUNGSTEN_BLOCK);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ALLOY_SYNTHESIZER).pattern("bib").pattern("iii").pattern("iii")
                 .input('i', Items.IRON_INGOT)

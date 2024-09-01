@@ -1,7 +1,9 @@
 package com.shuangjiangguyi.block.custom;
 
+import com.shuangjiangguyi.AlloyTechnology;
 import com.shuangjiangguyi.block.entity.AlloySynthesizerBlockEntity;
 import com.shuangjiangguyi.block.entity.ModBlockEntities;
+import com.shuangjiangguyi.mixinInterface.ServerPlayerEntityMixinAccessor;
 import net.minecraft.block.*;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.entity.BlockEntity;
@@ -9,6 +11,7 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.nbt.NbtInt;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
@@ -26,6 +29,8 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class AlloySynthesizer extends BlockWithEntity implements BlockEntityProvider {
+    public static boolean[] canProduceAlloy = new boolean[4];
+
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
     public static final MapCodec<AlloySynthesizer> CODEC = createCodec(AlloySynthesizer::new);
     public static final VoxelShape SHAPE = Block.createCuboidShape(0,0, 0, 16,16,16);

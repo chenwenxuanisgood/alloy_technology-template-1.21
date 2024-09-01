@@ -34,6 +34,7 @@ public class ModGroups {
                             entries.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK);
                             entries.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK);
                             entries.add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK);
+                            entries.add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK);
                             entries.add(ModBlocks.TIN_BLOCK);
                             entries.add(ModBlocks.TUNGSTEN_BLOCK);
                             entries.add(ModBlocks.TIN_ORE);

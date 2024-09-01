@@ -3,6 +3,7 @@ package com.shuangjiangguyi;
 import com.shuangjiangguyi.datagen.*;
 import com.shuangjiangguyi.world.ModConfiguredFeatures;
 import com.shuangjiangguyi.world.ModPlacedFeatures;
+import com.shuangjiangguyi.AlloyTechnologyClient;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -20,6 +21,7 @@ public class AlloyTechnologyDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModLootTableProvider::new);
 		pack.addProvider(ModModelsProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
+		pack.addProvider(ModPointTagProvider::new);
 	}
 
 	@Override

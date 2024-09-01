@@ -1,5 +1,5 @@
-// 1.21	2024-08-28T17:12:43.2657859	alloy_technology/Tags for minecraft:block
-e4ab568789215117b332ef43d493c47a3a005ba7 data\minecraft\tags\block\needs_diamond_tool.json
-a73f4057f81069a305b37ac95617f33dd9d41fb9 data\minecraft\tags\block\needs_stone_tool.json
+// 1.21	2024-09-01T16:26:31.058121	alloy_technology/Tags for minecraft:block
+44f432b9ce06899e8756fc3c8dd0f1c434dc1eef data\minecraft\tags\block\needs_diamond_tool.json
 2e3b0a4fb270dfee7f7e290998b0c92a30488ec4 data\minecraft\tags\block\needs_iron_tool.json
-bd209d284578eb4b7561a2fc505cf2ee353a76f1 data\minecraft\tags\block\mineable\pickaxe.json
+a73f4057f81069a305b37ac95617f33dd9d41fb9 data\minecraft\tags\block\needs_stone_tool.json
+92129c02d23118121573a1330873c38872453b21 data\minecraft\tags\block\mineable\pickaxe.json

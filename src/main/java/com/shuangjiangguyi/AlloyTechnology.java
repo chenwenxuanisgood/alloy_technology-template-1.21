@@ -6,6 +6,8 @@ import com.shuangjiangguyi.groups.ModGroups;
 import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.recipe.ModRecipeTypes;
 import com.shuangjiangguyi.screen.ModScreenHandlers;
+import com.shuangjiangguyi.util.ModCustomTrades;
+import com.shuangjiangguyi.villager.ModVillagers;
 import com.shuangjiangguyi.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -30,6 +32,8 @@ public class AlloyTechnology implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
 		ModWorldGeneration.generateModWorldGen();
+		ModVillagers.registerModVillager();
+		ModCustomTrades.registerModCustomTrades();
 		LOGGER.info("Mod Name:Alloy Technology");
 	}
 }

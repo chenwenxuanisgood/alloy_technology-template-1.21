@@ -117,4 +117,6 @@ public class AlloySynthesizerScreenHandler extends ScreenHandler {
         int progressArrowSize = 52;
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
+
+
 }

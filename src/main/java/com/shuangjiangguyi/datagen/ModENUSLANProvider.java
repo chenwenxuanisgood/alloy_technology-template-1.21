@@ -28,6 +28,7 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "Copper TIN Alloy Block");
         translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "Copper Iron Alloy Block");
         translationBuilder.add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK, "Tungsten Iron Alloy Block");
+        translationBuilder.add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, "Aluminium Tin Alloy Block");
         translationBuilder.add(ModBlocks.TIN_BLOCK, "Tin Block");
         translationBuilder.add(ModBlocks.TUNGSTEN_BLOCK, "Tungsten Block");
         translationBuilder.add(ModBlocks.TIN_ORE, "Tin Ore");
@@ -37,5 +38,7 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "Alloy Technology");
 
         translationBuilder.add("connect.alloy_synthesizer", "Connect Alloy Synthesizer");
+
+        translationBuilder.add("entity.minecraft.villager.alloy_master", "Alloy Merchant");
     }
 }

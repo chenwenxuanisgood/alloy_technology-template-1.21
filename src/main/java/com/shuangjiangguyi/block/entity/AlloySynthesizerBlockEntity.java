@@ -1,7 +1,10 @@
 package com.shuangjiangguyi.block.entity;
 
+import com.shuangjiangguyi.block.custom.AlloySynthesizer;
 import com.shuangjiangguyi.block.data.AlloySynthesizerData;
 import com.shuangjiangguyi.item.ModItems;
+import com.shuangjiangguyi.mixin.ServerPlayerEntityMixin;
+import com.shuangjiangguyi.mixinInterface.ServerPlayerEntityMixinAccessor;
 import com.shuangjiangguyi.screen.AlloySynthesizerScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -9,10 +12,12 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtInt;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -26,6 +31,8 @@ import org.jetbrains.annotations.Nullable;
 public class AlloySynthesizerBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<AlloySynthesizerData>, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
 
+    public static int temp;
+
     private static final int INPUT_SLOT_1 = 0;
     private static final int INPUT_SLOT_2 = 1;
     private static final int INPUT_SLOT_3 = 2;
@@ -34,6 +41,7 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
 
     public static String recipes = null;
     public static String left_is_what = null;
+    public static String right_is_what = null;
 
     private static final String NBT_PROGRESS_KEY = "alloy_synthesizer";
 
@@ -147,6 +155,7 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
             }
             // 合成物品并放入输出槽
             addOutputItem(new ItemStack(ModItems.COPPER_IRON_ALLOY_INGOT));
+            temp = 1;
             recipes = null;
             left_is_what = null;
         }
@@ -212,50 +221,54 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
         boolean hasTungsten = containsItem(INPUT_SLOT_1, ModItems.TUNGSTEN_INGOT) || containsItem(INPUT_SLOT_2, ModItems.TUNGSTEN_INGOT);
         boolean hasAluminium = containsItem(INPUT_SLOT_1, ModItems.ALUMINIUM_INGOT) || containsItem(INPUT_SLOT_2, ModItems.ALUMINIUM_INGOT);
 
+        String IronIngot = "IRON_INGOT";
+        String CopperIngot = "COPPER_INGOT";
+        String TinIngot = "TIN_INGOT";
+        String TungstenIngot = "TUNGSTEN_INGOT";
+        String AluminiumIngot = "ALUMINIUM_INGOT";
+
         // 检查岩浆桶和水桶是否在特定的槽位上
         boolean hasLava = getStack(INPUT_SLOT_3).getItem() == Items.LAVA_BUCKET;
         boolean hasWater = getStack(INPUT_SLOT_4).getItem() == Items.WATER_BUCKET;
 
         // 只有当所有条件满足且输出槽可用时，才返回 true
-        if (hasIron && hasCopper && hasLava && hasWater && canInsertIntoOutputSlot(ModItems.COPPER_IRON_ALLOY_INGOT)) {
-            recipes = "COPPER_IRON_ALLOY_INGOT";
-            if (containsItem(INPUT_SLOT_1, Items.IRON_INGOT)) {
-                left_is_what = "IRON_INGOT";
+        if (hasLava && hasWater) {
+            if (hasIron && hasCopper && canInsertIntoOutputSlot(ModItems.COPPER_IRON_ALLOY_INGOT)) {
+                recipes = "COPPER_IRON_ALLOY_INGOT";
+                if (containsItem(INPUT_SLOT_1, Items.IRON_INGOT)) {
+                    left_is_what = IronIngot;
+                } else {
+                    left_is_what = CopperIngot;
+                }
+                return true;
+            } else if (hasCopper && hasTin && canInsertIntoOutputSlot(ModItems.COPPER_TIN_ALLOY_INGOT)) {
+                recipes = "COPPER_TIN_ALLOY_INGOT";
+                if (containsItem(INPUT_SLOT_1, ModItems.TIN_INGOT)) {
+                    left_is_what = TinIngot;
+                } else {
+                    left_is_what = CopperIngot;
+                }
+                return true;
+            } else if (hasTungsten && hasIron && canInsertIntoOutputSlot(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)) {
+                recipes = "TUNGSTEN_IRON_ALLOY_INGOT";
+                if (containsItem(INPUT_SLOT_1, ModItems.TUNGSTEN_INGOT)) {
+                    left_is_what = TungstenIngot;
+                } else {
+                    left_is_what = IronIngot;
+                }
+                return true;
+            } else if (hasAluminium && hasTin && canInsertIntoOutputSlot(ModItems.ALUMINIUM_TIN_ALLOY_INGOT)) {
+                recipes = "ALUMINIUM_TIN_ALLOY_INGOT";
+                if (containsItem(INPUT_SLOT_1, ModItems.ALUMINIUM_INGOT)) {
+                    left_is_what = AluminiumIngot;
+                } else {
+                    left_is_what = TinIngot;
+                }
+                return true;
             }
             else {
-                left_is_what = "COPPER_INGOT";
+                return false;
             }
-            return true;
-        }
-        else if (hasCopper && hasTin && hasLava && hasWater && canInsertIntoOutputSlot(ModItems.COPPER_TIN_ALLOY_INGOT)) {
-            recipes = "COPPER_TIN_ALLOY_INGOT";
-            if (containsItem(INPUT_SLOT_1, ModItems.TIN_INGOT)) {
-                left_is_what = "TIN_INGOT";
-            }
-            else {
-                left_is_what = "COPPER_INGOT";
-            }
-            return true;
-        }
-        else if (hasTungsten && hasIron && hasLava && hasWater && canInsertIntoOutputSlot(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)) {
-            recipes = "TUNGSTEN_IRON_ALLOY_INGOT";
-            if (containsItem(INPUT_SLOT_1, ModItems.TUNGSTEN_INGOT)) {
-                left_is_what = "TUNGSTEN_INGOT";
-            }
-            else {
-                left_is_what = "IRON_INGOT";
-            }
-            return true;
-        }
-        else if (hasAluminium && hasTin && hasLava && hasWater && canInsertIntoOutputSlot(ModItems.ALUMINIUM_TIN_ALLOY_INGOT)) {
-            recipes = "ALUMINIUM_TIN_ALLOY_INGOT";
-            if (containsItem(INPUT_SLOT_1, ModItems.ALUMINIUM_INGOT)) {
-                left_is_what = "ALUMINIUM_INGOT";
-            }
-            else {
-                left_is_what = "TIN_INGOT";
-            }
-            return true;
         }
         else {
             return false;
@@ -297,3 +310,4 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
                 this.getStack(OUTPUT_SLOT_1).getCount() <= this.getMaxCountPerStack();
     }
 }
+
