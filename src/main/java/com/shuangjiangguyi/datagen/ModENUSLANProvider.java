@@ -16,26 +16,26 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
-        translationBuilder.add(ModItems.COPPER_IRON_ALLOY_INGOT, "Copper Iron Alloy Ingot");
-        translationBuilder.add(ModItems.COPPER_TIN_ALLOY_INGOT, "Copper Tin Alloy Ingot");
-        translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT, "Tungsten Iron Alloy Ingot");
-        translationBuilder.add(ModItems.TIN_INGOT, "Tin Ingot");
-        translationBuilder.add(ModItems.TUNGSTEN_INGOT, "Tungsten Ingot");
-        translationBuilder.add(ModItems.ALUMINIUM_INGOT, "Aluminium Ingot");
-        translationBuilder.add(ModItems.RAW_TIN, "Raw Tin");
-        translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_SWORD, "Tungsten Iron Alloy Sword");
+        translationBuilder.add(ModItems.COPPER_IRON_ALLOY_INGOT, "§6Copper Iron Alloy Ingot");
+        translationBuilder.add(ModItems.COPPER_TIN_ALLOY_INGOT, "§6Copper Tin Alloy Ingot");
+        translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT, "§6Tungsten Iron Alloy Ingot");
+        translationBuilder.add(ModItems.TIN_INGOT, "§6Tin Ingot");
+        translationBuilder.add(ModItems.TUNGSTEN_INGOT, "§6Tungsten Ingot");
+        translationBuilder.add(ModItems.ALUMINIUM_INGOT, "§6Aluminium Ingot");
+        translationBuilder.add(ModItems.RAW_TIN, "§7Raw Tin");
+        translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_SWORD, "§5Tungsten Iron Alloy Sword");
 
-        translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "Copper TIN Alloy Block");
-        translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "Copper Iron Alloy Block");
-        translationBuilder.add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK, "Tungsten Iron Alloy Block");
-        translationBuilder.add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, "Aluminium Tin Alloy Block");
-        translationBuilder.add(ModBlocks.TIN_BLOCK, "Tin Block");
-        translationBuilder.add(ModBlocks.TUNGSTEN_BLOCK, "Tungsten Block");
-        translationBuilder.add(ModBlocks.TIN_ORE, "Tin Ore");
-        translationBuilder.add(ModBlocks.TUNGSTEN_ORE, "Tungsten Ore");
-        translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "Alloy Synthesizer");
+        translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "§eCopper TIN Alloy Block");
+        translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "§eCopper Iron Alloy Block");
+        translationBuilder.add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK, "§eTungsten Iron Alloy Block");
+        translationBuilder.add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, "§eAluminium Tin Alloy Block");
+        translationBuilder.add(ModBlocks.TIN_BLOCK, "§eTin Block");
+        translationBuilder.add(ModBlocks.TUNGSTEN_BLOCK, "§eTungsten Block");
+        translationBuilder.add(ModBlocks.TIN_ORE, "§7Tin Ore");
+        translationBuilder.add(ModBlocks.TUNGSTEN_ORE, "§7Tungsten Ore");
+        translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "§eAlloy Synthesizer");
 
-        translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "Alloy Technology");
+        translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6Alloy Technology");
 
         translationBuilder.add("connect.alloy_synthesizer", "Connect Alloy Synthesizer");
 
