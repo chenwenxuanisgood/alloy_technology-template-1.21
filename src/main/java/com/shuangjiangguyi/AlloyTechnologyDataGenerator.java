@@ -3,7 +3,6 @@ package com.shuangjiangguyi;
 import com.shuangjiangguyi.datagen.*;
 import com.shuangjiangguyi.world.ModConfiguredFeatures;
 import com.shuangjiangguyi.world.ModPlacedFeatures;
-import com.shuangjiangguyi.AlloyTechnologyClient;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;

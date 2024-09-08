@@ -13,20 +13,24 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
-    public static final Block COPPER_TIN_ALLOY_BLOCK = register("copper_tin_alloy_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
-    public static final Block COPPER_IRON_ALLOY_BLOCK = register("copper_iron_alloy_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
-    public static final Block TUNGSTEN_IRON_ALLOY_BLOCK = register("tungsten_iron_alloy_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(7.0f,8.0f)));
-    public static final Block ALUMINIUM_TIN_ALLOY_BLOCK = register("aluminium_tin_alloy_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(6.0f,7.0f)));
-    public static final Block TIN_BLOCK = register("tin_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(4.0f,5.0f)));
-    public static final Block TUNGSTEN_BLOCK = register("tungsten_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
-    public static final Block TIN_ORE = register("tin_ore", new Block(AbstractBlock.Settings.create().requiresTool().strength(2.0f,3.0f)));
-    public static final Block TUNGSTEN_ORE = register("tungsten_ore", new Block(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
+    private static Block ordinaryBlockRegister(String id, float hardness, float resistance) {
+        return register(id, new Block(AbstractBlock.Settings.create().requiresTool().strength(hardness,resistance)));
+    }
+
+    public static final Block COPPER_TIN_ALLOY_BLOCK = ordinaryBlockRegister("copper_tin_alloy_block", 5.0f, 6.0f);
+    public static final Block COPPER_IRON_ALLOY_BLOCK = ordinaryBlockRegister("copper_iron_alloy_block", 5.0f, 6.0f);
+    public static final Block TUNGSTEN_IRON_ALLOY_BLOCK = ordinaryBlockRegister("tungsten_iron_alloy_block", 7.0f,8.0f);
+    public static final Block ALUMINIUM_TIN_ALLOY_BLOCK = ordinaryBlockRegister("aluminium_tin_alloy_block", 6.0f,7.0f);
+    public static final Block TIN_BLOCK = ordinaryBlockRegister("tin_block", 4.0f,5.0f);
+    public static final Block TUNGSTEN_BLOCK = ordinaryBlockRegister("tungsten_block", 5.0f,6.0f);
+    public static final Block TIN_ORE = ordinaryBlockRegister("tin_ore", 2.0f,3.0f);
+    public static final Block TUNGSTEN_ORE = ordinaryBlockRegister("tungsten_ore", 5.0f,6.0f);
     public static final Block ALLOY_SYNTHESIZER = register("alloy_synthesizer",
             new AlloySynthesizer(AbstractBlock.Settings.copy(Blocks.STONE)));
     public static void registerBlockItem(String id, Block block) {
         Item item = Registry.register(Registries.ITEM, Identifier.of(AlloyTechnology.MOD_ID, id), new BlockItem(block, new Item.Settings()));
         if (item instanceof BlockItem) {
-            ((BlockItem)item).appendBlocks(Item.BLOCK_ITEMS, item);
+            ((BlockItem) item).appendBlocks(Item.BLOCK_ITEMS, item);
         }
     }
     public static Block register(String id, Block block) {

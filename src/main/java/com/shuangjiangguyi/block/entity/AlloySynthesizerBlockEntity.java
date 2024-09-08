@@ -210,7 +210,7 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
         this.progress++;
     }
 
-    private boolean Determine_if_metal_is_in_input_slot(Item item) {
+    private boolean determineIfMetalIsInInputSlot(Item item) {
         return containsItem(INPUT_SLOT_1, item) || containsItem(INPUT_SLOT_2, item);
     }
 
@@ -218,11 +218,11 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
         left_is_what = null;
         recipes = null;
         // 检查铁锭和铜锭是否存在于 INPUT_SLOT_1 和 INPUT_SLOT_2
-        final boolean hasIron = Determine_if_metal_is_in_input_slot(Items.IRON_INGOT);
-        final boolean hasCopper = Determine_if_metal_is_in_input_slot(Items.COPPER_INGOT);
-        final boolean hasTin = Determine_if_metal_is_in_input_slot(ModItems.TIN_INGOT);
-        final boolean hasTungsten = Determine_if_metal_is_in_input_slot(ModItems.TUNGSTEN_INGOT);
-        final boolean hasAluminium = Determine_if_metal_is_in_input_slot(ModItems.ALUMINIUM_INGOT);
+        final boolean hasIron = determineIfMetalIsInInputSlot(Items.IRON_INGOT);
+        final boolean hasCopper = determineIfMetalIsInInputSlot(Items.COPPER_INGOT);
+        final boolean hasTin = determineIfMetalIsInInputSlot(ModItems.TIN_INGOT);
+        final boolean hasTungsten = determineIfMetalIsInInputSlot(ModItems.TUNGSTEN_INGOT);
+        final boolean hasAluminium = determineIfMetalIsInInputSlot(ModItems.ALUMINIUM_INGOT);
 
         String IronIngot = "IRON_INGOT";
         String CopperIngot = "COPPER_INGOT";

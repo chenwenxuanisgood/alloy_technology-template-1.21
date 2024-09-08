@@ -12,16 +12,20 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item COPPER_IRON_ALLOY_INGOT = registerItems("copper_iron_alloy_ingot", new Item(new Item.Settings()));
-    public static final Item COPPER_TIN_ALLOY_INGOT = registerItems("copper_tin_alloy_ingot", new Item(new Item.Settings()));
-    public static final Item TUNGSTEN_IRON_ALLOY_INGOT = registerItems("tungsten_iron_alloy_ingot", new Item(new Item.Settings()));
-    public static final Item ALUMINIUM_TIN_ALLOY_INGOT = registerItems("aluminium_tin_alloy_ingot", new Item(new Item.Settings()));
+    private static Item ordinaryItemRegister(String id) {
+        return registerItems(id, new Item(new Item.Settings()));
+    }
 
-    public static final Item TIN_INGOT = registerItems("tin_ingot", new Item(new Item.Settings()));
-    public static final Item TUNGSTEN_INGOT = registerItems("tungsten_ingot", new Item(new Item.Settings()));
-    public static final Item ALUMINIUM_INGOT = registerItems("aluminium_ingot", new Item(new Item.Settings()));
+    public static final Item COPPER_IRON_ALLOY_INGOT = ordinaryItemRegister("copper_iron_alloy_ingot");
+    public static final Item COPPER_TIN_ALLOY_INGOT = ordinaryItemRegister("copper_tin_alloy_ingot");
+    public static final Item TUNGSTEN_IRON_ALLOY_INGOT = ordinaryItemRegister("tungsten_iron_alloy_ingot");
+    public static final Item ALUMINIUM_TIN_ALLOY_INGOT = ordinaryItemRegister("aluminium_tin_alloy_ingot");
 
-    public static final Item RAW_TIN = registerItems("raw_tin", new Item(new Item.Settings()));
+    public static final Item TIN_INGOT = ordinaryItemRegister("tin_ingot");
+    public static final Item TUNGSTEN_INGOT = ordinaryItemRegister("tungsten_ingot");
+    public static final Item ALUMINIUM_INGOT = ordinaryItemRegister("aluminium_ingot");
+
+    public static final Item RAW_TIN = ordinaryItemRegister("raw_tin");
 
     public static final Item TUNGSTEN_IRON_ALLOY_SWORD = registerItems("tungsten_iron_alloy_sword", new SwordItem(ModToolMaterials.TUNGSTEN_IRON_ALLOY_SWORD, new Item.Settings().
             attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_SWORD, 15, -3.5f))));
