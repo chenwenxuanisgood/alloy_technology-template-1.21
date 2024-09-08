@@ -38,8 +38,8 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6合金科技");
 
-        translationBuilder.add("connect.alloy_synthesizer", "合金合成器");
+        translationBuilder.add("connect.alloy_synthesizer", "§e合金合成器");
 
-        translationBuilder.add("entity.minecraft.villager.alloy_master", "合金商人");
+        translationBuilder.add("entity.minecraft.villager.alloy_master", "§6合金商人");
     }
 }

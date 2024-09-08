@@ -37,8 +37,8 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6Alloy Technology");
 
-        translationBuilder.add("connect.alloy_synthesizer", "Connect Alloy Synthesizer");
+        translationBuilder.add("connect.alloy_synthesizer", "§eConnect Alloy Synthesizer");
 
-        translationBuilder.add("entity.minecraft.villager.alloy_master", "Alloy Merchant");
+        translationBuilder.add("entity.minecraft.villager.alloy_master", "§6Alloy Merchant");
     }
 }
