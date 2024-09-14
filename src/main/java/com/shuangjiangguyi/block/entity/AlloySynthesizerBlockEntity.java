@@ -34,8 +34,15 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     private static final int INPUT_SLOT_4 = 3;
     private static final int OUTPUT_SLOT_1 = 4;
 
-    public static String recipes = null;
-    public static String left_is_what = null;
+    final String IRON_INGOT = "IRON_INGOT";
+    final String COPPER_INGOT = "COPPER_INGOT";
+    final String TIN_INGOT = "TIN_INGOT";
+    final String TUNGSTEN_INGOT = "TUNGSTEN_INGOT";
+    final String ALUMINIUM_INGOT = "ALUMINIUM_INGOT";
+
+    private static String recipes = null;
+    private static String left_is_what = null;
+    private static Item zhiZuoItem = null;
 
     private static final String NBT_PROGRESS_KEY = "alloy_synthesizer";
 
@@ -137,10 +144,9 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     }
 
     private void craftItem() {
-        Item zhiZuoItem = null;
         switch (recipes) {
             case "COPPER_IRON_ALLOY_INGOT":
-                if (left_is_what.equals("IRON_INGOT")) {
+                if (left_is_what.equals(IRON_INGOT)) {
                     decrementInputIfItemMatches(INPUT_SLOT_1, Items.IRON_INGOT);
                     decrementInputIfItemMatches(INPUT_SLOT_2, Items.COPPER_INGOT);
                 }
@@ -148,14 +154,13 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
                     decrementInputIfItemMatches(INPUT_SLOT_1, Items.COPPER_INGOT);
                     decrementInputIfItemMatches(INPUT_SLOT_2, Items.IRON_INGOT);
                 }
-                // 合成物品并放入输出槽
                 zhiZuoItem = ModItems.COPPER_IRON_ALLOY_INGOT;
                 temp = 1;
                 recipes = null;
                 left_is_what = null;
                 break;
             case "COPPER_TIN_ALLOY_INGOT":
-                if (left_is_what.equals("TIN_INGOT")) {
+                if (left_is_what.equals(TIN_INGOT)) {
                     decrementInputIfItemMatches(INPUT_SLOT_1, ModItems.TIN_INGOT);
                     decrementInputIfItemMatches(INPUT_SLOT_2, Items.COPPER_INGOT);
                 }
@@ -163,13 +168,12 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
                     decrementInputIfItemMatches(INPUT_SLOT_1, Items.COPPER_INGOT);
                     decrementInputIfItemMatches(INPUT_SLOT_2, ModItems.TIN_INGOT);
                 }
-                // 合成物品并放入输出槽
                 zhiZuoItem = ModItems.COPPER_TIN_ALLOY_INGOT;
                 recipes = null;
                 left_is_what = null;
                 break;
             case "TUNGSTEN_IRON_ALLOY_INGOT":
-                if (left_is_what.equals("TUNGSTEN_INGOT")) {
+                if (left_is_what.equals(TUNGSTEN_INGOT)) {
                     decrementInputIfItemMatches(INPUT_SLOT_1, ModItems.TUNGSTEN_INGOT);
                     decrementInputIfItemMatches(INPUT_SLOT_2, Items.IRON_INGOT);
                 }
@@ -177,13 +181,12 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
                     decrementInputIfItemMatches(INPUT_SLOT_1, Items.IRON_INGOT);
                     decrementInputIfItemMatches(INPUT_SLOT_2, ModItems.TUNGSTEN_INGOT);
                 }
-                // 合成物品并放入输出槽
                 zhiZuoItem = ModItems.TUNGSTEN_IRON_ALLOY_INGOT;
                 recipes = null;
                 left_is_what = null;
                 break;
             case "ALUMINIUM_TIN_ALLOY_INGOT":
-                if (left_is_what.equals("ALUMINIUM_INGOT")) {
+                if (left_is_what.equals(ALUMINIUM_INGOT)) {
                     decrementInputIfItemMatches(INPUT_SLOT_1, ModItems.ALUMINIUM_INGOT);
                     decrementInputIfItemMatches(INPUT_SLOT_2, ModItems.TIN_INGOT);
                 }
@@ -191,15 +194,13 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
                     decrementInputIfItemMatches(INPUT_SLOT_1, ModItems.TIN_INGOT);
                     decrementInputIfItemMatches(INPUT_SLOT_2, ModItems.ALUMINIUM_INGOT);
                 }
-                // 合成物品并放入输出槽
+                zhiZuoItem = ModItems.ALUMINIUM_TIN_ALLOY_INGOT;
                 recipes = null;
                 left_is_what = null;
                 break;
         }
-        if (zhiZuoItem != null) {
-            addOutputItem(new ItemStack(zhiZuoItem));
-        }
-
+        addOutputItem(new ItemStack(zhiZuoItem));
+        zhiZuoItem = null;
     }
 
     private boolean hasCraftingFinished() {
@@ -218,17 +219,11 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
         left_is_what = null;
         recipes = null;
         // 检查铁锭和铜锭是否存在于 INPUT_SLOT_1 和 INPUT_SLOT_2
-        final boolean hasIron = determineIfMetalIsInInputSlot(Items.IRON_INGOT);
-        final boolean hasCopper = determineIfMetalIsInInputSlot(Items.COPPER_INGOT);
-        final boolean hasTin = determineIfMetalIsInInputSlot(ModItems.TIN_INGOT);
-        final boolean hasTungsten = determineIfMetalIsInInputSlot(ModItems.TUNGSTEN_INGOT);
-        final boolean hasAluminium = determineIfMetalIsInInputSlot(ModItems.ALUMINIUM_INGOT);
-
-        String IronIngot = "IRON_INGOT";
-        String CopperIngot = "COPPER_INGOT";
-        String TinIngot = "TIN_INGOT";
-        String TungstenIngot = "TUNGSTEN_INGOT";
-        String AluminiumIngot = "ALUMINIUM_INGOT";
+        final boolean HAS_IRON = determineIfMetalIsInInputSlot(Items.IRON_INGOT);
+        final boolean HAS_COPPER = determineIfMetalIsInInputSlot(Items.COPPER_INGOT);
+        final boolean HAS_TIN = determineIfMetalIsInInputSlot(ModItems.TIN_INGOT);
+        final boolean HAS_TUNGSTEN = determineIfMetalIsInInputSlot(ModItems.TUNGSTEN_INGOT);
+        final boolean HAS_ALUMINIUM = determineIfMetalIsInInputSlot(ModItems.ALUMINIUM_INGOT);
 
         // 检查岩浆桶和水桶是否在特定的槽位上
         final boolean hasLava = getStack(INPUT_SLOT_3).getItem() == Items.LAVA_BUCKET;
@@ -236,36 +231,36 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
 
         // 只有当所有条件满足且输出槽可用时，才返回 true
         if (hasLava && hasWater) {
-            if (hasIron && hasCopper && canInsertIntoOutputSlot(ModItems.COPPER_IRON_ALLOY_INGOT)) {
+            if (HAS_IRON && HAS_COPPER && canInsertIntoOutputSlot(ModItems.COPPER_IRON_ALLOY_INGOT)) {
                 recipes = "COPPER_IRON_ALLOY_INGOT";
                 if (containsItem(INPUT_SLOT_1, Items.IRON_INGOT)) {
-                    left_is_what = IronIngot;
+                    left_is_what = IRON_INGOT;
                 } else {
-                    left_is_what = CopperIngot;
+                    left_is_what = COPPER_INGOT;
                 }
                 return true;
-            } else if (hasCopper && hasTin && canInsertIntoOutputSlot(ModItems.COPPER_TIN_ALLOY_INGOT)) {
+            } else if (HAS_COPPER && HAS_TIN && canInsertIntoOutputSlot(ModItems.COPPER_TIN_ALLOY_INGOT)) {
                 recipes = "COPPER_TIN_ALLOY_INGOT";
                 if (containsItem(INPUT_SLOT_1, ModItems.TIN_INGOT)) {
-                    left_is_what = TinIngot;
+                    left_is_what = TIN_INGOT;
                 } else {
-                    left_is_what = CopperIngot;
+                    left_is_what = COPPER_INGOT;
                 }
                 return true;
-            } else if (hasTungsten && hasIron && canInsertIntoOutputSlot(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)) {
+            } else if (HAS_TUNGSTEN && HAS_IRON && canInsertIntoOutputSlot(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)) {
                 recipes = "TUNGSTEN_IRON_ALLOY_INGOT";
                 if (containsItem(INPUT_SLOT_1, ModItems.TUNGSTEN_INGOT)) {
-                    left_is_what = TungstenIngot;
+                    left_is_what = TUNGSTEN_INGOT;
                 } else {
-                    left_is_what = IronIngot;
+                    left_is_what = IRON_INGOT;
                 }
                 return true;
-            } else if (hasAluminium && hasTin && canInsertIntoOutputSlot(ModItems.ALUMINIUM_TIN_ALLOY_INGOT)) {
+            } else if (HAS_ALUMINIUM && HAS_TIN && canInsertIntoOutputSlot(ModItems.ALUMINIUM_TIN_ALLOY_INGOT)) {
                 recipes = "ALUMINIUM_TIN_ALLOY_INGOT";
                 if (containsItem(INPUT_SLOT_1, ModItems.ALUMINIUM_INGOT)) {
-                    left_is_what = AluminiumIngot;
+                    left_is_what = ALUMINIUM_INGOT;
                 } else {
-                    left_is_what = TinIngot;
+                    left_is_what = TIN_INGOT;
                 }
                 return true;
             }

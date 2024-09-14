@@ -29,6 +29,8 @@ public class ModItems {
 
     public static final Item TUNGSTEN_IRON_ALLOY_SWORD = registerItems("tungsten_iron_alloy_sword", new SwordItem(ModToolMaterials.TUNGSTEN_IRON_ALLOY_SWORD, new Item.Settings().
             attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_SWORD, 15, -3.5f))));
+
+    public static final Item COPPER_TIN_ALLOY_HAMMER = ordinaryItemRegister("copper_tin_alloy_hammer");
     private static Item registerItems(String id, Item item){
         return Registry.register(Registries.ITEM, RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(AlloyTechnology.MOD_ID, id)),item);
     }
