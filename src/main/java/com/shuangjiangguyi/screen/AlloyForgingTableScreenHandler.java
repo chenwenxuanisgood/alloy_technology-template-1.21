@@ -54,7 +54,7 @@ public class AlloyForgingTableScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 4, 87, 12){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.COPPER_IRON_ALLOY_HAMMER || stack.getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
+                return stack.getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.COPPER_IRON_ALLOY_HAMMER || stack.getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
             }
         });
         this.addSlot(new Slot(inventory, 5, 113, 53){
