@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "t": {
+      "item": "alloy_technology:tungsten_iron_alloy_ingot"
+    }
+  },
+  "pattern": [
+    "tt",
+    "tt"
+  ],
+  "result": {
+    "count": 1,
+    "id": "alloy_technology:empty_alloy_template"
+  }
+}

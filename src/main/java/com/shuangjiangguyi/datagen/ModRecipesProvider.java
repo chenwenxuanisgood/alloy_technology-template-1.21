@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -42,14 +43,35 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.IRON_INGOT),
                         FabricRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
                 .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.TUNGSTEN_IRON_ALLOY_SWORD).pattern("t").pattern("t").pattern("s")
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.EMPTY_ALLOY_TEMPLATE).pattern("tt").pattern("tt")
                 .input('t', ModItems.TUNGSTEN_IRON_ALLOY_INGOT)
-                .input('s', Items.STICK)
-                .criterion(FabricRecipeProvider.hasItem(Items.STICK),
-                        FabricRecipeProvider.conditionsFromItem(Items.STICK))
                 .criterion(FabricRecipeProvider.hasItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.COPPER_TIN_ALLOY_HAMMER).pattern("ccc").pattern("csc").pattern(" s ")
+                .input('c', ModItems.COPPER_TIN_ALLOY_INGOT)
+                .input('s', Items.STICK)
+                .criterion(FabricRecipeProvider.hasItem(Items.STICK),
+                        FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.COPPER_TIN_ALLOY_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.COPPER_TIN_ALLOY_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.ALLOY_FORGING_TABLE).pattern("iii").pattern(" b ")
+                .input('i', ModItems.COPPER_IRON_ALLOY_INGOT)
+                .input('b', ModBlocks.COPPER_IRON_ALLOY_BLOCK)
+                .criterion(FabricRecipeProvider.hasItem(Items.STICK),
+                        FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.COPPER_TIN_ALLOY_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.COPPER_TIN_ALLOY_INGOT))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ALLOY_SWORD_TEMPLATE)
+                .input(ModItems.EMPTY_ALLOY_TEMPLATE, 1)
+                .input(Items.WOODEN_SWORD, 1)
+                .criterion(FabricRecipeProvider.hasItem(Items.WOODEN_SWORD),
+                        FabricRecipeProvider.conditionsFromItem(Items.WOODEN_SWORD))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.EMPTY_ALLOY_TEMPLATE),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.EMPTY_ALLOY_TEMPLATE))
+                .offerTo(exporter);;
         offerSmelting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 600, "tin_ingot");
         offerBlasting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 300, "tin_ingot");
     }

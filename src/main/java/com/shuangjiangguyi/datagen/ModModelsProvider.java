@@ -22,6 +22,7 @@ public class ModModelsProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUNGSTEN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ALLOY_SYNTHESIZER);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.ALLOY_FORGING_TABLE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUNGSTEN_ORE);
     }
@@ -36,6 +37,9 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TUNGSTEN_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.ALUMINIUM_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EMPTY_ALLOY_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ALLOY_SWORD_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TUNGSTEN_IRON_ALLOY_SWORD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_TIN_ALLOY_HAMMER, Models.GENERATED);
     }
 }

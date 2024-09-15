@@ -19,25 +19,39 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModItems.COPPER_IRON_ALLOY_INGOT, "§6Copper Iron Alloy Ingot");
         translationBuilder.add(ModItems.COPPER_TIN_ALLOY_INGOT, "§6Copper Tin Alloy Ingot");
         translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT, "§6Tungsten Iron Alloy Ingot");
+        translationBuilder.add(ModItems.ALUMINIUM_TIN_ALLOY_INGOT, "§6Aluminium Tin Alloy Ingot");
+
         translationBuilder.add(ModItems.TIN_INGOT, "§6Tin Ingot");
         translationBuilder.add(ModItems.TUNGSTEN_INGOT, "§6Tungsten Ingot");
         translationBuilder.add(ModItems.ALUMINIUM_INGOT, "§6Aluminium Ingot");
+
         translationBuilder.add(ModItems.RAW_TIN, "§7Raw Tin");
+
+        translationBuilder.add(ModItems.EMPTY_ALLOY_TEMPLATE, "§6Empty Alloy Template");
+        translationBuilder.add(ModItems.ALLOY_SWORD_TEMPLATE, "§6Alloy Sword Template");
+
         translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_SWORD, "§5Tungsten Iron Alloy Sword");
+
+        translationBuilder.add(ModItems.COPPER_TIN_ALLOY_HAMMER, "§5Copper Tin Alloy Hammer");
 
         translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "§eCopper TIN Alloy Block");
         translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "§eCopper Iron Alloy Block");
         translationBuilder.add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK, "§eTungsten Iron Alloy Block");
         translationBuilder.add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, "§eAluminium Tin Alloy Block");
+
         translationBuilder.add(ModBlocks.TIN_BLOCK, "§eTin Block");
         translationBuilder.add(ModBlocks.TUNGSTEN_BLOCK, "§eTungsten Block");
+
         translationBuilder.add(ModBlocks.TIN_ORE, "§7Tin Ore");
         translationBuilder.add(ModBlocks.TUNGSTEN_ORE, "§7Tungsten Ore");
+
         translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "§eAlloy Synthesizer");
+        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§eAlloy Forging Table");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6Alloy Technology");
 
-        translationBuilder.add("connect.alloy_synthesizer", "§eConnect Alloy Synthesizer");
+        translationBuilder.add("connect.alloy_synthesizer", "§eAlloy Synthesizer");
+        translationBuilder.add("connect.alloy_forging_table", "§eAlloy Forging Table");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6Alloy Merchant");
     }

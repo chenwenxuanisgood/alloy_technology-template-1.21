@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "alloy_technology:empty_alloy_template"
+    },
+    {
+      "item": "minecraft:wooden_sword"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "alloy_technology:alloy_sword_template"
+  }
+}

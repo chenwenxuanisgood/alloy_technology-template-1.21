@@ -20,25 +20,38 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModItems.COPPER_TIN_ALLOY_INGOT, "§6铜锡合金锭");
         translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT, "§6钨铁合金锭");
         translationBuilder.add(ModItems.ALUMINIUM_TIN_ALLOY_INGOT, "§6铝锡合金锭");
+
         translationBuilder.add(ModItems.TIN_INGOT, "§6锡锭");
         translationBuilder.add(ModItems.TUNGSTEN_INGOT, "§6钨锭");
         translationBuilder.add(ModItems.ALUMINIUM_INGOT, "§6铝锭");
+
         translationBuilder.add(ModItems.RAW_TIN, "§7粗锡");
+
+        translationBuilder.add(ModItems.EMPTY_ALLOY_TEMPLATE, "§6空合金模板");
+        translationBuilder.add(ModItems.ALLOY_SWORD_TEMPLATE, "§6合金剑模板");
+
         translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_SWORD, "§5钨铁合金剑");
+
+        translationBuilder.add(ModItems.COPPER_TIN_ALLOY_HAMMER, "§5铜锡合金锤");
 
         translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "§e铜铁合金块");
         translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "§e铜锡合金块");
         translationBuilder.add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK, "§e钨铁合金块");
         translationBuilder.add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, "§e铝锡合金块");
+
         translationBuilder.add(ModBlocks.TIN_BLOCK, "§e锡块");
         translationBuilder.add(ModBlocks.TUNGSTEN_BLOCK, "§e钨块");
+
         translationBuilder.add(ModBlocks.TIN_ORE, "§7锡矿");
         translationBuilder.add(ModBlocks.TUNGSTEN_ORE, "§7钨矿");
+
         translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "§e合金合成器");
+        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金锻造台");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6合金科技");
 
         translationBuilder.add("connect.alloy_synthesizer", "§e合金合成器");
+        translationBuilder.add("connect.alloy_forging_table", "§e合金锻造台");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6合金商人");
     }

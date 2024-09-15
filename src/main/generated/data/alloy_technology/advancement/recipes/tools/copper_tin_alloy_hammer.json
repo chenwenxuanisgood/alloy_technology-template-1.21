@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_copper_tin_alloy_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "alloy_technology:copper_tin_alloy_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_stick": {
       "conditions": {
         "items": [
@@ -13,31 +23,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "alloy_technology:tungsten_iron_alloy_sword"
+        "recipe": "alloy_technology:copper_tin_alloy_hammer"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_tungsten_iron_alloy_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": "alloy_technology:tungsten_iron_alloy_ingot"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
       "has_stick",
-      "has_tungsten_iron_alloy_ingot"
+      "has_copper_tin_alloy_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
-      "alloy_technology:tungsten_iron_alloy_sword"
+      "alloy_technology:copper_tin_alloy_hammer"
     ]
   }
 }

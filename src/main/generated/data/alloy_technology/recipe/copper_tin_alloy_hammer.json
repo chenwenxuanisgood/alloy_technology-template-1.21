@@ -2,20 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
+    "c": {
+      "item": "alloy_technology:copper_tin_alloy_ingot"
+    },
     "s": {
       "item": "minecraft:stick"
-    },
-    "t": {
-      "item": "alloy_technology:tungsten_iron_alloy_ingot"
     }
   },
   "pattern": [
-    "t",
-    "t",
-    "s"
+    "ccc",
+    "csc",
+    " s "
   ],
   "result": {
     "count": 1,
-    "id": "alloy_technology:tungsten_iron_alloy_sword"
+    "id": "alloy_technology:copper_tin_alloy_hammer"
   }
 }

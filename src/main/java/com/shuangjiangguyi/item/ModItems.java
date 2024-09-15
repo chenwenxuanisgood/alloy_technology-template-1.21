@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -27,10 +28,14 @@ public class ModItems {
 
     public static final Item RAW_TIN = ordinaryItemRegister("raw_tin");
 
-    public static final Item TUNGSTEN_IRON_ALLOY_SWORD = registerItems("tungsten_iron_alloy_sword", new SwordItem(ModToolMaterials.TUNGSTEN_IRON_ALLOY_SWORD, new Item.Settings().
-            attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_SWORD, 15, -3.5f))));
+    public static final Item EMPTY_ALLOY_TEMPLATE = ordinaryItemRegister("empty_alloy_template");
+    public static final Item ALLOY_SWORD_TEMPLATE = ordinaryItemRegister("alloy_sword_template");
 
-    public static final Item COPPER_TIN_ALLOY_HAMMER = ordinaryItemRegister("copper_tin_alloy_hammer");
+    public static final Item TUNGSTEN_IRON_ALLOY_SWORD = registerItems("tungsten_iron_alloy_sword", new SwordItem(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, new Item.Settings().
+            attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 15, -3.5f))));
+
+    public static final Item COPPER_TIN_ALLOY_HAMMER = registerItems("copper_tin_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
+            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, 15, -3.5f))));
     private static Item registerItems(String id, Item item){
         return Registry.register(Registries.ITEM, RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(AlloyTechnology.MOD_ID, id)),item);
     }

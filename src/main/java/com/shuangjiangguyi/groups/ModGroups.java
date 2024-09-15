@@ -40,7 +40,11 @@ public class ModGroups {
                             entries.add(ModBlocks.TIN_ORE);
                             entries.add(ModBlocks.TUNGSTEN_ORE);
                             entries.add(ModBlocks.ALLOY_SYNTHESIZER);
+                            entries.add(ModBlocks.ALLOY_FORGING_TABLE);
+                            entries.add(ModItems.EMPTY_ALLOY_TEMPLATE);
+                            entries.add(ModItems.ALLOY_SWORD_TEMPLATE);
                             entries.add(ModItems.TUNGSTEN_IRON_ALLOY_SWORD);
+                            entries.add(ModItems.COPPER_TIN_ALLOY_HAMMER);
                         }).build());
         AlloyTechnology.LOGGER.info("Alloy Technology Registering Item Groups");
     }

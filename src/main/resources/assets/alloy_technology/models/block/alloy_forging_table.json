@@ -1,0 +1,73 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "alloy_technology:block/alloy_forging_table",
+		"particle": "alloy_technology:block/alloy_forging_table"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 9, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, -1, 1]},
+			"faces": {
+				"north": {"uv": [4.25, 6.5, 7.25, 8.75], "texture": "#0"},
+				"east": {"uv": [7.5, 0, 10.5, 2.25], "texture": "#0"},
+				"south": {"uv": [7.5, 2.5, 10.5, 4.75], "texture": "#0"},
+				"west": {"uv": [7.5, 5, 10.5, 7.25], "texture": "#0"},
+				"up": {"uv": [7.25, 3, 4.25, 0], "texture": "#0"},
+				"down": {"uv": [7.25, 3.25, 4.25, 6.25], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 8, 0],
+			"to": [16, 11, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 8, 0]},
+			"faces": {
+				"north": {"uv": [7.5, 7.5, 11.5, 8.25], "texture": "#0"},
+				"east": {"uv": [0, 8.5, 4, 9.25], "texture": "#0"},
+				"south": {"uv": [7.5, 8.5, 11.5, 9.25], "texture": "#0"},
+				"west": {"uv": [0, 9.5, 4, 10.25], "texture": "#0"},
+				"up": {"uv": [4, 4, 0, 0], "texture": "#0"},
+				"down": {"uv": [4, 4.25, 0, 8.25], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -0.75, 1.25],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -0.75, 1.25],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"translation": [0, -0.75, 1.25],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, -0.75, 1.25],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [24, 55, 0],
+			"translation": [0.25, 1, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"fixed": {
+			"translation": [0, 3, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "VoxelShapes",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

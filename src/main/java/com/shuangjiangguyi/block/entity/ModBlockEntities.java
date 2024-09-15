@@ -14,6 +14,8 @@ import net.minecraft.util.Util;
 public class ModBlockEntities {
     public static final BlockEntityType<AlloySynthesizerBlockEntity> ALLOY_SYNTHESIZER = create("alloy_synthesizer_block_entity",
             BlockEntityType.Builder.create(AlloySynthesizerBlockEntity::new, ModBlocks.ALLOY_SYNTHESIZER));
+    public static final BlockEntityType<AlloyForgingTableBlockEntity> ALLOY_FORGING_TABLE = create("alloy_forging_table_block_entity",
+            BlockEntityType.Builder.create(AlloyForgingTableBlockEntity::new, ModBlocks.ALLOY_FORGING_TABLE));
     private static <T extends BlockEntity> BlockEntityType<T> create(String id, BlockEntityType.Builder<T> builder) {
         Type<?> type = Util.getChoiceType(TypeReferences.BLOCK_ENTITY, id);
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(AlloyTechnology.MOD_ID,id), builder.build(type));

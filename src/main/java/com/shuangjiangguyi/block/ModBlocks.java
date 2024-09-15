@@ -1,10 +1,12 @@
 package com.shuangjiangguyi.block;
 
 import com.shuangjiangguyi.AlloyTechnology;
+import com.shuangjiangguyi.block.custom.AlloyForgingTable;
 import com.shuangjiangguyi.block.custom.AlloySynthesizer;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SignBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -26,7 +28,9 @@ public class ModBlocks {
     public static final Block TIN_ORE = ordinaryBlockRegister("tin_ore", 2.0f,3.0f);
     public static final Block TUNGSTEN_ORE = ordinaryBlockRegister("tungsten_ore", 5.0f,6.0f);
     public static final Block ALLOY_SYNTHESIZER = register("alloy_synthesizer",
-            new AlloySynthesizer(AbstractBlock.Settings.copy(Blocks.STONE)));
+            new AlloySynthesizer(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block ALLOY_FORGING_TABLE = register("alloy_forging_table",
+            new AlloyForgingTable(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static void registerBlockItem(String id, Block block) {
         Item item = Registry.register(Registries.ITEM, Identifier.of(AlloyTechnology.MOD_ID, id), new BlockItem(block, new Item.Settings()));
         if (item instanceof BlockItem) {

@@ -1,6 +1,7 @@
 package com.shuangjiangguyi.screen;
 
 import com.shuangjiangguyi.AlloyTechnology;
+import com.shuangjiangguyi.block.data.AlloyForgingTableData;
 import com.shuangjiangguyi.block.data.AlloySynthesizerData;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
@@ -12,6 +13,9 @@ public class ModScreenHandlers {
     public static final ScreenHandlerType<AlloySynthesizerScreenHandler> ALLOY_SYNTHESIZER =
             Registry.register(Registries.SCREEN_HANDLER, Identifier.of(AlloyTechnology.MOD_ID, "alloy_synthesizer"),
                     new ExtendedScreenHandlerType<>(AlloySynthesizerScreenHandler::new, AlloySynthesizerData.CODEC));
+    public static final ScreenHandlerType<AlloyForgingTableScreenHandler> ALLOY_FORGING_TABLE =
+            Registry.register(Registries.SCREEN_HANDLER, Identifier.of(AlloyTechnology.MOD_ID, "alloy_forging_table"),
+                    new ExtendedScreenHandlerType<>(AlloyForgingTableScreenHandler::new, AlloyForgingTableData.CODEC));
     public static void registerScreenHandlers() {
         AlloyTechnology.LOGGER.info("Alloy Technology Registering Screen Handlers");
     }
