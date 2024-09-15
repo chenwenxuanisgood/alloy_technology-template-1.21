@@ -1,5 +1,6 @@
 package com.shuangjiangguyi.datagen;
 
+import com.mojang.datafixers.types.templates.Tag;
 import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -7,10 +8,16 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.tag.TagProvider;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagBuilder;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.registry.tag.TagPacketSerializer;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -48,6 +55,25 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ALLOY_HAMMER_TEMPLATE).pattern("ppp").pattern("ptp").pattern("et ")
+                .input('p', ItemTags.PLANKS)
+                .input('t', Items.STICK)
+                .input('e', ModItems.EMPTY_ALLOY_TEMPLATE)
+                .criterion(FabricRecipeProvider.hasItem(Items.STONE),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT))
+                .criterion(FabricRecipeProvider.hasItem(Items.STICK),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.ALLOY_HAMMER_TEMPLATE),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.ALLOY_HAMMER_TEMPLATE))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ALLOY_SWORD_TEMPLATE)
+                .input(ModItems.EMPTY_ALLOY_TEMPLATE, 1)
+                .input(Items.WOODEN_SWORD, 1)
+                .criterion(FabricRecipeProvider.hasItem(Items.WOODEN_SWORD),
+                        FabricRecipeProvider.conditionsFromItem(Items.WOODEN_SWORD))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.EMPTY_ALLOY_TEMPLATE),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.EMPTY_ALLOY_TEMPLATE))
+                .offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.COPPER_TIN_ALLOY_HAMMER).pattern("ccc").pattern("csc").pattern(" s ")
                 .input('c', ModItems.COPPER_TIN_ALLOY_INGOT)
                 .input('s', Items.STICK)
@@ -64,14 +90,6 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.COPPER_TIN_ALLOY_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.COPPER_TIN_ALLOY_INGOT))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ALLOY_SWORD_TEMPLATE)
-                .input(ModItems.EMPTY_ALLOY_TEMPLATE, 1)
-                .input(Items.WOODEN_SWORD, 1)
-                .criterion(FabricRecipeProvider.hasItem(Items.WOODEN_SWORD),
-                        FabricRecipeProvider.conditionsFromItem(Items.WOODEN_SWORD))
-                .criterion(FabricRecipeProvider.hasItem(ModItems.EMPTY_ALLOY_TEMPLATE),
-                        FabricRecipeProvider.conditionsFromItem(ModItems.EMPTY_ALLOY_TEMPLATE))
-                .offerTo(exporter);;
         offerSmelting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 600, "tin_ingot");
         offerBlasting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 300, "tin_ingot");
     }

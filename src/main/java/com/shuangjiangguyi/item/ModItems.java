@@ -30,12 +30,19 @@ public class ModItems {
 
     public static final Item EMPTY_ALLOY_TEMPLATE = ordinaryItemRegister("empty_alloy_template");
     public static final Item ALLOY_SWORD_TEMPLATE = ordinaryItemRegister("alloy_sword_template");
+    public static final Item ALLOY_HAMMER_TEMPLATE = ordinaryItemRegister("alloy_hammer_template");
 
     public static final Item TUNGSTEN_IRON_ALLOY_SWORD = registerItems("tungsten_iron_alloy_sword", new SwordItem(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, new Item.Settings().
-            attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 15, -3.5f))));
+            attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 15, -2.9f))));
 
     public static final Item COPPER_TIN_ALLOY_HAMMER = registerItems("copper_tin_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
-            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, 5, -1f))));
+            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, 2.5f, -2f))));
+    public static final Item COPPER_IRON_ALLOY_HAMMER = registerItems("copper_iron_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
+            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.COPPER_IRON_ALLOY_INGOT, 2.5f, -2f))));
+    public static final Item ALUMINIUM_TIN_ALLOY_HAMMER = registerItems("aluminium_tin_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
+            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.ALUMINIUM_TIN_ALLOY_INGOT, 2.5f, -2f))));
+    public static final Item TUNGSTEN_IRON_ALLOY_HAMMER = registerItems("tungsten_iron_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
+            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 2.5f, -2f))));
     private static Item registerItems(String id, Item item){
         return Registry.register(Registries.ITEM, RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(AlloyTechnology.MOD_ID, id)),item);
     }
@@ -43,9 +50,13 @@ public class ModItems {
         fabricItemGroupEntries.add(COPPER_IRON_ALLOY_INGOT);
         fabricItemGroupEntries.add(COPPER_TIN_ALLOY_INGOT);
         fabricItemGroupEntries.add(TUNGSTEN_IRON_ALLOY_INGOT);
+        fabricItemGroupEntries.add(ALUMINIUM_TIN_ALLOY_INGOT);
         fabricItemGroupEntries.add(TIN_INGOT);
         fabricItemGroupEntries.add(TUNGSTEN_INGOT);
         fabricItemGroupEntries.add(ALUMINIUM_INGOT);
+        fabricItemGroupEntries.add(EMPTY_ALLOY_TEMPLATE);
+        fabricItemGroupEntries.add(ALLOY_SWORD_TEMPLATE);
+        fabricItemGroupEntries.add(ALLOY_HAMMER_TEMPLATE);
         fabricItemGroupEntries.add(RAW_TIN);
     }
     public static void registerModItems(){

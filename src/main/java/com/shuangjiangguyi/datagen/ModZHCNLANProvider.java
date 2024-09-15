@@ -29,10 +29,14 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModItems.EMPTY_ALLOY_TEMPLATE, "§6空合金模板");
         translationBuilder.add(ModItems.ALLOY_SWORD_TEMPLATE, "§6合金剑模板");
+        translationBuilder.add(ModItems.ALLOY_HAMMER_TEMPLATE, "§6合金锤模板");
 
         translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_SWORD, "§5钨铁合金剑");
 
         translationBuilder.add(ModItems.COPPER_TIN_ALLOY_HAMMER, "§5铜锡合金锤");
+        translationBuilder.add(ModItems.COPPER_IRON_ALLOY_HAMMER, "§5铜铁合金锤");
+        translationBuilder.add(ModItems.ALUMINIUM_TIN_ALLOY_HAMMER, "§5铝锡合金锤");
+        translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_HAMMER, "§5钨铁合金锤");
 
         translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "§e铜铁合金块");
         translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "§e铜锡合金块");

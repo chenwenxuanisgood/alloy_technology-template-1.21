@@ -13,9 +13,12 @@
   "connect.alloy_forging_table": "§e合金锻造台",
   "connect.alloy_synthesizer": "§e合金合成器",
   "entity.minecraft.villager.alloy_master": "§6合金商人",
+  "item.alloy_technology.alloy_hammer_template": "§6合金锤模板",
   "item.alloy_technology.alloy_sword_template": "§6合金剑模板",
   "item.alloy_technology.aluminium_ingot": "§6铝锭",
+  "item.alloy_technology.aluminium_tin_alloy_hammer": "§5铝锡合金锤",
   "item.alloy_technology.aluminium_tin_alloy_ingot": "§6铝锡合金锭",
+  "item.alloy_technology.copper_iron_alloy_hammer": "§5铜铁合金锤",
   "item.alloy_technology.copper_iron_alloy_ingot": "§6铜铁合金锭",
   "item.alloy_technology.copper_tin_alloy_hammer": "§5铜锡合金锤",
   "item.alloy_technology.copper_tin_alloy_ingot": "§6铜锡合金锭",
@@ -23,6 +26,7 @@
   "item.alloy_technology.raw_tin": "§7粗锡",
   "item.alloy_technology.tin_ingot": "§6锡锭",
   "item.alloy_technology.tungsten_ingot": "§6钨锭",
+  "item.alloy_technology.tungsten_iron_alloy_hammer": "§5钨铁合金锤",
   "item.alloy_technology.tungsten_iron_alloy_ingot": "§6钨铁合金锭",
   "item.alloy_technology.tungsten_iron_alloy_sword": "§5钨铁合金剑"
 }

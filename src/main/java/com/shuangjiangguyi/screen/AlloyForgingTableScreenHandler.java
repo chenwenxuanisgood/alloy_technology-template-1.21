@@ -48,13 +48,13 @@ public class AlloyForgingTableScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 3, 58, 12){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.getItem() == ModItems.ALLOY_SWORD_TEMPLATE;
+                return stack.getItem() == ModItems.ALLOY_SWORD_TEMPLATE || stack.getItem() == ModItems.ALLOY_HAMMER_TEMPLATE;
             }
         });
         this.addSlot(new Slot(inventory, 4, 87, 12){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER;
+                return stack.getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.COPPER_IRON_ALLOY_HAMMER || stack.getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
             }
         });
         this.addSlot(new Slot(inventory, 5, 113, 53){
@@ -66,7 +66,7 @@ public class AlloyForgingTableScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 6, 113, 32){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.getItem() == ModItems.TUNGSTEN_IRON_ALLOY_SWORD;
+                return stack.getItem() == ModItems.TUNGSTEN_IRON_ALLOY_SWORD || stack.getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.COPPER_IRON_ALLOY_HAMMER || stack.getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
             }
         });
 

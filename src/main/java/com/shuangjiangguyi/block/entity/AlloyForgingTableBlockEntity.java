@@ -145,6 +145,34 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
                 zhiZuoItem = ModItems.TUNGSTEN_IRON_ALLOY_SWORD;
                 recipes = null;
                 break;
+            case "COPPER_TIN_ALLOY_HAMMER":
+                decrementInputIfItemMatches(ALLOY_INPUT_SLOT, ModItems.COPPER_TIN_ALLOY_INGOT);
+                decrementInputIfItemMatches(TEMPLATE_SLOT, ModItems.ALLOY_HAMMER_TEMPLATE);
+                decrementInputIfItemMatches(STICK_INPUT_SLOT, Items.STICK);
+                zhiZuoItem = ModItems.COPPER_TIN_ALLOY_HAMMER;
+                recipes = null;
+                break;
+            case "COPPER_IRON_ALLOY_HAMMER":
+                decrementInputIfItemMatches(ALLOY_INPUT_SLOT, ModItems.COPPER_IRON_ALLOY_INGOT);
+                decrementInputIfItemMatches(TEMPLATE_SLOT, ModItems.ALLOY_HAMMER_TEMPLATE);
+                decrementInputIfItemMatches(STICK_INPUT_SLOT, Items.STICK);
+                zhiZuoItem = ModItems.COPPER_IRON_ALLOY_HAMMER;
+                recipes = null;
+                break;
+            case "ALUMINIUM_TIN_ALLOY_HAMMER":
+                decrementInputIfItemMatches(ALLOY_INPUT_SLOT, ModItems.ALUMINIUM_TIN_ALLOY_INGOT);
+                decrementInputIfItemMatches(TEMPLATE_SLOT, ModItems.ALLOY_HAMMER_TEMPLATE);
+                decrementInputIfItemMatches(STICK_INPUT_SLOT, Items.STICK);
+                zhiZuoItem = ModItems.ALUMINIUM_TIN_ALLOY_HAMMER;
+                recipes = null;
+                break;
+            case "TUNGSTEN_IRON_ALLOY_HAMMER":
+                decrementInputIfItemMatches(ALLOY_INPUT_SLOT, ModItems.TUNGSTEN_IRON_ALLOY_INGOT);
+                decrementInputIfItemMatches(TEMPLATE_SLOT, ModItems.ALLOY_HAMMER_TEMPLATE);
+                decrementInputIfItemMatches(STICK_INPUT_SLOT, Items.STICK);
+                zhiZuoItem = ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
+                recipes = null;
+                break;
         }
         addOutputItem(new ItemStack(zhiZuoItem));
         zhiZuoItem = null;
@@ -158,24 +186,43 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
         this.progress++;
     }
 
-    private boolean determineIfMetalIsInInputSlot(Item item) {
-        return containsItem(ALLOY_INPUT_SLOT, item);
-    }
-
     private boolean hasRecipe() {
         recipes = null;
         // 检查铁锭和铜锭是否存在于 INPUT_SLOT_1 和 INPUT_SLOT_2
         final boolean HAS_TUNGSTEN_IRON_ALLOY = getStack(ALLOY_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_INGOT;
+        final boolean HAS_ALUMINIUM_TIN_ALLOY = getStack(ALLOY_INPUT_SLOT).getItem() == ModItems.ALUMINIUM_TIN_ALLOY_INGOT;
+        final boolean HAS_COPPER_IRON_ALLOY = getStack(ALLOY_INPUT_SLOT).getItem() == ModItems.COPPER_IRON_ALLOY_INGOT;
+        final boolean HAS_COPPER_TIN_ALLOY = getStack(ALLOY_INPUT_SLOT).getItem() == ModItems.COPPER_TIN_ALLOY_INGOT;
         final boolean HAS_STICK = getStack(STICK_INPUT_SLOT).getItem() == Items.STICK;
         final boolean HAS_ALLOY_SWORD_TEMPLATE = getStack(TEMPLATE_SLOT).getItem() == ModItems.ALLOY_SWORD_TEMPLATE;
-        final boolean HAS_COPPER_TIN_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER;
+        final boolean HAS_ALLOY_HAMMER_TEMPLATE = getStack(TEMPLATE_SLOT).getItem() == ModItems.ALLOY_HAMMER_TEMPLATE;
+        final boolean GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.COPPER_IRON_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
+        final boolean GREATER_THAN_AND_ABOUT_COPPER_IRON_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.COPPER_IRON_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
+        final boolean GREATER_THAN_AND_ABOUT_ALUMINIUM_TIN_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
+        final boolean GREATER_THAN_AND_ABOUT_TUNGSTEN_IRON_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
         final boolean hasLava = getStack(LAVA_INPUT_SLOT).getItem() == Items.LAVA_BUCKET;
         final boolean hasWater = getStack(WATER_INPUT_SLOT).getItem() == Items.WATER_BUCKET;
 
         // 只有当所有条件满足且输出槽可用时，才返回 true
         if (hasLava && hasWater) {
-            if (HAS_COPPER_TIN_ALLOY_HAMMER && HAS_ALLOY_SWORD_TEMPLATE && HAS_TUNGSTEN_IRON_ALLOY && HAS_STICK && canInsertIntoOutputSlot(null)) {
+            if (GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER && HAS_ALLOY_SWORD_TEMPLATE && HAS_TUNGSTEN_IRON_ALLOY && HAS_STICK && canInsertIntoOutputSlot(null)) {
                 recipes = "TUNGSTEN_IRON_ALLOY_SWORD";
+                return true;
+            }
+            if (GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER && HAS_ALLOY_HAMMER_TEMPLATE && HAS_COPPER_TIN_ALLOY && HAS_STICK && canInsertIntoOutputSlot(null)) {
+                recipes = "COPPER_TIN_ALLOY_HAMMER";
+                return true;
+            }
+            if (GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER && HAS_ALLOY_HAMMER_TEMPLATE && HAS_COPPER_IRON_ALLOY && HAS_STICK && canInsertIntoOutputSlot(null)) {
+                recipes = "COPPER_IRON_ALLOY_HAMMER";
+                return true;
+            }
+            if (GREATER_THAN_AND_ABOUT_COPPER_IRON_ALLOY_HAMMER && HAS_ALLOY_HAMMER_TEMPLATE && HAS_ALUMINIUM_TIN_ALLOY && HAS_STICK && canInsertIntoOutputSlot(null)) {
+                recipes = "ALUMINIUM_TIN_ALLOY_HAMMER";
+                return true;
+            }
+            if (GREATER_THAN_AND_ABOUT_ALUMINIUM_TIN_ALLOY_HAMMER && HAS_ALLOY_HAMMER_TEMPLATE && HAS_TUNGSTEN_IRON_ALLOY && HAS_STICK && canInsertIntoOutputSlot(null)) {
+                recipes = "TUNGSTEN_IRON_ALLOY_HAMMER";
                 return true;
             }
             else {
@@ -186,11 +233,6 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
             return false;
         }
     }
-
-    private boolean containsItem(int slot, Item item) {
-        return getStack(slot).getItem() == item;
-    }
-
 
     private void decrementInputIfItemMatches(int slot, Item item) {
         ItemStack stack = getStack(slot);

@@ -29,10 +29,14 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModItems.EMPTY_ALLOY_TEMPLATE, "§6Empty Alloy Template");
         translationBuilder.add(ModItems.ALLOY_SWORD_TEMPLATE, "§6Alloy Sword Template");
+        translationBuilder.add(ModItems.ALLOY_HAMMER_TEMPLATE, "§6Alloy Hammer Template");
 
         translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_SWORD, "§5Tungsten Iron Alloy Sword");
 
         translationBuilder.add(ModItems.COPPER_TIN_ALLOY_HAMMER, "§5Copper Tin Alloy Hammer");
+        translationBuilder.add(ModItems.COPPER_IRON_ALLOY_HAMMER, "§5Copper Iron Alloy Hammer");
+        translationBuilder.add(ModItems.ALUMINIUM_TIN_ALLOY_HAMMER, "§5Aluminium Tin Alloy Hammer");
+        translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_HAMMER, "§5Tungsten Iron Alloy Hammer");
 
         translationBuilder.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK, "§eCopper TIN Alloy Block");
         translationBuilder.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK, "§eCopper Iron Alloy Block");
