@@ -35,7 +35,7 @@ public class ModItems {
             attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 15, -3.5f))));
 
     public static final Item COPPER_TIN_ALLOY_HAMMER = registerItems("copper_tin_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
-            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, 15, -3.5f))));
+            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, 5, -1f))));
     private static Item registerItems(String id, Item item){
         return Registry.register(Registries.ITEM, RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(AlloyTechnology.MOD_ID, id)),item);
     }

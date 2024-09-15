@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "alloy_technology:alloy_tower",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 564410086,
+    "spacing": 20,
+    "separation": 6,
+    "type": "minecraft:random_spread"
+  }
+}

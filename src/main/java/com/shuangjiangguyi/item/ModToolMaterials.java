@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 public enum ModToolMaterials implements ToolMaterial {
     TUNGSTEN_IRON_ALLOY_INGOT(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 3000, 12.0f, 4.0f, 10,
             () -> Ingredient.ofItems(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)),
-    COPPER_TIN_ALLOY_INGOT(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 1000, 12.0f, 4.0f, 10,
+    COPPER_TIN_ALLOY_INGOT(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 1000, 4.0f, 4.0f, 10,
             () -> Ingredient.ofItems(ModItems.COPPER_TIN_ALLOY_INGOT));
 
     private final TagKey<Block> inverseTag;
