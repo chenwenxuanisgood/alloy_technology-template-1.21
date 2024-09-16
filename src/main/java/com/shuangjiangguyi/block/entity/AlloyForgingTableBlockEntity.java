@@ -205,7 +205,7 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
 
         // 只有当所有条件满足且输出槽可用时，才返回 true
         if (hasLava && hasWater) {
-            if (GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER && HAS_ALLOY_SWORD_TEMPLATE && HAS_TUNGSTEN_IRON_ALLOY && HAS_STICK && canInsertIntoOutputSlot(null)) {
+            if (GREATER_THAN_AND_ABOUT_ALUMINIUM_TIN_ALLOY_HAMMER && HAS_ALLOY_SWORD_TEMPLATE && HAS_TUNGSTEN_IRON_ALLOY && HAS_STICK && canInsertIntoOutputSlot(null)) {
                 recipes = "TUNGSTEN_IRON_ALLOY_SWORD";
                 return true;
             }
