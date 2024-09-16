@@ -16,6 +16,17 @@ public class ModItems {
     private static Item ordinaryItemRegister(String id) {
         return registerItems(id, new Item(new Item.Settings()));
     }
+    private static Item registerItems(String id, Item item) {
+        return Registry.register(Registries.ITEM, RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(AlloyTechnology.MOD_ID, id)),item);
+    }
+    private static Item registerSword(String id, ModToolMaterials ingot, int baseAttackDamage, float attackSpeed) {
+        return registerItems(id, new SwordItem(ingot, new Item.Settings().
+                attributeModifiers(SwordItem.createAttributeModifiers(ingot, baseAttackDamage, attackSpeed))));
+    }
+    private static Item registerPickaxe(String id, ModToolMaterials ingot, float baseAttackDamage, float attackSpeed) {
+        return registerItems(id, new PickaxeItem(ingot, new Item.Settings().
+                attributeModifiers(PickaxeItem.createAttributeModifiers(ingot, baseAttackDamage, attackSpeed))));
+    }
 
     public static final Item COPPER_IRON_ALLOY_INGOT = ordinaryItemRegister("copper_iron_alloy_ingot");
     public static final Item COPPER_TIN_ALLOY_INGOT = ordinaryItemRegister("copper_tin_alloy_ingot");
@@ -32,20 +43,13 @@ public class ModItems {
     public static final Item ALLOY_SWORD_TEMPLATE = ordinaryItemRegister("alloy_sword_template");
     public static final Item ALLOY_HAMMER_TEMPLATE = ordinaryItemRegister("alloy_hammer_template");
 
-    public static final Item TUNGSTEN_IRON_ALLOY_SWORD = registerItems("tungsten_iron_alloy_sword", new SwordItem(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, new Item.Settings().
-            attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 15, -2.9f))));
+    public static final Item TUNGSTEN_IRON_ALLOY_SWORD = registerSword("tungsten_iron_alloy_sword", ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 15, -3.3f);
 
-    public static final Item COPPER_TIN_ALLOY_HAMMER = registerItems("copper_tin_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
-            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, 2.5f, -2f))));
-    public static final Item COPPER_IRON_ALLOY_HAMMER = registerItems("copper_iron_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
-            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.COPPER_IRON_ALLOY_INGOT, 2.5f, -2f))));
-    public static final Item ALUMINIUM_TIN_ALLOY_HAMMER = registerItems("aluminium_tin_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
-            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.ALUMINIUM_TIN_ALLOY_INGOT, 2.5f, -2f))));
-    public static final Item TUNGSTEN_IRON_ALLOY_HAMMER = registerItems("tungsten_iron_alloy_hammer", new PickaxeItem(ModToolMaterials.COPPER_TIN_ALLOY_INGOT, new Item.Settings().
-            attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 2.5f, -2f))));
-    private static Item registerItems(String id, Item item){
-        return Registry.register(Registries.ITEM, RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(AlloyTechnology.MOD_ID, id)),item);
-    }
+    public static final Item COPPER_TIN_ALLOY_HAMMER = registerPickaxe("copper_tin_alloy_hammer", ModToolMaterials.COPPER_TIN_ALLOY_INGOT, 2.5f, -2f);
+    public static final Item COPPER_IRON_ALLOY_HAMMER = registerPickaxe("copper_iron_alloy_hammer", ModToolMaterials.COPPER_IRON_ALLOY_INGOT, 4f, -2.2f);
+    public static final Item ALUMINIUM_TIN_ALLOY_HAMMER = registerPickaxe("aluminium_tin_alloy_hammer", ModToolMaterials.ALUMINIUM_TIN_ALLOY_INGOT, 5.5f, -2.4f);
+    public static final Item TUNGSTEN_IRON_ALLOY_HAMMER = registerPickaxe("tungsten_iron_alloy_hammer", ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 7f, -2.6f);
+
     private static void addItemToIG(FabricItemGroupEntries fabricItemGroupEntries){
         fabricItemGroupEntries.add(COPPER_IRON_ALLOY_INGOT);
         fabricItemGroupEntries.add(COPPER_TIN_ALLOY_INGOT);
