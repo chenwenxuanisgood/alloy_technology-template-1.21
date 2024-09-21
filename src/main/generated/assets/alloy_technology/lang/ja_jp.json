@@ -1,5 +1,6 @@
 {
   "alloy_technology": "§6合金技術",
+  "block.alloy_technology.alloy_dismantling_table": "§e合金分解テーブル",
   "block.alloy_technology.alloy_forging_table": "§e合金鍛造テーブル",
   "block.alloy_technology.alloy_synthesizer": "§e合金シンセサイザー",
   "block.alloy_technology.aluminium_tin_alloy_block": "§eアルミ-スズ合金ブロック",
@@ -10,6 +11,7 @@
   "block.alloy_technology.tungsten_block": "§eタングステンブロック",
   "block.alloy_technology.tungsten_iron_alloy_block": "§eタングステンフェロアロイブロック",
   "block.alloy_technology.tungsten_ore": "§7タングステン鉱石",
+  "connect.alloy_dismantling_table": "§e合金分解テーブル",
   "connect.alloy_forging_table": "§e合金鍛造テーブル",
   "connect.alloy_synthesizer": "§e合金シンセサイザー",
   "entity.minecraft.villager.alloy_master": "§6合金商人",

@@ -1,5 +1,6 @@
 {
   "alloy_technology": "§6합금 기술",
+  "block.alloy_technology.alloy_dismantling_table": "§e합금 해체 테이블",
   "block.alloy_technology.alloy_forging_table": "§e합금 단조 테이블",
   "block.alloy_technology.alloy_synthesizer": "§e합금 합성기",
   "block.alloy_technology.aluminium_tin_alloy_block": "§e알루미늄-주석 합금 블록",

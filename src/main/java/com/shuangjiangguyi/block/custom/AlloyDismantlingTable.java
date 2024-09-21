@@ -27,12 +27,20 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.stream.Stream;
+
 public class AlloyDismantlingTable extends BlockWithEntity implements BlockEntityProvider {
     public static boolean[] canProduceAlloy = new boolean[4];
 
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
     public static final MapCodec<AlloyDismantlingTable> CODEC = createCodec(AlloyDismantlingTable::new);
-    public static final VoxelShape SHAPE = VoxelShapes.combineAndSimplify(Block.createCuboidShape(2, 0, 2, 14, 9, 14), Block.createCuboidShape(0, 8, 0, 16, 11, 16), BooleanBiFunction.OR);
+    public static final VoxelShape SHAPE = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 9, 14),
+            Block.createCuboidShape(6, 9, 0, 16, 12, 16),
+            Block.createCuboidShape(0, 9, 0, 2, 12, 16),
+            Block.createCuboidShape(2, 9, 0, 6, 12, 4),
+            Block.createCuboidShape(2, 9, 12, 6, 12, 16)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
     public AlloyDismantlingTable(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.NORTH));

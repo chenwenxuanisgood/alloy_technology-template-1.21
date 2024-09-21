@@ -51,11 +51,13 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "§eAlloy Synthesizer");
         translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§eAlloy Forging Table");
+        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§eAlloy Dismantling Table");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6Alloy Technology");
 
         translationBuilder.add("connect.alloy_synthesizer", "§eAlloy Synthesizer");
         translationBuilder.add("connect.alloy_forging_table", "§eAlloy Forging Table");
+        translationBuilder.add("connect.alloy_dismantling_table", "§eAlloy Dismantling Table");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6Alloy Merchant");
     }

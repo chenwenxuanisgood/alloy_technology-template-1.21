@@ -20,20 +20,31 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.stream.Stream;
 
 public class AlloySynthesizer extends BlockWithEntity implements BlockEntityProvider {
     public static boolean[] canProduceAlloy = new boolean[4];
 
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
     public static final MapCodec<AlloySynthesizer> CODEC = createCodec(AlloySynthesizer::new);
-    public static final VoxelShape SHAPE = Block.createCuboidShape(0,0, 0, 16,16,16);
+    public static final VoxelShape SHAPE = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 8, 14),
+            Block.createCuboidShape(0, 8, 0, 16, 11, 3),
+            Block.createCuboidShape(0, 8, 13, 16, 11, 16),
+            Block.createCuboidShape(5, 8, 6, 11, 11, 10),
+            Block.createCuboidShape(11, 8, 3, 16, 11, 13),
+            Block.createCuboidShape(0, 8, 3, 5, 11, 13)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
     public AlloySynthesizer(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.NORTH));

@@ -1,5 +1,6 @@
 {
   "alloy_technology": "§6Alloy Technology",
+  "block.alloy_technology.alloy_dismantling_table": "§eAlloy Dismantling Table",
   "block.alloy_technology.alloy_forging_table": "§eAlloy Forging Table",
   "block.alloy_technology.alloy_synthesizer": "§eAlloy Synthesizer",
   "block.alloy_technology.aluminium_tin_alloy_block": "§eAluminium Tin Alloy Block",
@@ -10,6 +11,7 @@
   "block.alloy_technology.tungsten_block": "§eTungsten Block",
   "block.alloy_technology.tungsten_iron_alloy_block": "§eTungsten Iron Alloy Block",
   "block.alloy_technology.tungsten_ore": "§7Tungsten Ore",
+  "connect.alloy_dismantling_table": "§eAlloy Dismantling Table",
   "connect.alloy_forging_table": "§eAlloy Forging Table",
   "connect.alloy_synthesizer": "§eAlloy Synthesizer",
   "entity.minecraft.villager.alloy_master": "§6Alloy Merchant",

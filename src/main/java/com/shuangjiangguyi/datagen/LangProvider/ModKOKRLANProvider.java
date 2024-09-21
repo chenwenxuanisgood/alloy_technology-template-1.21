@@ -51,6 +51,7 @@ public class ModKOKRLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "§e합금 합성기");
         translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e합금 단조 테이블");
+        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e합금 해체 테이블");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6합금 기술");
 

@@ -21,6 +21,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.ALLOY_SYNTHESIZER)
                 .add(ModBlocks.ALLOY_FORGING_TABLE)
+                .add(ModBlocks.ALLOY_DISMANTLING_TABLE)
                 .add(ModBlocks.COPPER_IRON_ALLOY_BLOCK)
                 .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK)
                 .add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK)

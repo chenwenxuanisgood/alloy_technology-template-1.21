@@ -44,9 +44,17 @@ public class AlloyDismantlingTableBlockEntity extends BlockEntity implements Ext
     private static final int MAX_PROGRESS_INDEX = 1;
 
     private int progress = 0;
-    private int maxProgress = 88;
+    private static int maxProgress = 88;
 
     protected final PropertyDelegate propertyDelegate;
+
+    private static void setTime(int time, boolean hasEmptyTemplate) {
+        if (hasEmptyTemplate) {
+            maxProgress = (time * 15) * 2 + 30;
+        }else {
+            maxProgress = (time * 10) * 2 + 30;
+        }
+    }
 
     public AlloyDismantlingTableBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ALLOY_DISMANTLING_TABLE, pos, state);
@@ -55,7 +63,7 @@ public class AlloyDismantlingTableBlockEntity extends BlockEntity implements Ext
             public int get(int index) {
                 return switch (index) {
                     case PROGRESS_INDEX -> AlloyDismantlingTableBlockEntity.this.progress;
-                    case MAX_PROGRESS_INDEX -> AlloyDismantlingTableBlockEntity.this.maxProgress;
+                    case MAX_PROGRESS_INDEX -> maxProgress;
                     default -> 0;
                 };
             }
@@ -64,7 +72,7 @@ public class AlloyDismantlingTableBlockEntity extends BlockEntity implements Ext
             public void set(int index, int value) {
                 switch (index) {
                     case PROGRESS_INDEX -> AlloyDismantlingTableBlockEntity.this.progress = value;
-                    case MAX_PROGRESS_INDEX -> AlloyDismantlingTableBlockEntity.this.maxProgress = value;
+                    case MAX_PROGRESS_INDEX -> maxProgress = value;
                 }
             }
 
@@ -121,6 +129,7 @@ public class AlloyDismantlingTableBlockEntity extends BlockEntity implements Ext
         }
 
         if (isOutputSlotAvailable() && hasRecipe()) {
+            setTimeProcess();
             increaseCraftingProgress();
             if (hasCraftingFinished()) {
                 craftItem();
@@ -135,6 +144,25 @@ public class AlloyDismantlingTableBlockEntity extends BlockEntity implements Ext
 
     private void resetProgress() {
         this.progress = 0;
+    }
+
+    private void setTimeProcess() {
+        final boolean hasEmptyTemplate = getStack(EMPTY_TEMPLATE_SLOT).getItem() == ModItems.EMPTY_ALLOY_TEMPLATE;
+        switch (recipes) {
+            case "COPPER_TIN_ALLOY_INGOT":
+                setTime(3, hasEmptyTemplate);
+                break;
+            case "COPPER_IRON_ALLOY_INGOT":
+                setTime(4, hasEmptyTemplate);
+                break;
+            case "ALUMINIUM_TIN_ALLOY_INGOT":
+                setTime(2, hasEmptyTemplate);
+                break;
+            case "TUNGSTEN_IRON_ALLOY_INGOT":
+                setTime(9, hasEmptyTemplate);
+                break;
+
+        }
     }
 
     private void craftItem() {
@@ -172,7 +200,7 @@ public class AlloyDismantlingTableBlockEntity extends BlockEntity implements Ext
     }
 
     private boolean hasCraftingFinished() {
-        return this.progress >= this.maxProgress;
+        return this.progress >= maxProgress;
     }
 
     private void increaseCraftingProgress() {

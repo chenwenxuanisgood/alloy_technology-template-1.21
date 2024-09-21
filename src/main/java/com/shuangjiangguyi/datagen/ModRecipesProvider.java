@@ -42,7 +42,7 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.TUNGSTEN_BLOCK);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ALLOY_SYNTHESIZER).pattern("bib").pattern("iii").pattern("iii")
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModBlocks.ALLOY_SYNTHESIZER).pattern("bib").pattern("iii").pattern("iii")
                 .input('i', Items.IRON_INGOT)
                 .input('b', Items.BUCKET)
                 .criterion(FabricRecipeProvider.hasItem(Items.BUCKET),
@@ -82,13 +82,21 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.COPPER_TIN_ALLOY_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.COPPER_TIN_ALLOY_INGOT))
                 .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.ALLOY_FORGING_TABLE).pattern("iii").pattern(" b ")
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModBlocks.ALLOY_FORGING_TABLE).pattern("iii").pattern(" b ")
                 .input('i', ModItems.COPPER_IRON_ALLOY_INGOT)
                 .input('b', ModBlocks.COPPER_IRON_ALLOY_BLOCK)
-                .criterion(FabricRecipeProvider.hasItem(Items.STICK),
-                        FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.COPPER_IRON_ALLOY_BLOCK),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.COPPER_IRON_ALLOY_BLOCK))
                 .criterion(FabricRecipeProvider.hasItem(ModItems.COPPER_TIN_ALLOY_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.COPPER_TIN_ALLOY_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModBlocks.ALLOY_DISMANTLING_TABLE).pattern("iii").pattern(" b ")
+                .input('i', ModItems.ALUMINIUM_TIN_ALLOY_INGOT)
+                .input('b', ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.ALUMINIUM_TIN_ALLOY_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.ALUMINIUM_TIN_ALLOY_INGOT))
                 .offerTo(exporter);
         offerSmelting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 600, "tin_ingot");
         offerBlasting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 300, "tin_ingot");

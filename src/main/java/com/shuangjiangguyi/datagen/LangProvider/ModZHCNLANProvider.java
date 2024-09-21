@@ -51,11 +51,13 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "§e合金合成器");
         translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金锻造台");
+        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e合金拆解台");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6合金科技");
 
         translationBuilder.add("connect.alloy_synthesizer", "§e合金合成器");
         translationBuilder.add("connect.alloy_forging_table", "§e合金锻造台");
+        translationBuilder.add("connect.alloy_dismantling_table", "§e合金拆解台");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6合金商人");
     }

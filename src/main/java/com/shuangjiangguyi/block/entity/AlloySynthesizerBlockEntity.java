@@ -50,9 +50,13 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     private static final int MAX_PROGRESS_INDEX = 1;
 
     private int progress = 0;
-    private int maxProgress = 88;
+    private static int maxProgress = 0;
 
     protected final PropertyDelegate propertyDelegate;
+
+    private static void setTime(int time) {
+        maxProgress = (time * 30) * 2 + 30;
+    }
 
     public AlloySynthesizerBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ALLOY_SYNTHESIZER, pos, state);
@@ -61,7 +65,7 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
             public int get(int index) {
                 return switch (index) {
                     case PROGRESS_INDEX -> AlloySynthesizerBlockEntity.this.progress;
-                    case MAX_PROGRESS_INDEX -> AlloySynthesizerBlockEntity.this.maxProgress;
+                    case MAX_PROGRESS_INDEX -> maxProgress;
                     default -> 0;
                 };
             }
@@ -70,7 +74,7 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
             public void set(int index, int value) {
                 switch (index) {
                     case PROGRESS_INDEX -> AlloySynthesizerBlockEntity.this.progress = value;
-                    case MAX_PROGRESS_INDEX -> AlloySynthesizerBlockEntity.this.maxProgress = value;
+                    case MAX_PROGRESS_INDEX -> maxProgress = value;
                 }
             }
 
@@ -155,7 +159,6 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
                     decrementInputIfItemMatches(INPUT_SLOT_2, Items.IRON_INGOT);
                 }
                 zhiZuoItem = ModItems.COPPER_IRON_ALLOY_INGOT;
-                temp = 1;
                 recipes = null;
                 left_is_what = null;
                 break;
@@ -204,7 +207,7 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     }
 
     private boolean hasCraftingFinished() {
-        return this.progress >= this.maxProgress;
+        return this.progress >= maxProgress;
     }
 
     private void increaseCraftingProgress() {
@@ -232,14 +235,18 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
         // 只有当所有条件满足且输出槽可用时，才返回 true
         if (hasLava && hasWater) {
             if (HAS_IRON && HAS_COPPER && canInsertIntoOutputSlot(ModItems.COPPER_IRON_ALLOY_INGOT)) {
+                setTime(4);
                 recipes = "COPPER_IRON_ALLOY_INGOT";
+
                 if (containsItem(INPUT_SLOT_1, Items.IRON_INGOT)) {
                     left_is_what = IRON_INGOT;
                 } else {
                     left_is_what = COPPER_INGOT;
                 }
+
                 return true;
             } else if (HAS_COPPER && HAS_TIN && canInsertIntoOutputSlot(ModItems.COPPER_TIN_ALLOY_INGOT)) {
+                setTime(3);
                 recipes = "COPPER_TIN_ALLOY_INGOT";
                 if (containsItem(INPUT_SLOT_1, ModItems.TIN_INGOT)) {
                     left_is_what = TIN_INGOT;
@@ -248,6 +255,7 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
                 }
                 return true;
             } else if (HAS_TUNGSTEN && HAS_IRON && canInsertIntoOutputSlot(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)) {
+                setTime(9);
                 recipes = "TUNGSTEN_IRON_ALLOY_INGOT";
                 if (containsItem(INPUT_SLOT_1, ModItems.TUNGSTEN_INGOT)) {
                     left_is_what = TUNGSTEN_INGOT;
@@ -256,6 +264,7 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
                 }
                 return true;
             } else if (HAS_ALUMINIUM && HAS_TIN && canInsertIntoOutputSlot(ModItems.ALUMINIUM_TIN_ALLOY_INGOT)) {
+                setTime(2);
                 recipes = "ALUMINIUM_TIN_ALLOY_INGOT";
                 if (containsItem(INPUT_SLOT_1, ModItems.ALUMINIUM_INGOT)) {
                     left_is_what = ALUMINIUM_INGOT;

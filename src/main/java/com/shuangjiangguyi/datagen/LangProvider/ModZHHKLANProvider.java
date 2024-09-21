@@ -46,16 +46,18 @@ public class ModZHHKLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModBlocks.TIN_BLOCK, "§e錫塊");
         translationBuilder.add(ModBlocks.TUNGSTEN_BLOCK, "§e鎢塊");
 
-        translationBuilder.add(ModBlocks.TIN_ORE, "§7锡矿");
-        translationBuilder.add(ModBlocks.TUNGSTEN_ORE, "§7钨矿");
+        translationBuilder.add(ModBlocks.TIN_ORE, "§7錫礦");
+        translationBuilder.add(ModBlocks.TUNGSTEN_ORE, "§7鎢礦");
 
         translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "§e合金合成器");
-        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金锻造台");
+        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金鍛造台");
+        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e合金拆解臺");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6合金科技");
 
         translationBuilder.add("connect.alloy_synthesizer", "§e合金合成器");
-        translationBuilder.add("connect.alloy_forging_table", "§e合金锻造台");
+        translationBuilder.add("connect.alloy_forging_table", "§e合金鍛造臺");
+        translationBuilder.add("connect.alloy_dismantling_table", "§e合金拆解臺");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6合金商人");
     }

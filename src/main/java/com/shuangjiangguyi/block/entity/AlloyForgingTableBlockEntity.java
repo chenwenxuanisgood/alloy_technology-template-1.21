@@ -44,9 +44,32 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
     private static final int MAX_PROGRESS_INDEX = 1;
 
     private int progress = 0;
-    private int maxProgress = 88;
+    private static int maxProgress = 340;
 
     protected final PropertyDelegate propertyDelegate;
+
+    private static void setTime(int time) {
+        maxProgress = (time * 10) * 2 + 30;
+    }
+
+    private void setTimeProcess() {
+        final boolean HAS_TUNGSTEN_IRON_ALLOY = getStack(ALLOY_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_INGOT;
+        final boolean HAS_ALUMINIUM_TIN_ALLOY = getStack(ALLOY_INPUT_SLOT).getItem() == ModItems.ALUMINIUM_TIN_ALLOY_INGOT;
+        final boolean HAS_COPPER_IRON_ALLOY = getStack(ALLOY_INPUT_SLOT).getItem() == ModItems.COPPER_IRON_ALLOY_INGOT;
+        final boolean HAS_COPPER_TIN_ALLOY = getStack(ALLOY_INPUT_SLOT).getItem() == ModItems.COPPER_TIN_ALLOY_INGOT;
+        if (HAS_COPPER_TIN_ALLOY) {
+            setTime(3);
+        }
+        if (HAS_COPPER_IRON_ALLOY) {
+            setTime(4);
+        }
+        if (HAS_ALUMINIUM_TIN_ALLOY) {
+            setTime(2);
+        }
+        if (HAS_TUNGSTEN_IRON_ALLOY) {
+            setTime(9);
+        }
+    }
 
     public AlloyForgingTableBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ALLOY_FORGING_TABLE, pos, state);
@@ -55,7 +78,7 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
             public int get(int index) {
                 return switch (index) {
                     case PROGRESS_INDEX -> AlloyForgingTableBlockEntity.this.progress;
-                    case MAX_PROGRESS_INDEX -> AlloyForgingTableBlockEntity.this.maxProgress;
+                    case MAX_PROGRESS_INDEX -> maxProgress;
                     default -> 0;
                 };
             }
@@ -64,7 +87,7 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
             public void set(int index, int value) {
                 switch (index) {
                     case PROGRESS_INDEX -> AlloyForgingTableBlockEntity.this.progress = value;
-                    case MAX_PROGRESS_INDEX -> AlloyForgingTableBlockEntity.this.maxProgress = value;
+                    case MAX_PROGRESS_INDEX -> maxProgress = value;
                 }
             }
 
@@ -121,6 +144,7 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
         }
 
         if (isOutputSlotAvailable() && hasRecipe()) {
+            setTimeProcess();
             increaseCraftingProgress();
             if (hasCraftingFinished()) {
                 craftItem();
@@ -180,7 +204,7 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
     }
 
     private boolean hasCraftingFinished() {
-        return this.progress >= this.maxProgress;
+        return this.progress >= maxProgress;
     }
 
     private void increaseCraftingProgress() {

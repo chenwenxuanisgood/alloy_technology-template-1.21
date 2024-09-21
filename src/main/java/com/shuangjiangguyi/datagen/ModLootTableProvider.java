@@ -22,8 +22,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TIN_BLOCK);
         addDrop(ModBlocks.TUNGSTEN_BLOCK);
 
-        addDrop(ModBlocks.ALLOY_FORGING_TABLE);
         addDrop(ModBlocks.ALLOY_SYNTHESIZER);
+        addDrop(ModBlocks.ALLOY_FORGING_TABLE);
+        addDrop(ModBlocks.ALLOY_DISMANTLING_TABLE);
 
         addDrop(ModBlocks.TIN_ORE, oreDrops(ModBlocks.TIN_ORE, ModItems.RAW_TIN));
         addDrop(ModBlocks.TUNGSTEN_ORE, oreDrops(ModBlocks.TUNGSTEN_ORE, ModItems.TUNGSTEN_INGOT));

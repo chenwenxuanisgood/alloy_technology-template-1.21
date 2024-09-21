@@ -21,8 +21,9 @@ public class ModModelsProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUNGSTEN_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ALLOY_SYNTHESIZER);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.ALLOY_SYNTHESIZER);
         blockStateModelGenerator.registerSimpleState(ModBlocks.ALLOY_FORGING_TABLE);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.ALLOY_DISMANTLING_TABLE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUNGSTEN_ORE);
     }

@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "b": {
-      "item": "alloy_technology:copper_iron_alloy_block"
+      "item": "alloy_technology:aluminium_tin_alloy_block"
     },
     "i": {
-      "item": "alloy_technology:copper_iron_alloy_ingot"
+      "item": "alloy_technology:aluminium_tin_alloy_ingot"
     }
   },
   "pattern": [
@@ -15,6 +15,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "alloy_technology:alloy_forging_table"
+    "id": "alloy_technology:alloy_dismantling_table"
   }
 }
