@@ -1,5 +1,6 @@
 package com.shuangjiangguyi;
 
+import com.shuangjiangguyi.screen.AlloyDismantlingTableScreen;
 import com.shuangjiangguyi.screen.AlloyForgingTableScreen;
 import com.shuangjiangguyi.screen.AlloySynthesizerScreen;
 import com.shuangjiangguyi.screen.ModScreenHandlers;
@@ -12,5 +13,6 @@ public class AlloyTechnologyClient implements ClientModInitializer {
     public void onInitializeClient() {
         HandledScreens.register(ModScreenHandlers.ALLOY_SYNTHESIZER, AlloySynthesizerScreen::new);
         HandledScreens.register(ModScreenHandlers.ALLOY_FORGING_TABLE, AlloyForgingTableScreen::new);
+        HandledScreens.register(ModScreenHandlers.ALLOY_DISMANTLING_TABLE, AlloyDismantlingTableScreen::new);
     }
 }

@@ -1,6 +1,7 @@
 package com.shuangjiangguyi.block;
 
 import com.shuangjiangguyi.AlloyTechnology;
+import com.shuangjiangguyi.block.custom.AlloyDismantlingTable;
 import com.shuangjiangguyi.block.custom.AlloyForgingTable;
 import com.shuangjiangguyi.block.custom.AlloySynthesizer;
 import net.minecraft.block.AbstractBlock;
@@ -31,6 +32,8 @@ public class ModBlocks {
             new AlloySynthesizer(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block ALLOY_FORGING_TABLE = register("alloy_forging_table",
             new AlloyForgingTable(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block ALLOY_DISMANTLING_TABLE = register("alloy_dismantling_table",
+            new AlloyDismantlingTable(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static void registerBlockItem(String id, Block block) {
         Item item = Registry.register(Registries.ITEM, Identifier.of(AlloyTechnology.MOD_ID, id), new BlockItem(block, new Item.Settings()));
         if (item instanceof BlockItem) {

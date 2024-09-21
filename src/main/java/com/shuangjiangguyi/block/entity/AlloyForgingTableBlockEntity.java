@@ -3,6 +3,7 @@ package com.shuangjiangguyi.block.entity;
 import com.shuangjiangguyi.block.data.AlloyForgingTableData;
 import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.screen.AlloyForgingTableScreenHandler;
+import com.shuangjiangguyi.tags.ModItemTags;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -196,10 +197,10 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
         final boolean HAS_STICK = getStack(STICK_INPUT_SLOT).getItem() == Items.STICK;
         final boolean HAS_ALLOY_SWORD_TEMPLATE = getStack(TEMPLATE_SLOT).getItem() == ModItems.ALLOY_SWORD_TEMPLATE;
         final boolean HAS_ALLOY_HAMMER_TEMPLATE = getStack(TEMPLATE_SLOT).getItem() == ModItems.ALLOY_HAMMER_TEMPLATE;
-        final boolean GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.COPPER_IRON_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
-        final boolean GREATER_THAN_AND_ABOUT_COPPER_IRON_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.COPPER_IRON_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
-        final boolean GREATER_THAN_AND_ABOUT_ALUMINIUM_TIN_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
-        final boolean GREATER_THAN_AND_ABOUT_TUNGSTEN_IRON_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
+        final boolean GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).isIn(ModItemTags.GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER);
+        final boolean GREATER_THAN_AND_ABOUT_COPPER_IRON_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).isIn(ModItemTags.GREATER_THAN_AND_ABOUT_COPPER_IRON_ALLOY_HAMMER);
+        final boolean GREATER_THAN_AND_ABOUT_ALUMINIUM_TIN_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).isIn(ModItemTags.GREATER_THAN_AND_ABOUT_ALUMINIUM_TIN_ALLOY_HAMMER);
+        final boolean GREATER_THAN_AND_ABOUT_TUNGSTEN_IRON_ALLOY_HAMMER = getStack(HAMMER_INPUT_SLOT).isIn(ModItemTags.GREATER_THAN_AND_ABOUT_TUNGSTEN_IRON_ALLOY_HAMMER);
         final boolean hasLava = getStack(LAVA_INPUT_SLOT).getItem() == Items.LAVA_BUCKET;
         final boolean hasWater = getStack(WATER_INPUT_SLOT).getItem() == Items.WATER_BUCKET;
 

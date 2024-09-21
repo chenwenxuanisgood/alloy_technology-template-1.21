@@ -1,6 +1,7 @@
 package com.shuangjiangguyi;
 
 import com.shuangjiangguyi.datagen.*;
+import com.shuangjiangguyi.datagen.LangProvider.*;
 import com.shuangjiangguyi.world.ModConfiguredFeatures;
 import com.shuangjiangguyi.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -14,8 +15,15 @@ public class AlloyTechnologyDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
 		pack.addProvider(ModBlockTagsProvider::new);
+		pack.addProvider(ModItemTagsProvider::new);
+
 		pack.addProvider(ModENUSLANProvider::new);
 		pack.addProvider(ModZHCNLANProvider::new);
+		pack.addProvider(ModZHHKLANProvider::new);
+		pack.addProvider(ModZHTWLANProvider::new);
+		pack.addProvider(ModKOKRLANProvider::new);
+		pack.addProvider(ModJAJPLANProvider::new);
+
 		pack.addProvider(ModRecipesProvider::new);
 		pack.addProvider(ModLootTableProvider::new);
 		pack.addProvider(ModModelsProvider::new);

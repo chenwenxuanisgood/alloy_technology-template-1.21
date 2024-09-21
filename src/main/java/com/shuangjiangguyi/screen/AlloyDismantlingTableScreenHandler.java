@@ -1,7 +1,7 @@
 package com.shuangjiangguyi.screen;
 
-import com.shuangjiangguyi.block.data.AlloySynthesizerData;
-import com.shuangjiangguyi.block.entity.AlloySynthesizerBlockEntity;
+import com.shuangjiangguyi.block.data.AlloyDismantlingTableData;
+import com.shuangjiangguyi.block.entity.AlloyDismantlingTableBlockEntity;
 import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.tags.ModItemTags;
 import net.minecraft.block.entity.BlockEntity;
@@ -15,47 +15,59 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class AlloySynthesizerScreenHandler extends ScreenHandler {
+public class AlloyDismantlingTableScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public final AlloySynthesizerBlockEntity blockEntity;
-    public AlloySynthesizerScreenHandler(int syncId, PlayerInventory playerInventory, PropertyDelegate propertyDelegate, BlockEntity blockEntity) {
-        super(com.shuangjiangguyi.screen.ModScreenHandlers.ALLOY_SYNTHESIZER, syncId);
-        checkSize((Inventory) blockEntity, 5);
+    public final AlloyDismantlingTableBlockEntity blockEntity;
+    public AlloyDismantlingTableScreenHandler(int syncId, PlayerInventory playerInventory, PropertyDelegate propertyDelegate, BlockEntity blockEntity) {
+        super(ModScreenHandlers.ALLOY_DISMANTLING_TABLE, syncId);
+        checkSize((Inventory) blockEntity, 7);
         this.inventory = (Inventory) blockEntity;
         inventory.onOpen(playerInventory.player);
 
         this.propertyDelegate = propertyDelegate;
-        this.blockEntity = (AlloySynthesizerBlockEntity) blockEntity;
+        this.blockEntity = (AlloyDismantlingTableBlockEntity) blockEntity;
 
-        this.addSlot(new Slot(inventory, 0, 28, 17){
+        this.addSlot(new Slot(inventory, 0, 33, 32){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.isIn(ModItemTags.INGOT_THAT_CAN_BE_SYNTHESIZED_INTO_ALLOY);
+                return stack.getItem() == ModItems.TUNGSTEN_IRON_ALLOY_SWORD || stack.getItem() == ModItems.COPPER_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.COPPER_IRON_ALLOY_HAMMER || stack.getItem() == ModItems.ALUMINIUM_TIN_ALLOY_HAMMER || stack.getItem() == ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
             }
         });
-        this.addSlot(new Slot(inventory, 1, 28, 37){
-            @Override
-            public boolean canInsert(ItemStack stack) {
-                return stack.isIn(ModItemTags.INGOT_THAT_CAN_BE_SYNTHESIZED_INTO_ALLOY);
-            }
-        });
-        this.addSlot(new Slot(inventory, 2, 58, 47){
+        this.addSlot(new Slot(inventory, 1, 58, 53){
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.getItem() == Items.LAVA_BUCKET;
             }
         });
-        this.addSlot(new Slot(inventory, 3, 87, 47){
+        this.addSlot(new Slot(inventory, 2, 87, 53){
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.getItem() == Items.WATER_BUCKET;
             }
         });
-        this.addSlot(new Slot(inventory, 4, 113, 26){
+        this.addSlot(new Slot(inventory, 3, 58, 12){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.isIn(ModItemTags.ALLOY_INGOT);
+                return stack.isIn(ModItemTags.HAMMER);
+            }
+        });
+        this.addSlot(new Slot(inventory, 4, 87, 12){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() == ModItems.EMPTY_ALLOY_TEMPLATE;
+            }
+        });
+        this.addSlot(new Slot(inventory, 5, 113, 12){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() == ModItems.ALLOY_SWORD_TEMPLATE || stack.getItem() == ModItems.ALLOY_HAMMER_TEMPLATE;
+            }
+        });
+        this.addSlot(new Slot(inventory, 6, 113, 32){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() == ModItems.COPPER_IRON_ALLOY_INGOT || stack.getItem() == ModItems.COPPER_TIN_ALLOY_INGOT || stack.getItem() == ModItems.TUNGSTEN_IRON_ALLOY_INGOT || stack.getItem() == ModItems.ALUMINIUM_TIN_ALLOY_INGOT;
             }
         });
 
@@ -64,7 +76,7 @@ public class AlloySynthesizerScreenHandler extends ScreenHandler {
 
         addProperties(propertyDelegate);
     }
-    public AlloySynthesizerScreenHandler(int syncId, PlayerInventory playerInventory, AlloySynthesizerData data) {
+    public AlloyDismantlingTableScreenHandler(int syncId, PlayerInventory playerInventory, AlloyDismantlingTableData data) {
         this(syncId,playerInventory, new ArrayPropertyDelegate(2), playerInventory.player.getWorld().getBlockEntity(data.pos()));
     }
 

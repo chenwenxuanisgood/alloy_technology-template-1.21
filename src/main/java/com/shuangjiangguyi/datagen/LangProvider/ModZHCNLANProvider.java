@@ -1,4 +1,4 @@
-package com.shuangjiangguyi.datagen;
+package com.shuangjiangguyi.datagen.LangProvider;
 
 import com.shuangjiangguyi.block.ModBlocks;
 import com.shuangjiangguyi.groups.ModGroups;

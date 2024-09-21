@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:copper_ingot",
+    "minecraft:iron_ingot",
+    "alloy_technology:tin_ingot",
+    "alloy_technology:aluminium_ingot",
+    "alloy_technology:tungsten_ingot"
+  ]
+}
