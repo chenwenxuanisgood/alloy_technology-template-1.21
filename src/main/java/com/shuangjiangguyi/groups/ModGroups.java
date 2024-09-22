@@ -41,6 +41,7 @@ public class ModGroups {
                             entries.add(ModBlocks.TUNGSTEN_ORE);
                             entries.add(ModBlocks.ALLOY_SYNTHESIZER);
                             entries.add(ModBlocks.ALLOY_FORGING_TABLE);
+                            entries.add(ModBlocks.ALLOY_DISMANTLING_TABLE);
                             entries.add(ModItems.EMPTY_ALLOY_TEMPLATE);
                             entries.add(ModItems.ALLOY_SWORD_TEMPLATE);
                             entries.add(ModItems.ALLOY_HAMMER_TEMPLATE);

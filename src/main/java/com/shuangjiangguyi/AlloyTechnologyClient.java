@@ -1,9 +1,6 @@
 package com.shuangjiangguyi;
 
-import com.shuangjiangguyi.screen.AlloyDismantlingTableScreen;
-import com.shuangjiangguyi.screen.AlloyForgingTableScreen;
-import com.shuangjiangguyi.screen.AlloySynthesizerScreen;
-import com.shuangjiangguyi.screen.ModScreenHandlers;
+import com.shuangjiangguyi.screen.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 
