@@ -54,15 +54,15 @@ public class ModKOKRLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModBlocks.IRON_ALLOY_SYNTHESIZER, "§e철 합금 합성기");
         translationBuilder.add(ModBlocks.DIAMOND_ALLOY_SYNTHESIZER, "§e다이아몬드 합금 합성기");
-        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e합금 단조 테이블");
-        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e합금 해체 테이블");
+        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e합금 도구 단조 테이블");
+        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e합금 도구 해체 테이블");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6합금 기술");
 
         translationBuilder.add("connect.iron_alloy_synthesizer", "§e철 합금 합성기");
         translationBuilder.add("connect.diamond_alloy_synthesizer", "§e다이아몬드 합금 합성기");
-        translationBuilder.add("connect.alloy_forging_table", "§e합금 단조 테이블");
-        translationBuilder.add("connect.alloy_dismantling_table", "§e합금 해체 테이블");
+        translationBuilder.add("connect.alloy_forging_table", "§e합금 도구 단조 테이블");
+        translationBuilder.add("connect.alloy_dismantling_table", "§e합금 도구 해체 테이블");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6합금 상인");
     }

@@ -1,6 +1,7 @@
 package com.shuangjiangguyi.item;
 
 import com.shuangjiangguyi.AlloyTechnology;
+import com.shuangjiangguyi.item.tools.Hammer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
@@ -24,7 +25,7 @@ public class ModItems {
                 attributeModifiers(SwordItem.createAttributeModifiers(ingot, baseAttackDamage, attackSpeed))));
     }
     private static Item registerPickaxe(String id, ModToolMaterials ingot, float baseAttackDamage, float attackSpeed) {
-        return registerItems(id, new PickaxeItem(ingot, new Item.Settings().
+        return registerItems(id, new Hammer(ingot, new Item.Settings().
                 attributeModifiers(PickaxeItem.createAttributeModifiers(ingot, baseAttackDamage, attackSpeed))));
     }
 

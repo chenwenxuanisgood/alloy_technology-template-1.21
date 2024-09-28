@@ -194,6 +194,10 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
                 recipes = null;
                 break;
         }
+        getStack(HAMMER_INPUT_SLOT).setDamage(getStack(HAMMER_INPUT_SLOT).getDamage() + 5);
+        if (getStack(HAMMER_INPUT_SLOT).getDamage() >= getStack(HAMMER_INPUT_SLOT).getMaxDamage()) {
+            getStack(HAMMER_INPUT_SLOT).decrement(1);
+        }
         decrementInputIfItemMatches(ALLOY_INPUT_SLOT, getStack(ALLOY_INPUT_SLOT).getItem());
         addOutputItem(new ItemStack(zhiZuoItem));
         zhiZuoItem = null;

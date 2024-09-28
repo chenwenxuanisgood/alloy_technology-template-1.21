@@ -53,15 +53,15 @@ public class ModZHTWLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModBlocks.IRON_ALLOY_SYNTHESIZER, "§e鐵合金合成器");
         translationBuilder.add(ModBlocks.DIAMOND_ALLOY_SYNTHESIZER, "鑽石合金合成器");
-        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金鍛造臺");
-        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e合金拆解臺");
+        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金工具鍛造臺");
+        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e合金工具拆解臺");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6合金科技");
 
         translationBuilder.add("connect.iron_alloy_synthesizer", "§e鐵合金合成器");
         translationBuilder.add("connect.diamond_alloy_synthesizer", "§e鑽石合金合成器");
-        translationBuilder.add("connect.alloy_forging_table", "§e合金鍛造臺");
-        translationBuilder.add("connect.alloy_dismantling_table", "§e合金拆解臺");
+        translationBuilder.add("connect.alloy_forging_table", "§e合金工具鍛造臺");
+        translationBuilder.add("connect.alloy_dismantling_table", "§e合金工具拆解臺");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6合金商人");
     }

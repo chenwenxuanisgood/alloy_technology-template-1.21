@@ -184,6 +184,10 @@ public class AlloyDismantlingTableBlockEntity extends BlockEntity implements Ext
                 recipes = null;
                 break;
         }
+        getStack(HAMMER_INPUT_SLOT).setDamage(getStack(HAMMER_INPUT_SLOT).getDamage() + 5);
+        if (getStack(HAMMER_INPUT_SLOT).getDamage() >= getStack(HAMMER_INPUT_SLOT).getMaxDamage()) {
+            getStack(HAMMER_INPUT_SLOT).decrement(1);
+        }
         if (getStack(EMPTY_TEMPLATE_SLOT).getItem() == ModItems.EMPTY_ALLOY_TEMPLATE) {
             if (getStack(ALLOY_ITEM_INPUT_SLOT).isIn(ModItemTags.SWORD) && (getStack(OUTPUT_TEMPLATE_SLOT).getItem() == ModItems.ALLOY_SWORD_TEMPLATE || getStack(OUTPUT_TEMPLATE_SLOT).isEmpty())) {
                 decrementInputIfItemMatches(EMPTY_TEMPLATE_SLOT, ModItems.EMPTY_ALLOY_TEMPLATE);

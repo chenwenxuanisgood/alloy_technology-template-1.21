@@ -54,15 +54,15 @@ public class ModJAJPLANProvider extends FabricLanguageProvider{
 
         translationBuilder.add(ModBlocks.IRON_ALLOY_SYNTHESIZER, "§e鉄合金シンセサイザー");
         translationBuilder.add(ModBlocks.DIAMOND_ALLOY_SYNTHESIZER, "§eダイヤモンド合金シンセサイザー");
-        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金鍛造テーブル");
-        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e合金分解テーブル");
+        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金工具鍛造テーブル");
+        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e合金工具分解テーブル");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6合金技術");
 
         translationBuilder.add("connect.iron_alloy_synthesizer", "§e鉄合金シンセサイザー");
         translationBuilder.add("connect.diamond_alloy_synthesizer", "§eダイヤモンド合金シンセサイザー");
-        translationBuilder.add("connect.alloy_forging_table", "§e合金鍛造テーブル");
-        translationBuilder.add("connect.alloy_dismantling_table", "§e合金分解テーブル");
+        translationBuilder.add("connect.alloy_forging_table", "§e合金工具鍛造テーブル");
+        translationBuilder.add("connect.alloy_dismantling_table", "§e合金工具分解テーブル");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6合金商人");
     }

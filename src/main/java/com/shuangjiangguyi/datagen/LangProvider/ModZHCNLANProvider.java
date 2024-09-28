@@ -3,6 +3,7 @@ package com.shuangjiangguyi.datagen.LangProvider;
 import com.shuangjiangguyi.block.ModBlocks;
 import com.shuangjiangguyi.groups.ModGroups;
 import com.shuangjiangguyi.item.ModItems;
+import com.shuangjiangguyi.tags.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -55,14 +56,27 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModBlocks.IRON_ALLOY_SYNTHESIZER, "§e铁合金合成器");
         translationBuilder.add(ModBlocks.DIAMOND_ALLOY_SYNTHESIZER, "钻石合金合成器");
         translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金锻造台");
-        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e合金拆解台");
+        translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e合金工具拆解台");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6合金科技");
 
         translationBuilder.add("connect.iron_alloy_synthesizer", "§e铁合金合成器");
         translationBuilder.add("connect.diamond_alloy_synthesizer", "§e钻石合金合成器");
         translationBuilder.add("connect.alloy_forging_table", "§e合金锻造台");
-        translationBuilder.add("connect.alloy_dismantling_table", "§e合金拆解台");
+        translationBuilder.add("connect.alloy_dismantling_table", "§e合金工具拆解台");
+
+        translationBuilder.add(ModItemTags.ALLOY_INGOT, "§e合金锭");
+        translationBuilder.add(ModItemTags.COPPER_TIN_ALLOY_ITEM, "§e铜锡合金物品");
+        translationBuilder.add(ModItemTags.COPPER_IRON_ALLOY_ITEM, "§e铜铁合金物品");
+        translationBuilder.add(ModItemTags.ALUMINIUM_TIN_ALLOY_ITEM, "§e铝锡合金物品");
+        translationBuilder.add(ModItemTags.TUNGSTEN_IRON_ALLOY_ITEM, "§e钨铁合金物品");
+        translationBuilder.add(ModItemTags.GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER, "§e大于铜锡合金锤");
+        translationBuilder.add(ModItemTags.GREATER_THAN_AND_ABOUT_COPPER_IRON_ALLOY_HAMMER, "§e大于铜铁合金锤");
+        translationBuilder.add(ModItemTags.GREATER_THAN_AND_ABOUT_ALUMINIUM_TIN_ALLOY_HAMMER, "§e大于铝锡合金锤");
+        translationBuilder.add(ModItemTags.GREATER_THAN_AND_ABOUT_TUNGSTEN_IRON_ALLOY_HAMMER, "§e大于钨铁合金锤");
+        translationBuilder.add(ModItemTags.INGOT_THAT_CAN_BE_SYNTHESIZED_INTO_ALLOY, "§e可以合成合金的锭");
+        translationBuilder.add(ModItemTags.SWORD, "§e剑");
+        translationBuilder.add(ModItemTags.HAMMER, "§e锤");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6合金商人");
     }
