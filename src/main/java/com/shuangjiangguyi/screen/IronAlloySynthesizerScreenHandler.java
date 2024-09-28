@@ -1,8 +1,7 @@
 package com.shuangjiangguyi.screen;
 
-import com.shuangjiangguyi.block.data.AlloySynthesizerData;
-import com.shuangjiangguyi.block.entity.AlloySynthesizerBlockEntity;
-import com.shuangjiangguyi.item.ModItems;
+import com.shuangjiangguyi.block.data.IronAlloySynthesizerData;
+import com.shuangjiangguyi.block.entity.IronAlloySynthesizerBlockEntity;
 import com.shuangjiangguyi.tags.ModItemTags;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,18 +14,18 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class AlloySynthesizerScreenHandler extends ScreenHandler {
+public class IronAlloySynthesizerScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public final AlloySynthesizerBlockEntity blockEntity;
-    public AlloySynthesizerScreenHandler(int syncId, PlayerInventory playerInventory, PropertyDelegate propertyDelegate, BlockEntity blockEntity) {
+    public final IronAlloySynthesizerBlockEntity blockEntity;
+    public IronAlloySynthesizerScreenHandler(int syncId, PlayerInventory playerInventory, PropertyDelegate propertyDelegate, BlockEntity blockEntity) {
         super(com.shuangjiangguyi.screen.ModScreenHandlers.ALLOY_SYNTHESIZER, syncId);
         checkSize((Inventory) blockEntity, 5);
         this.inventory = (Inventory) blockEntity;
         inventory.onOpen(playerInventory.player);
 
         this.propertyDelegate = propertyDelegate;
-        this.blockEntity = (AlloySynthesizerBlockEntity) blockEntity;
+        this.blockEntity = (IronAlloySynthesizerBlockEntity) blockEntity;
 
         this.addSlot(new Slot(inventory, 0, 28, 17){
             @Override
@@ -59,12 +58,13 @@ public class AlloySynthesizerScreenHandler extends ScreenHandler {
             }
         });
 
+
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
 
         addProperties(propertyDelegate);
     }
-    public AlloySynthesizerScreenHandler(int syncId, PlayerInventory playerInventory, AlloySynthesizerData data) {
+    public IronAlloySynthesizerScreenHandler(int syncId, PlayerInventory playerInventory, IronAlloySynthesizerData data) {
         this(syncId,playerInventory, new ArrayPropertyDelegate(2), playerInventory.player.getWorld().getBlockEntity(data.pos()));
     }
 

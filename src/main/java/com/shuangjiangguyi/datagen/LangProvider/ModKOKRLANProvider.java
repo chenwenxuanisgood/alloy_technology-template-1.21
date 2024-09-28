@@ -20,10 +20,13 @@ public class ModKOKRLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModItems.COPPER_TIN_ALLOY_INGOT, "§6구리-주석 합금 잉곳");
         translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT, "§6페로-텅스텐 잉곳");
         translationBuilder.add(ModItems.ALUMINIUM_TIN_ALLOY_INGOT, "§6알루미늄-주석 잉곳");
+        translationBuilder.add(ModItems.CAST_IRON_INGOT, "§6무쇠 주괴");
 
         translationBuilder.add(ModItems.TIN_INGOT, "§6주석 잉곳");
         translationBuilder.add(ModItems.TUNGSTEN_INGOT, "§6텅스텐 잉곳");
         translationBuilder.add(ModItems.ALUMINIUM_INGOT, "§6알루미늄 잉곳");
+        translationBuilder.add(ModItems.CARBON_INGOT, "§6탄화물 잉곳");
+        translationBuilder.add(ModItems.SILICON_INGOT, "§6실리콘 잉곳");
 
         translationBuilder.add(ModItems.RAW_TIN, "§7조잡한 주석");
 
@@ -49,14 +52,17 @@ public class ModKOKRLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModBlocks.TIN_ORE, "§7주석 광석");
         translationBuilder.add(ModBlocks.TUNGSTEN_ORE, "§7텅스텐 광석");
 
-        translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "§e합금 합성기");
+        translationBuilder.add(ModBlocks.IRON_ALLOY_SYNTHESIZER, "§e철 합금 합성기");
+        translationBuilder.add(ModBlocks.DIAMOND_ALLOY_SYNTHESIZER, "§e다이아몬드 합금 합성기");
         translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e합금 단조 테이블");
         translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e합금 해체 테이블");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6합금 기술");
 
-        translationBuilder.add("connect.alloy_synthesizer", "§e합금 합성기");
+        translationBuilder.add("connect.iron_alloy_synthesizer", "§e철 합금 합성기");
+        translationBuilder.add("connect.diamond_alloy_synthesizer", "§e다이아몬드 합금 합성기");
         translationBuilder.add("connect.alloy_forging_table", "§e합금 단조 테이블");
+        translationBuilder.add("connect.alloy_dismantling_table", "§e합금 해체 테이블");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6합금 상인");
     }

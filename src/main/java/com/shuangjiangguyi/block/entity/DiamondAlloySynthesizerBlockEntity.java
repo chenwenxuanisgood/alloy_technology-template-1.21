@@ -1,8 +1,8 @@
 package com.shuangjiangguyi.block.entity;
 
-import com.shuangjiangguyi.block.data.AlloySynthesizerData;
+import com.shuangjiangguyi.block.data.DiamondAlloySynthesizerData;
 import com.shuangjiangguyi.item.ModItems;
-import com.shuangjiangguyi.screen.AlloySynthesizerScreenHandler;
+import com.shuangjiangguyi.screen.DiamondAlloySynthesizerScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -23,28 +23,20 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class AlloySynthesizerBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<AlloySynthesizerData>, ImplementedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
+public class DiamondAlloySynthesizerBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<DiamondAlloySynthesizerData>, ImplementedInventory {
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(6, ItemStack.EMPTY);
 
-    public static int temp;
-
-    private static final int INPUT_SLOT_1 = 0;
-    private static final int INPUT_SLOT_2 = 1;
-    private static final int INPUT_SLOT_3 = 2;
-    private static final int INPUT_SLOT_4 = 3;
-    private static final int OUTPUT_SLOT_1 = 4;
-
-    final String IRON_INGOT = "IRON_INGOT";
-    final String COPPER_INGOT = "COPPER_INGOT";
-    final String TIN_INGOT = "TIN_INGOT";
-    final String TUNGSTEN_INGOT = "TUNGSTEN_INGOT";
-    final String ALUMINIUM_INGOT = "ALUMINIUM_INGOT";
+    private static final int ALLOY_INPUT_SLOT_1 = 0;
+    private static final int ALLOY_INPUT_SLOT_2 = 1;
+    private static final int ALLOY_INPUT_SLOT_3 = 2;
+    private static final int INPUT_SLOT_3 = 3;
+    private static final int INPUT_SLOT_4 = 4;
+    private static final int OUTPUT_SLOT_1 = 5;
 
     private static String recipes = null;
-    private static String left_is_what = null;
     private static Item zhiZuoItem = null;
 
-    private static final String NBT_PROGRESS_KEY = "alloy_synthesizer";
+    private static final String NBT_PROGRESS_KEY = "diamond_alloy_synthesizer";
 
     private static final int PROGRESS_INDEX = 0;
     private static final int MAX_PROGRESS_INDEX = 1;
@@ -55,16 +47,16 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     protected final PropertyDelegate propertyDelegate;
 
     private static void setTime(int time) {
-        maxProgress = (time * 30) * 2 + 30;
+        maxProgress = (time * 20) * 2 + 30;
     }
 
-    public AlloySynthesizerBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.ALLOY_SYNTHESIZER, pos, state);
+    public DiamondAlloySynthesizerBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.DIAMOND_ALLOY_SYNTHESIZER, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case PROGRESS_INDEX -> AlloySynthesizerBlockEntity.this.progress;
+                    case PROGRESS_INDEX -> DiamondAlloySynthesizerBlockEntity.this.progress;
                     case MAX_PROGRESS_INDEX -> maxProgress;
                     default -> 0;
                 };
@@ -73,7 +65,7 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case PROGRESS_INDEX -> AlloySynthesizerBlockEntity.this.progress = value;
+                    case PROGRESS_INDEX -> DiamondAlloySynthesizerBlockEntity.this.progress = value;
                     case MAX_PROGRESS_INDEX -> maxProgress = value;
                 }
             }
@@ -92,18 +84,18 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("connect.alloy_synthesizer");
+        return Text.translatable("connect.diamond_alloy_synthesizer");
     }
 
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new AlloySynthesizerScreenHandler(syncId, playerInventory, this.propertyDelegate, this);
+        return new DiamondAlloySynthesizerScreenHandler(syncId, playerInventory, this.propertyDelegate, this);
     }
 
     @Override
-    public AlloySynthesizerData getScreenOpeningData(ServerPlayerEntity player) {
-        return new AlloySynthesizerData(pos);
+    public DiamondAlloySynthesizerData getScreenOpeningData(ServerPlayerEntity player) {
+        return new DiamondAlloySynthesizerData(pos);
     }
 
     @Override
@@ -150,58 +142,29 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     private void craftItem() {
         switch (recipes) {
             case "COPPER_IRON_ALLOY_INGOT":
-                if (left_is_what.equals(IRON_INGOT)) {
-                    decrementInputIfItemMatches(INPUT_SLOT_1, Items.IRON_INGOT);
-                    decrementInputIfItemMatches(INPUT_SLOT_2, Items.COPPER_INGOT);
-                }
-                else {
-                    decrementInputIfItemMatches(INPUT_SLOT_1, Items.COPPER_INGOT);
-                    decrementInputIfItemMatches(INPUT_SLOT_2, Items.IRON_INGOT);
-                }
                 zhiZuoItem = ModItems.COPPER_IRON_ALLOY_INGOT;
                 recipes = null;
-                left_is_what = null;
                 break;
             case "COPPER_TIN_ALLOY_INGOT":
-                if (left_is_what.equals(TIN_INGOT)) {
-                    decrementInputIfItemMatches(INPUT_SLOT_1, ModItems.TIN_INGOT);
-                    decrementInputIfItemMatches(INPUT_SLOT_2, Items.COPPER_INGOT);
-                }
-                else {
-                    decrementInputIfItemMatches(INPUT_SLOT_1, Items.COPPER_INGOT);
-                    decrementInputIfItemMatches(INPUT_SLOT_2, ModItems.TIN_INGOT);
-                }
                 zhiZuoItem = ModItems.COPPER_TIN_ALLOY_INGOT;
                 recipes = null;
-                left_is_what = null;
                 break;
             case "TUNGSTEN_IRON_ALLOY_INGOT":
-                if (left_is_what.equals(TUNGSTEN_INGOT)) {
-                    decrementInputIfItemMatches(INPUT_SLOT_1, ModItems.TUNGSTEN_INGOT);
-                    decrementInputIfItemMatches(INPUT_SLOT_2, Items.IRON_INGOT);
-                }
-                else {
-                    decrementInputIfItemMatches(INPUT_SLOT_1, Items.IRON_INGOT);
-                    decrementInputIfItemMatches(INPUT_SLOT_2, ModItems.TUNGSTEN_INGOT);
-                }
                 zhiZuoItem = ModItems.TUNGSTEN_IRON_ALLOY_INGOT;
                 recipes = null;
-                left_is_what = null;
                 break;
             case "ALUMINIUM_TIN_ALLOY_INGOT":
-                if (left_is_what.equals(ALUMINIUM_INGOT)) {
-                    decrementInputIfItemMatches(INPUT_SLOT_1, ModItems.ALUMINIUM_INGOT);
-                    decrementInputIfItemMatches(INPUT_SLOT_2, ModItems.TIN_INGOT);
-                }
-                else {
-                    decrementInputIfItemMatches(INPUT_SLOT_1, ModItems.TIN_INGOT);
-                    decrementInputIfItemMatches(INPUT_SLOT_2, ModItems.ALUMINIUM_INGOT);
-                }
                 zhiZuoItem = ModItems.ALUMINIUM_TIN_ALLOY_INGOT;
                 recipes = null;
-                left_is_what = null;
+                break;
+            case "CAST_IRON_INGOT":
+                zhiZuoItem = ModItems.CAST_IRON_INGOT;
+                recipes = null;
                 break;
         }
+        decrementInputIfItemMatches(ALLOY_INPUT_SLOT_1, getStack(ALLOY_INPUT_SLOT_1).getItem());
+        decrementInputIfItemMatches(ALLOY_INPUT_SLOT_2, getStack(ALLOY_INPUT_SLOT_2).getItem());
+        decrementInputIfItemMatches(ALLOY_INPUT_SLOT_3, getStack(ALLOY_INPUT_SLOT_3).getItem());
         addOutputItem(new ItemStack(zhiZuoItem));
         zhiZuoItem = null;
     }
@@ -215,11 +178,10 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
     }
 
     private boolean determineIfMetalIsInInputSlot(Item item) {
-        return containsItem(INPUT_SLOT_1, item) || containsItem(INPUT_SLOT_2, item);
+        return containsItem(ALLOY_INPUT_SLOT_1, item) || containsItem(ALLOY_INPUT_SLOT_2, item) || containsItem(ALLOY_INPUT_SLOT_3, item);
     }
 
     private boolean hasRecipe() {
-        left_is_what = null;
         recipes = null;
         // 检查铁锭和铜锭是否存在于 INPUT_SLOT_1 和 INPUT_SLOT_2
         final boolean HAS_IRON = determineIfMetalIsInInputSlot(Items.IRON_INGOT);
@@ -227,50 +189,34 @@ public class AlloySynthesizerBlockEntity extends BlockEntity implements Extended
         final boolean HAS_TIN = determineIfMetalIsInInputSlot(ModItems.TIN_INGOT);
         final boolean HAS_TUNGSTEN = determineIfMetalIsInInputSlot(ModItems.TUNGSTEN_INGOT);
         final boolean HAS_ALUMINIUM = determineIfMetalIsInInputSlot(ModItems.ALUMINIUM_INGOT);
-
+        final boolean HAS_CARBON = determineIfMetalIsInInputSlot(ModItems.CARBON_INGOT);
+        final boolean HAS_SILICON = determineIfMetalIsInInputSlot(ModItems.SILICON_INGOT);
+        final boolean HAS_EMPTY = getStack(ALLOY_INPUT_SLOT_1).isEmpty() || getStack(ALLOY_INPUT_SLOT_2).isEmpty() || getStack(ALLOY_INPUT_SLOT_3).isEmpty();
         // 检查岩浆桶和水桶是否在特定的槽位上
         final boolean hasLava = getStack(INPUT_SLOT_3).getItem() == Items.LAVA_BUCKET;
         final boolean hasWater = getStack(INPUT_SLOT_4).getItem() == Items.WATER_BUCKET;
 
         // 只有当所有条件满足且输出槽可用时，才返回 true
         if (hasLava && hasWater) {
-            if (HAS_IRON && HAS_COPPER && canInsertIntoOutputSlot(ModItems.COPPER_IRON_ALLOY_INGOT)) {
+            if (HAS_IRON && HAS_COPPER && HAS_EMPTY && canInsertIntoOutputSlot(ModItems.COPPER_IRON_ALLOY_INGOT)) {
                 setTime(4);
                 recipes = "COPPER_IRON_ALLOY_INGOT";
-
-                if (containsItem(INPUT_SLOT_1, Items.IRON_INGOT)) {
-                    left_is_what = IRON_INGOT;
-                } else {
-                    left_is_what = COPPER_INGOT;
-                }
-
                 return true;
-            } else if (HAS_COPPER && HAS_TIN && canInsertIntoOutputSlot(ModItems.COPPER_TIN_ALLOY_INGOT)) {
+            } else if (HAS_COPPER && HAS_TIN && HAS_EMPTY && canInsertIntoOutputSlot(ModItems.COPPER_TIN_ALLOY_INGOT)) {
                 setTime(3);
                 recipes = "COPPER_TIN_ALLOY_INGOT";
-                if (containsItem(INPUT_SLOT_1, ModItems.TIN_INGOT)) {
-                    left_is_what = TIN_INGOT;
-                } else {
-                    left_is_what = COPPER_INGOT;
-                }
                 return true;
-            } else if (HAS_TUNGSTEN && HAS_IRON && canInsertIntoOutputSlot(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)) {
+            } else if (HAS_TUNGSTEN && HAS_IRON && HAS_EMPTY && canInsertIntoOutputSlot(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)) {
                 setTime(9);
                 recipes = "TUNGSTEN_IRON_ALLOY_INGOT";
-                if (containsItem(INPUT_SLOT_1, ModItems.TUNGSTEN_INGOT)) {
-                    left_is_what = TUNGSTEN_INGOT;
-                } else {
-                    left_is_what = IRON_INGOT;
-                }
                 return true;
-            } else if (HAS_ALUMINIUM && HAS_TIN && canInsertIntoOutputSlot(ModItems.ALUMINIUM_TIN_ALLOY_INGOT)) {
+            } else if (HAS_ALUMINIUM && HAS_TIN && HAS_EMPTY && canInsertIntoOutputSlot(ModItems.ALUMINIUM_TIN_ALLOY_INGOT)) {
                 setTime(2);
                 recipes = "ALUMINIUM_TIN_ALLOY_INGOT";
-                if (containsItem(INPUT_SLOT_1, ModItems.ALUMINIUM_INGOT)) {
-                    left_is_what = ALUMINIUM_INGOT;
-                } else {
-                    left_is_what = TIN_INGOT;
-                }
+                return true;
+            } else if (HAS_CARBON && HAS_SILICON && HAS_IRON && canInsertIntoOutputSlot(ModItems.CAST_IRON_INGOT)) {
+                setTime(8);
+                recipes = "CAST_IRON_INGOT";
                 return true;
             }
             else {

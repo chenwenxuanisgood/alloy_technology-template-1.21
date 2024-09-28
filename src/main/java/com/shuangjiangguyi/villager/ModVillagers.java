@@ -20,7 +20,7 @@ public class ModVillagers {
     public static final VillagerProfession ALLOY_MASTER = register("alloy_master",
             ModPointOfInterestType.ALLOY_KEY, SoundEvents.ENTITY_VILLAGER_WORK_ARMORER);
 
-    public static final PointOfInterestType ALLOY_POI = registerPointOfInterestType("alloy_poi", ModBlocks.ALLOY_SYNTHESIZER);
+    public static final PointOfInterestType ALLOY_POI = registerPointOfInterestType("alloy_poi", ModBlocks.IRON_ALLOY_SYNTHESIZER);
     private static VillagerProfession register(String id, RegistryKey<PointOfInterestType> heldWorkstation, @Nullable SoundEvent workSound) {
         return Registry.register(Registries.VILLAGER_PROFESSION, Identifier.of(AlloyTechnology.MOD_ID, id),
                 new VillagerProfession(id, entry -> entry.matchesKey(heldWorkstation), entry -> entry.matchesKey(heldWorkstation),

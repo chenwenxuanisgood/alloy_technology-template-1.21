@@ -3,7 +3,8 @@ package com.shuangjiangguyi.block;
 import com.shuangjiangguyi.AlloyTechnology;
 import com.shuangjiangguyi.block.custom.AlloyDismantlingTable;
 import com.shuangjiangguyi.block.custom.AlloyForgingTable;
-import com.shuangjiangguyi.block.custom.AlloySynthesizer;
+import com.shuangjiangguyi.block.custom.DiamondAlloySynthesizer;
+import com.shuangjiangguyi.block.custom.IronAlloySynthesizer;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -27,12 +28,14 @@ public class ModBlocks {
     public static final Block TUNGSTEN_BLOCK = ordinaryBlockRegister("tungsten_block", 5.0f,6.0f);
     public static final Block TIN_ORE = ordinaryBlockRegister("tin_ore", 2.0f,3.0f);
     public static final Block TUNGSTEN_ORE = ordinaryBlockRegister("tungsten_ore", 5.0f,6.0f);
-    public static final Block ALLOY_SYNTHESIZER = register("alloy_synthesizer",
-            new AlloySynthesizer(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block IRON_ALLOY_SYNTHESIZER = register("iron_alloy_synthesizer",
+            new IronAlloySynthesizer(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block ALLOY_FORGING_TABLE = register("alloy_forging_table",
             new AlloyForgingTable(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block ALLOY_DISMANTLING_TABLE = register("alloy_dismantling_table",
             new AlloyDismantlingTable(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block DIAMOND_ALLOY_SYNTHESIZER = register("diamond_alloy_synthesizer",
+            new DiamondAlloySynthesizer(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK)));
     public static void registerBlockItem(String id, Block block) {
         Item item = Registry.register(Registries.ITEM, Identifier.of(AlloyTechnology.MOD_ID, id), new BlockItem(block, new Item.Settings()));
         if (item instanceof BlockItem) {

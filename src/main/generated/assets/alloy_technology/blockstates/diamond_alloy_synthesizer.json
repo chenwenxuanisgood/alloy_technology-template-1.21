@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "alloy_technology:block/diamond_alloy_synthesizer"
+    }
+  }
+}

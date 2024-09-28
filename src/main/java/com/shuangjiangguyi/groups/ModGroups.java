@@ -27,9 +27,12 @@ public class ModGroups {
                             entries.add(ModItems.COPPER_TIN_ALLOY_INGOT);
                             entries.add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT);
                             entries.add(ModItems.ALUMINIUM_TIN_ALLOY_INGOT);
+                            entries.add(ModItems.CAST_IRON_INGOT);
                             entries.add(ModItems.TIN_INGOT);
                             entries.add(ModItems.TUNGSTEN_INGOT);
                             entries.add(ModItems.ALUMINIUM_INGOT);
+                            entries.add(ModItems.CARBON_INGOT);
+                            entries.add(ModItems.SILICON_INGOT);
                             entries.add(ModItems.RAW_TIN);
                             entries.add(ModBlocks.COPPER_IRON_ALLOY_BLOCK);
                             entries.add(ModBlocks.COPPER_TIN_ALLOY_BLOCK);
@@ -39,7 +42,7 @@ public class ModGroups {
                             entries.add(ModBlocks.TUNGSTEN_BLOCK);
                             entries.add(ModBlocks.TIN_ORE);
                             entries.add(ModBlocks.TUNGSTEN_ORE);
-                            entries.add(ModBlocks.ALLOY_SYNTHESIZER);
+                            entries.add(ModBlocks.IRON_ALLOY_SYNTHESIZER);
                             entries.add(ModBlocks.ALLOY_FORGING_TABLE);
                             entries.add(ModBlocks.ALLOY_DISMANTLING_TABLE);
                             entries.add(ModItems.EMPTY_ALLOY_TEMPLATE);

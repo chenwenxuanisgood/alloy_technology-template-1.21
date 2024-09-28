@@ -19,7 +19,8 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(ModBlocks.ALLOY_SYNTHESIZER)
+                .add(ModBlocks.DIAMOND_ALLOY_SYNTHESIZER)
+                .add(ModBlocks.IRON_ALLOY_SYNTHESIZER)
                 .add(ModBlocks.ALLOY_FORGING_TABLE)
                 .add(ModBlocks.ALLOY_DISMANTLING_TABLE)
                 .add(ModBlocks.COPPER_IRON_ALLOY_BLOCK)
@@ -32,7 +33,8 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_ORE);
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.ALLOY_SYNTHESIZER)
+                .add(ModBlocks.DIAMOND_ALLOY_SYNTHESIZER)
+                .add(ModBlocks.IRON_ALLOY_SYNTHESIZER)
                 .add(ModBlocks.ALLOY_FORGING_TABLE)
                 .add(ModBlocks.COPPER_IRON_ALLOY_BLOCK)
                 .add(ModBlocks.COPPER_TIN_ALLOY_BLOCK)

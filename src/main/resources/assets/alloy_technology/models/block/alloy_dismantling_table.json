@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "alloy_technology:block/alloy_dismantling_table",
-		"particle": "alloy_technology:block/alloy_dismantling_table"
+		"particle": "alloy_technology:block/aluminium_tin_alloy_block"
 	},
 	"elements": [
 		{

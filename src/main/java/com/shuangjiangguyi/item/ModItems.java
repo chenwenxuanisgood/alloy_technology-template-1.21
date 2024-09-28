@@ -32,10 +32,13 @@ public class ModItems {
     public static final Item COPPER_TIN_ALLOY_INGOT = ordinaryItemRegister("copper_tin_alloy_ingot");
     public static final Item TUNGSTEN_IRON_ALLOY_INGOT = ordinaryItemRegister("tungsten_iron_alloy_ingot");
     public static final Item ALUMINIUM_TIN_ALLOY_INGOT = ordinaryItemRegister("aluminium_tin_alloy_ingot");
+    public static final Item CAST_IRON_INGOT = ordinaryItemRegister("cast_iron_ingot");
 
     public static final Item TIN_INGOT = ordinaryItemRegister("tin_ingot");
     public static final Item TUNGSTEN_INGOT = ordinaryItemRegister("tungsten_ingot");
     public static final Item ALUMINIUM_INGOT = ordinaryItemRegister("aluminium_ingot");
+    public static final Item CARBON_INGOT = ordinaryItemRegister("carbon_ingot");
+    public static final Item SILICON_INGOT = ordinaryItemRegister("silicon_ingot");
 
     public static final Item RAW_TIN = ordinaryItemRegister("raw_tin");
 
@@ -58,6 +61,8 @@ public class ModItems {
         fabricItemGroupEntries.add(TIN_INGOT);
         fabricItemGroupEntries.add(TUNGSTEN_INGOT);
         fabricItemGroupEntries.add(ALUMINIUM_INGOT);
+        fabricItemGroupEntries.add(CARBON_INGOT);
+        fabricItemGroupEntries.add(SILICON_INGOT);
         fabricItemGroupEntries.add(EMPTY_ALLOY_TEMPLATE);
         fabricItemGroupEntries.add(ALLOY_SWORD_TEMPLATE);
         fabricItemGroupEntries.add(ALLOY_HAMMER_TEMPLATE);

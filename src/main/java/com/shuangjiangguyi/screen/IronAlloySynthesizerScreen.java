@@ -9,9 +9,9 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class AlloySynthesizerScreen extends HandledScreen<AlloySynthesizerScreenHandler> {
-    private static final Identifier TEXTURE = Identifier.of(AlloyTechnology.MOD_ID, "textures/gui/container/alloy_synthesizer.png");
-    public AlloySynthesizerScreen(AlloySynthesizerScreenHandler handler, PlayerInventory inventory, Text title) {
+public class IronAlloySynthesizerScreen extends HandledScreen<IronAlloySynthesizerScreenHandler> {
+    private static final Identifier TEXTURE = Identifier.of(AlloyTechnology.MOD_ID, "textures/gui/container/iron_alloy_synthesizer.png");
+    public IronAlloySynthesizerScreen(IronAlloySynthesizerScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
 
     }

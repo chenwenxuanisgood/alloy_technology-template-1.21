@@ -21,13 +21,16 @@ public class ModItemTagsProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.COPPER_TIN_ALLOY_INGOT)
                 .add(ModItems.COPPER_IRON_ALLOY_INGOT)
                 .add(ModItems.ALUMINIUM_TIN_ALLOY_INGOT)
-                .add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT);
+                .add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)
+                .add(ModItems.CAST_IRON_INGOT);
         getOrCreateTagBuilder(ModItemTags.INGOT_THAT_CAN_BE_SYNTHESIZED_INTO_ALLOY)
                 .add(Items.COPPER_INGOT)
                 .add(Items.IRON_INGOT)
                 .add(ModItems.TIN_INGOT)
                 .add(ModItems.ALUMINIUM_INGOT)
-                .add(ModItems.TUNGSTEN_INGOT);
+                .add(ModItems.TUNGSTEN_INGOT)
+                .add(ModItems.CARBON_INGOT)
+                .add(ModItems.SILICON_INGOT);
         getOrCreateTagBuilder(ModItemTags.GREATER_THAN_AND_ABOUT_COPPER_TIN_ALLOY_HAMMER)
                 .add(ModItems.COPPER_TIN_ALLOY_HAMMER)
                 .add(ModItems.COPPER_IRON_ALLOY_HAMMER)

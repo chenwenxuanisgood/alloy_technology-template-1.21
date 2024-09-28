@@ -20,6 +20,7 @@ public class ModZHTWLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModItems.COPPER_TIN_ALLOY_INGOT, "§6銅錫合金錠");
         translationBuilder.add(ModItems.TUNGSTEN_IRON_ALLOY_INGOT, "§6鎢鐵合金錠");
         translationBuilder.add(ModItems.ALUMINIUM_TIN_ALLOY_INGOT, "§6鋁錫合金錠");
+        translationBuilder.add(ModItems.CAST_IRON_INGOT, "§6鑄鐵錠");
 
         translationBuilder.add(ModItems.TIN_INGOT, "§6錫錠");
         translationBuilder.add(ModItems.TUNGSTEN_INGOT, "§6鎢錠");
@@ -50,13 +51,15 @@ public class ModZHTWLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModBlocks.TIN_ORE, "§7錫礦");
         translationBuilder.add(ModBlocks.TUNGSTEN_ORE, "§7鎢礦");
 
-        translationBuilder.add(ModBlocks.ALLOY_SYNTHESIZER, "§e合金合成器");
-        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金鍛造台");
+        translationBuilder.add(ModBlocks.IRON_ALLOY_SYNTHESIZER, "§e鐵合金合成器");
+        translationBuilder.add(ModBlocks.DIAMOND_ALLOY_SYNTHESIZER, "鑽石合金合成器");
+        translationBuilder.add(ModBlocks.ALLOY_FORGING_TABLE, "§e合金鍛造臺");
         translationBuilder.add(ModBlocks.ALLOY_DISMANTLING_TABLE, "§e合金拆解臺");
 
         translationBuilder.add(ModGroups.ALLOY_TECHNOLOGY, "§6合金科技");
 
-        translationBuilder.add("connect.alloy_synthesizer", "§e合金合成器");
+        translationBuilder.add("connect.iron_alloy_synthesizer", "§e鐵合金合成器");
+        translationBuilder.add("connect.diamond_alloy_synthesizer", "§e鑽石合金合成器");
         translationBuilder.add("connect.alloy_forging_table", "§e合金鍛造臺");
         translationBuilder.add("connect.alloy_dismantling_table", "§e合金拆解臺");
 

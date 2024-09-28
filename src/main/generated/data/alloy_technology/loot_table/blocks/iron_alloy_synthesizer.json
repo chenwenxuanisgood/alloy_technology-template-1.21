@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "alloy_technology:alloy_synthesizer"
+          "name": "alloy_technology:iron_alloy_synthesizer"
         }
       ],
       "rolls": 1.0

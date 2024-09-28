@@ -1,6 +1,5 @@
 package com.shuangjiangguyi.datagen;
 
-import com.mojang.datafixers.types.templates.Tag;
 import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -8,16 +7,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.data.server.tag.TagProvider;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.TagBuilder;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.registry.tag.TagPacketSerializer;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -42,13 +36,25 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.TUNGSTEN_BLOCK);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModBlocks.ALLOY_SYNTHESIZER).pattern("bib").pattern("iii").pattern("iii")
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModBlocks.IRON_ALLOY_SYNTHESIZER).pattern("bib").pattern("iii").pattern("iii")
                 .input('i', Items.IRON_INGOT)
                 .input('b', Items.BUCKET)
                 .criterion(FabricRecipeProvider.hasItem(Items.BUCKET),
                         FabricRecipeProvider.conditionsFromItem(Items.BUCKET))
                 .criterion(FabricRecipeProvider.hasItem(Items.IRON_INGOT),
                         FabricRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModBlocks.DIAMOND_ALLOY_SYNTHESIZER).pattern("dtd").pattern("aic").pattern("dnd")
+                .input('t', ModItems.TUNGSTEN_IRON_ALLOY_INGOT)
+                .input('a', ModItems.ALUMINIUM_TIN_ALLOY_INGOT)
+                .input('c', ModItems.COPPER_IRON_ALLOY_INGOT)
+                .input('n', ModItems.COPPER_TIN_ALLOY_INGOT)
+                .input('d', Items.DIAMOND)
+                .input('i', ModBlocks.IRON_ALLOY_SYNTHESIZER)
+                .criterion(FabricRecipeProvider.hasItem(Items.DIAMOND),
+                        FabricRecipeProvider.conditionsFromItem(Items.DIAMOND))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.IRON_ALLOY_SYNTHESIZER),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.IRON_ALLOY_SYNTHESIZER))
                 .offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.EMPTY_ALLOY_TEMPLATE).pattern("tt").pattern("tt")
                 .input('t', ModItems.TUNGSTEN_IRON_ALLOY_INGOT)

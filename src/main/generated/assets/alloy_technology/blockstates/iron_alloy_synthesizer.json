@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "alloy_technology:block/iron_alloy_synthesizer"
+    }
+  }
+}

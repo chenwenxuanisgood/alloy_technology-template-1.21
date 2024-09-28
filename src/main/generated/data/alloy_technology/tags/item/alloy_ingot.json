@@ -3,6 +3,7 @@
     "alloy_technology:copper_tin_alloy_ingot",
     "alloy_technology:copper_iron_alloy_ingot",
     "alloy_technology:aluminium_tin_alloy_ingot",
-    "alloy_technology:tungsten_iron_alloy_ingot"
+    "alloy_technology:tungsten_iron_alloy_ingot",
+    "alloy_technology:cast_iron_ingot"
   ]
 }

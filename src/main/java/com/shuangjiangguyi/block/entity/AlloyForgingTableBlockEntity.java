@@ -164,41 +164,37 @@ public class AlloyForgingTableBlockEntity extends BlockEntity implements Extende
     private void craftItem() {
         switch (recipes) {
             case "TUNGSTEN_IRON_ALLOY_SWORD":
-                decrementInputIfItemMatches(ALLOY_INPUT_SLOT, ModItems.TUNGSTEN_IRON_ALLOY_INGOT);
                 decrementInputIfItemMatches(TEMPLATE_SLOT, ModItems.ALLOY_SWORD_TEMPLATE);
                 decrementInputIfItemMatches(STICK_INPUT_SLOT, Items.STICK);
                 zhiZuoItem = ModItems.TUNGSTEN_IRON_ALLOY_SWORD;
                 recipes = null;
                 break;
             case "COPPER_TIN_ALLOY_HAMMER":
-                decrementInputIfItemMatches(ALLOY_INPUT_SLOT, ModItems.COPPER_TIN_ALLOY_INGOT);
                 decrementInputIfItemMatches(TEMPLATE_SLOT, ModItems.ALLOY_HAMMER_TEMPLATE);
                 decrementInputIfItemMatches(STICK_INPUT_SLOT, Items.STICK);
                 zhiZuoItem = ModItems.COPPER_TIN_ALLOY_HAMMER;
                 recipes = null;
                 break;
             case "COPPER_IRON_ALLOY_HAMMER":
-                decrementInputIfItemMatches(ALLOY_INPUT_SLOT, ModItems.COPPER_IRON_ALLOY_INGOT);
                 decrementInputIfItemMatches(TEMPLATE_SLOT, ModItems.ALLOY_HAMMER_TEMPLATE);
                 decrementInputIfItemMatches(STICK_INPUT_SLOT, Items.STICK);
                 zhiZuoItem = ModItems.COPPER_IRON_ALLOY_HAMMER;
                 recipes = null;
                 break;
             case "ALUMINIUM_TIN_ALLOY_HAMMER":
-                decrementInputIfItemMatches(ALLOY_INPUT_SLOT, ModItems.ALUMINIUM_TIN_ALLOY_INGOT);
                 decrementInputIfItemMatches(TEMPLATE_SLOT, ModItems.ALLOY_HAMMER_TEMPLATE);
                 decrementInputIfItemMatches(STICK_INPUT_SLOT, Items.STICK);
                 zhiZuoItem = ModItems.ALUMINIUM_TIN_ALLOY_HAMMER;
                 recipes = null;
                 break;
             case "TUNGSTEN_IRON_ALLOY_HAMMER":
-                decrementInputIfItemMatches(ALLOY_INPUT_SLOT, ModItems.TUNGSTEN_IRON_ALLOY_INGOT);
                 decrementInputIfItemMatches(TEMPLATE_SLOT, ModItems.ALLOY_HAMMER_TEMPLATE);
                 decrementInputIfItemMatches(STICK_INPUT_SLOT, Items.STICK);
                 zhiZuoItem = ModItems.TUNGSTEN_IRON_ALLOY_HAMMER;
                 recipes = null;
                 break;
         }
+        decrementInputIfItemMatches(ALLOY_INPUT_SLOT, getStack(ALLOY_INPUT_SLOT).getItem());
         addOutputItem(new ItemStack(zhiZuoItem));
         zhiZuoItem = null;
     }

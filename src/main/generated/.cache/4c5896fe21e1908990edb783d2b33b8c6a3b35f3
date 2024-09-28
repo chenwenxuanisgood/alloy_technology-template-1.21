@@ -1,5 +1,5 @@
-// 1.21	2024-09-21T16:23:18.9759921	alloy_technology/Tags for minecraft:item
-87848e677e1a9505171f1d3e73dc189d5a12e364 data\alloy_technology\tags\item\ingot_that_can_be_synthesized_into_alloy.json
+// 1.21	2024-09-28T12:23:44.969965	alloy_technology/Tags for minecraft:item
+6abd3dcaf62ffd72a8398dc3d7f71d96cd3723c5 data\alloy_technology\tags\item\ingot_that_can_be_synthesized_into_alloy.json
 fe0e1584c18112d47211da154944bedc91744893 data\alloy_technology\tags\item\greater_than_and_about_copper_iron_alloy_hammer.json
 bef82710310084de8518577528c39a12d7a96941 data\alloy_technology\tags\item\copper_tin_alloy_item.json
 ab8b74f7187ca55d36663b5e9548daca9707a0a0 data\alloy_technology\tags\item\copper_iron_alloy_item.json
@@ -9,5 +9,5 @@ d3d46577716b9cb669d1d4a84152ea4e1b1b36ed data\alloy_technology\tags\item\greater
 cc726ff212e8603f54237a48bc04a6062bc22013 data\alloy_technology\tags\item\hammer.json
 42a10dee72f2e6c2a65aa30c622b1e6bfdbdc352 data\alloy_technology\tags\item\greater_than_and_about_aluminium_tin_alloy_hammer.json
 9c9dda9384a5478cd1f2332df1e38fa55dc9502b data\alloy_technology\tags\item\sword.json
-0305a2960ea2201f25b3d8ad70a87d8646e0427f data\alloy_technology\tags\item\alloy_ingot.json
+2dd4a4ef3f9737573d93096dd321720e9b52be64 data\alloy_technology\tags\item\alloy_ingot.json
 3150b47e8cc08f589d51c4b3144b0489803e458f data\alloy_technology\tags\item\tungsten_iron_alloy_item.json

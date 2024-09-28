@@ -1,6 +1,7 @@
 {
   "values": [
-    "alloy_technology:alloy_synthesizer",
+    "alloy_technology:diamond_alloy_synthesizer",
+    "alloy_technology:iron_alloy_synthesizer",
     "alloy_technology:alloy_forging_table",
     "alloy_technology:copper_iron_alloy_block",
     "alloy_technology:copper_tin_alloy_block",

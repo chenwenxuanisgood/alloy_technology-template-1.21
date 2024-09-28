@@ -21,7 +21,8 @@ public class ModModelsProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUNGSTEN_BLOCK);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.ALLOY_SYNTHESIZER);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.IRON_ALLOY_SYNTHESIZER);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.DIAMOND_ALLOY_SYNTHESIZER);
         blockStateModelGenerator.registerSimpleState(ModBlocks.ALLOY_FORGING_TABLE);
         blockStateModelGenerator.registerSimpleState(ModBlocks.ALLOY_DISMANTLING_TABLE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
@@ -37,6 +38,8 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.TUNGSTEN_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.ALUMINIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CARBON_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SILICON_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.EMPTY_ALLOY_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ALLOY_SWORD_TEMPLATE, Models.GENERATED);
@@ -46,5 +49,6 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COPPER_IRON_ALLOY_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.ALUMINIUM_TIN_ALLOY_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.TUNGSTEN_IRON_ALLOY_HAMMER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CAST_IRON_INGOT, Models.GENERATED);
     }
 }

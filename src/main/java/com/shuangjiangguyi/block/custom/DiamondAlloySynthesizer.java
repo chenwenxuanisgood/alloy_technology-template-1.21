@@ -1,17 +1,14 @@
 package com.shuangjiangguyi.block.custom;
 
-import com.shuangjiangguyi.AlloyTechnology;
-import com.shuangjiangguyi.block.entity.AlloySynthesizerBlockEntity;
-import com.shuangjiangguyi.block.entity.ModBlockEntities;
-import com.shuangjiangguyi.mixinInterface.ServerPlayerEntityMixinAccessor;
-import net.minecraft.block.*;
 import com.mojang.serialization.MapCodec;
+import com.shuangjiangguyi.block.entity.DiamondAlloySynthesizerBlockEntity;
+import com.shuangjiangguyi.block.entity.ModBlockEntities;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.nbt.NbtInt;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
@@ -32,20 +29,25 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
 
-public class AlloySynthesizer extends BlockWithEntity implements BlockEntityProvider {
+public class DiamondAlloySynthesizer extends BlockWithEntity implements BlockEntityProvider {
     public static boolean[] canProduceAlloy = new boolean[4];
 
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
-    public static final MapCodec<AlloySynthesizer> CODEC = createCodec(AlloySynthesizer::new);
+    public static final MapCodec<DiamondAlloySynthesizer> CODEC = createCodec(DiamondAlloySynthesizer::new);
     public static final VoxelShape SHAPE = Stream.of(
-            Block.createCuboidShape(2, 0, 2, 14, 8, 14),
-            Block.createCuboidShape(0, 8, 0, 16, 11, 3),
-            Block.createCuboidShape(0, 8, 13, 16, 11, 16),
-            Block.createCuboidShape(5, 8, 6, 11, 11, 10),
-            Block.createCuboidShape(11, 8, 3, 16, 11, 13),
-            Block.createCuboidShape(0, 8, 3, 5, 11, 13)
+            Block.createCuboidShape(2, 0, 2, 14, 9, 14),
+            Block.createCuboidShape(5, 9, 0, 6, 12, 16),
+            Block.createCuboidShape(9, 9, 0, 10, 12, 16),
+            Block.createCuboidShape(0, 9, 0, 2, 12, 16),
+            Block.createCuboidShape(13, 9, 0, 16, 12, 16),
+            Block.createCuboidShape(2, 9, 0, 5, 12, 4),
+            Block.createCuboidShape(6, 9, 0, 9, 12, 4),
+            Block.createCuboidShape(2, 9, 12, 5, 12, 16),
+            Block.createCuboidShape(6, 9, 12, 9, 12, 16),
+            Block.createCuboidShape(10, 9, 12, 13, 12, 16),
+            Block.createCuboidShape(10, 9, 0, 13, 12, 4)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
-    public AlloySynthesizer(Settings settings) {
+    public DiamondAlloySynthesizer(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.NORTH));
     }
@@ -62,7 +64,7 @@ public class AlloySynthesizer extends BlockWithEntity implements BlockEntityProv
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new AlloySynthesizerBlockEntity(pos, state);
+        return new DiamondAlloySynthesizerBlockEntity(pos, state);
     }
 
     @Override
@@ -74,8 +76,8 @@ public class AlloySynthesizer extends BlockWithEntity implements BlockEntityProv
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof AlloySynthesizerBlockEntity) {
-                ItemScatterer.spawn(world, pos, (AlloySynthesizerBlockEntity) blockEntity);
+            if (blockEntity instanceof DiamondAlloySynthesizerBlockEntity) {
+                ItemScatterer.spawn(world, pos, (DiamondAlloySynthesizerBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -85,7 +87,7 @@ public class AlloySynthesizer extends BlockWithEntity implements BlockEntityProv
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient()) {
-            NamedScreenHandlerFactory screenHandlerFactory = (AlloySynthesizerBlockEntity) world.getBlockEntity(pos);
+            NamedScreenHandlerFactory screenHandlerFactory = (DiamondAlloySynthesizerBlockEntity) world.getBlockEntity(pos);
             if (screenHandlerFactory != null) {
                 player.openHandledScreen(screenHandlerFactory);
             }
@@ -100,7 +102,7 @@ public class AlloySynthesizer extends BlockWithEntity implements BlockEntityProv
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.ALLOY_SYNTHESIZER,
+        return validateTicker(type, ModBlockEntities.DIAMOND_ALLOY_SYNTHESIZER,
                 ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
     }
 
