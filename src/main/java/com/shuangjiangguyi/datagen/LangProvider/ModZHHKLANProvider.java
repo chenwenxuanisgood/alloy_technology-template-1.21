@@ -64,6 +64,10 @@ public class ModZHHKLANProvider extends FabricLanguageProvider{
         translationBuilder.add("connect.alloy_forging_table", "§e合金鍛造臺");
         translationBuilder.add("connect.alloy_dismantling_table", "§e合金工具拆解臺");
 
+        translationBuilder.add(ModItems.SEA_ALLOY_HORN, "§5海洋合金號角");
+
+        translationBuilder.add("sound.alloy_technology.sea_alloy_horn", "海洋合金號角");
+
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6合金商人");
     }
 }

@@ -54,6 +54,7 @@ public class ModGroups {
                             entries.add(ModItems.COPPER_IRON_ALLOY_HAMMER);
                             entries.add(ModItems.ALUMINIUM_TIN_ALLOY_HAMMER);
                             entries.add(ModItems.TUNGSTEN_IRON_ALLOY_HAMMER);
+                            entries.add(ModItems.SEA_ALLOY_HORN);
                         }).build());
         AlloyTechnology.LOGGER.info("Alloy Technology Registering Item Groups");
     }

@@ -3,6 +3,7 @@ package com.shuangjiangguyi.datagen.LangProvider;
 import com.shuangjiangguyi.block.ModBlocks;
 import com.shuangjiangguyi.groups.ModGroups;
 import com.shuangjiangguyi.item.ModItems;
+import com.shuangjiangguyi.sound.ModSoundEvent;
 import com.shuangjiangguyi.tags.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -77,6 +78,10 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModItemTags.INGOT_THAT_CAN_BE_SYNTHESIZED_INTO_ALLOY, "§eIngot That Can Be Synthesized Into Alloy");
         translationBuilder.add(ModItemTags.SWORD, "§eSword");
         translationBuilder.add(ModItemTags.HAMMER, "§eHammer");
+
+        translationBuilder.add(ModItems.SEA_ALLOY_HORN, "§5Sea Alloy Horn");
+
+        translationBuilder.add("sound.alloy_technology.sea_alloy_horn", "Sea Alloy Horn");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6Alloy Merchant");
     }

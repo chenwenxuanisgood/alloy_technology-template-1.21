@@ -1,6 +1,7 @@
 package com.shuangjiangguyi.item;
 
 import com.shuangjiangguyi.AlloyTechnology;
+import com.shuangjiangguyi.item.custom.SeaAlloyHorn;
 import com.shuangjiangguyi.item.tools.Hammer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -53,6 +54,8 @@ public class ModItems {
     public static final Item COPPER_IRON_ALLOY_HAMMER = registerPickaxe("copper_iron_alloy_hammer", ModToolMaterials.COPPER_IRON_ALLOY_INGOT, 4f, -2.2f);
     public static final Item ALUMINIUM_TIN_ALLOY_HAMMER = registerPickaxe("aluminium_tin_alloy_hammer", ModToolMaterials.ALUMINIUM_TIN_ALLOY_INGOT, 5.5f, -2.4f);
     public static final Item TUNGSTEN_IRON_ALLOY_HAMMER = registerPickaxe("tungsten_iron_alloy_hammer", ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 7f, -2.6f);
+
+    public static final Item SEA_ALLOY_HORN = registerItems("sea_alloy_horn", new SeaAlloyHorn(new Item.Settings().maxDamage(249)));
 
     private static void addItemToIG(FabricItemGroupEntries fabricItemGroupEntries){
         fabricItemGroupEntries.add(COPPER_IRON_ALLOY_INGOT);

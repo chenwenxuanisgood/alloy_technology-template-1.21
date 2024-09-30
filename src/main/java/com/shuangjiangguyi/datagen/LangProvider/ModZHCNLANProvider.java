@@ -78,6 +78,10 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModItemTags.SWORD, "§e剑");
         translationBuilder.add(ModItemTags.HAMMER, "§e锤");
 
+        translationBuilder.add(ModItems.SEA_ALLOY_HORN, "§5海洋合金号角");
+
+        translationBuilder.add("sound.alloy_technology.sea_alloy_horn", "海洋合金号角");
+
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6合金商人");
     }
 }

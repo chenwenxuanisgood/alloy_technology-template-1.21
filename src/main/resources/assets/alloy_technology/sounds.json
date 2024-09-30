@@ -1,0 +1,8 @@
+{
+  "sea_alloy_horn": {
+    "subtitle": "sound.alloy_technology.sea_alloy_horn",
+    "sounds": [
+      "alloy_technology:sea_alloy_horn"
+    ]
+  }
+}

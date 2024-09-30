@@ -50,5 +50,6 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ALUMINIUM_TIN_ALLOY_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.TUNGSTEN_IRON_ALLOY_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAST_IRON_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SEA_ALLOY_HORN, Models.GENERATED);
     }
 }
