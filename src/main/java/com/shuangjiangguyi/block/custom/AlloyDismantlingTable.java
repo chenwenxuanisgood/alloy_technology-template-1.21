@@ -34,12 +34,33 @@ public class AlloyDismantlingTable extends BlockWithEntity implements BlockEntit
 
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
     public static final MapCodec<AlloyDismantlingTable> CODEC = createCodec(AlloyDismantlingTable::new);
-    public static final VoxelShape SHAPE = Stream.of(
+    public static final VoxelShape SHAPE_N = Stream.of(
             Block.createCuboidShape(2, 0, 2, 14, 9, 14),
             Block.createCuboidShape(6, 9, 0, 16, 12, 16),
             Block.createCuboidShape(0, 9, 0, 2, 12, 16),
             Block.createCuboidShape(2, 9, 0, 6, 12, 4),
             Block.createCuboidShape(2, 9, 12, 6, 12, 16)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    public static final VoxelShape SHAPE_W = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 9, 14),
+            Block.createCuboidShape(0, 9, 0, 16, 12, 10),
+            Block.createCuboidShape(0, 9, 14, 16, 12, 16),
+            Block.createCuboidShape(0, 9, 10, 4, 12, 14),
+            Block.createCuboidShape(12, 9, 10, 16, 12, 14)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    public static final VoxelShape SHAPE_S = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 9, 14),
+            Block.createCuboidShape(0, 9, 0, 10, 12, 16),
+            Block.createCuboidShape(14, 9, 0, 16, 12, 16),
+            Block.createCuboidShape(10, 9, 12, 14, 12, 16),
+            Block.createCuboidShape(10, 9, 0, 14, 12, 4)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    public static final VoxelShape SHAPE_E = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 9, 14),
+            Block.createCuboidShape(0, 9, 6, 16, 12, 16),
+            Block.createCuboidShape(0, 9, 0, 16, 12, 2),
+            Block.createCuboidShape(12, 9, 2, 16, 12, 6),
+            Block.createCuboidShape(0, 9, 2, 4, 12, 6)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
     public AlloyDismantlingTable(Settings settings) {
         super(settings);
@@ -48,7 +69,12 @@ public class AlloyDismantlingTable extends BlockWithEntity implements BlockEntit
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        return switch (state.get(FACING)) {
+            case WEST -> SHAPE_W;
+            case SOUTH -> SHAPE_S;
+            case EAST -> SHAPE_E;
+            default -> SHAPE_N;
+        };
     }
 
     @Override

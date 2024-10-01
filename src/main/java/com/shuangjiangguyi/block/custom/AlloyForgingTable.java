@@ -27,8 +27,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.stream.Stream;
-
 public class AlloyForgingTable extends BlockWithEntity implements BlockEntityProvider {
     public static boolean[] canProduceAlloy = new boolean[4];
 

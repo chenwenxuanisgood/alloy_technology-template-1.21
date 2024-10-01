@@ -35,7 +35,7 @@ public class SeaAlloyHorn extends Item {
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, setTime(0, 5, 0), 2, true, true, true));
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, setTime(0, 0, 30), 2, true, true, true));
                     user.getStackInHand(Hand.MAIN_HAND).damage(1, user, EquipmentSlot.MAINHAND);
-                    //user.getItemCooldownManager().set(user.getStackInHand(Hand.MAIN_HAND).getItem(), setTime(0, 6, 0));
+                    user.getItemCooldownManager().set(user.getStackInHand(Hand.MAIN_HAND).getItem(), setTime(0, 6, 0));
                 }
                 else if (Screen.hasShiftDown()) {
                     world.playSound(null, user.getBlockPos(), ModSoundEvent.SEA_ALLOY_HORN, SoundCategory.BLOCKS, 1.0f, 5.0f);
@@ -43,7 +43,7 @@ public class SeaAlloyHorn extends Item {
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, setTime(0, 10, 0), 5, true, true, true));
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, setTime(0, 2, 0), 5, true, true, true));
                     user.getStackInHand(Hand.MAIN_HAND).damage(5, user, EquipmentSlot.MAINHAND);
-                    //user.getItemCooldownManager().set(user.getStackInHand(Hand.MAIN_HAND).getItem(), setTime(0, 14, 0));
+                    user.getItemCooldownManager().set(user.getStackInHand(Hand.MAIN_HAND).getItem(), setTime(0, 14, 0));
                 }
             }
         }
