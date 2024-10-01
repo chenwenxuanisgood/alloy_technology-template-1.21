@@ -33,8 +33,9 @@ public class DiamondAlloySynthesizer extends BlockWithEntity implements BlockEnt
     public static boolean[] canProduceAlloy = new boolean[4];
 
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
+
     public static final MapCodec<DiamondAlloySynthesizer> CODEC = createCodec(DiamondAlloySynthesizer::new);
-    public static final VoxelShape SHAPE = Stream.of(
+    public static final VoxelShape SHAPE_N = Stream.of(
             Block.createCuboidShape(2, 0, 2, 14, 9, 14),
             Block.createCuboidShape(5, 9, 0, 6, 12, 16),
             Block.createCuboidShape(9, 9, 0, 10, 12, 16),
@@ -47,6 +48,45 @@ public class DiamondAlloySynthesizer extends BlockWithEntity implements BlockEnt
             Block.createCuboidShape(10, 9, 12, 13, 12, 16),
             Block.createCuboidShape(10, 9, 0, 13, 12, 4)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    public static final VoxelShape SHAPE_W = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 9, 14),
+            Block.createCuboidShape(0, 9, 10, 16, 12, 11),
+            Block.createCuboidShape(0, 9, 6, 16, 12, 7),
+            Block.createCuboidShape(0, 9, 14, 16, 12, 16),
+            Block.createCuboidShape(0, 9, 0, 16, 12, 3),
+            Block.createCuboidShape(0, 9, 11, 4, 12, 14),
+            Block.createCuboidShape(0, 9, 7, 4, 12, 10),
+            Block.createCuboidShape(12, 9, 11, 16, 12, 14),
+            Block.createCuboidShape(12, 9, 7, 16, 12, 10),
+            Block.createCuboidShape(12, 9, 3, 16, 12, 6),
+            Block.createCuboidShape(0, 9, 3, 4, 12, 6)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    public static final VoxelShape SHAPE_S = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 9, 14),
+            Block.createCuboidShape(10, 9, 0, 11, 12, 16),
+            Block.createCuboidShape(6, 9, 0, 7, 12, 16),
+            Block.createCuboidShape(14, 9, 0, 16, 12, 16),
+            Block.createCuboidShape(0, 9, 0, 3, 12, 16),
+            Block.createCuboidShape(11, 9, 12, 14, 12, 16),
+            Block.createCuboidShape(7, 9, 12, 10, 12, 16),
+            Block.createCuboidShape(11, 9, 0, 14, 12, 4),
+            Block.createCuboidShape(7, 9, 0, 10, 12, 4),
+            Block.createCuboidShape(3, 9, 0, 6, 12, 4),
+            Block.createCuboidShape(3, 9, 12, 6, 12, 16)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    public static final VoxelShape SHAPE_E = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 9, 14),
+            Block.createCuboidShape(0, 9, 5, 16, 12, 6),
+            Block.createCuboidShape(0, 9, 9, 16, 12, 10),
+            Block.createCuboidShape(0, 9, 0, 16, 12, 2),
+            Block.createCuboidShape(0, 9, 13, 16, 12, 16),
+            Block.createCuboidShape(12, 9, 2, 16, 12, 5),
+            Block.createCuboidShape(12, 9, 6, 16, 12, 9),
+            Block.createCuboidShape(0, 9, 2, 4, 12, 5),
+            Block.createCuboidShape(0, 9, 6, 4, 12, 9),
+            Block.createCuboidShape(0, 9, 10, 4, 12, 13),
+            Block.createCuboidShape(12, 9, 10, 16, 12, 13)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
     public DiamondAlloySynthesizer(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.NORTH));
@@ -54,7 +94,12 @@ public class DiamondAlloySynthesizer extends BlockWithEntity implements BlockEnt
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        return switch (state.get(FACING)) {
+            case WEST -> SHAPE_W;
+            case SOUTH -> SHAPE_S;
+            case EAST -> SHAPE_E;
+            default -> SHAPE_N;
+        };
     }
 
     @Override

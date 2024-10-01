@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "alloy_technology:block/iron_alloy_synthesizer",
+      "y": 90
+    },
+    "facing=north": {
       "model": "alloy_technology:block/iron_alloy_synthesizer"
+    },
+    "facing=south": {
+      "model": "alloy_technology:block/iron_alloy_synthesizer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alloy_technology:block/iron_alloy_synthesizer",
+      "y": 270
     }
   }
 }

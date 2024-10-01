@@ -30,11 +30,36 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.Stream;
 
 public class IronAlloySynthesizer extends BlockWithEntity implements BlockEntityProvider {
-    public static boolean[] canProduceAlloy = new boolean[4];
 
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
+
     public static final MapCodec<IronAlloySynthesizer> CODEC = createCodec(IronAlloySynthesizer::new);
-    public static final VoxelShape SHAPE = Stream.of(
+
+    public static final VoxelShape SHAPE_N = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 8, 14),
+            Block.createCuboidShape(0, 8, 0, 3, 11, 16),
+            Block.createCuboidShape(13, 8, 0, 16, 11, 16),
+            Block.createCuboidShape(6, 8, 5, 10, 11, 11),
+            Block.createCuboidShape(3, 8, 0, 13, 11, 5),
+            Block.createCuboidShape(3, 8, 11, 13, 11, 16)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    public static final VoxelShape SHAPE_E = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 8, 14),
+            Block.createCuboidShape(0, 8, 13, 16, 11, 16),
+            Block.createCuboidShape(0, 8, 0, 16, 11, 3),
+            Block.createCuboidShape(5, 8, 6, 11, 11, 10),
+            Block.createCuboidShape(0, 8, 3, 5, 11, 13),
+            Block.createCuboidShape(11, 8, 3, 16, 11, 13)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    public static final VoxelShape SHAPE_S = Stream.of(
+            Block.createCuboidShape(2, 0, 2, 14, 8, 14),
+            Block.createCuboidShape(13, 8, 0, 16, 11, 16),
+            Block.createCuboidShape(0, 8, 0, 3, 11, 16),
+            Block.createCuboidShape(6, 8, 5, 10, 11, 11),
+            Block.createCuboidShape(3, 8, 11, 13, 11, 16),
+            Block.createCuboidShape(3, 8, 0, 13, 11, 5)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    public static final VoxelShape SHAPE_W = Stream.of(
             Block.createCuboidShape(2, 0, 2, 14, 8, 14),
             Block.createCuboidShape(0, 8, 0, 16, 11, 3),
             Block.createCuboidShape(0, 8, 13, 16, 11, 16),
@@ -49,7 +74,12 @@ public class IronAlloySynthesizer extends BlockWithEntity implements BlockEntity
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        return switch (state.get(FACING)) {
+            case WEST -> SHAPE_W;
+            case SOUTH -> SHAPE_S;
+            case EAST -> SHAPE_E;
+            default -> SHAPE_N;
+        };
     }
 
     @Override
