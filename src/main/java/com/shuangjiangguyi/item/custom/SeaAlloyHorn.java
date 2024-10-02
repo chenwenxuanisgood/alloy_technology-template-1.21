@@ -9,8 +9,6 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.server.network.ServerPlayerConfigurationTask;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -45,6 +43,7 @@ public class SeaAlloyHorn extends Item {
                     user.getStackInHand(Hand.MAIN_HAND).damage(5, user, EquipmentSlot.MAINHAND);
                     user.getItemCooldownManager().set(user.getStackInHand(Hand.MAIN_HAND).getItem(), setTime(0, 14, 0));
                 }
+
             }
         }
         return super.use(world, user, hand);

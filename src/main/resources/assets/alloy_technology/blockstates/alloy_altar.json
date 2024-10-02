@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,type=activation": {
+      "model": "alloy_technology:block/alloy_altar_activation",
+      "y": 90
+    },
+    "facing=north,type=activation": {
+      "model": "alloy_technology:block/alloy_altar_activation"
+    },
+    "facing=south,type=activation": {
+      "model": "alloy_technology:block/alloy_altar_activation",
+      "y": 180
+    },
+    "facing=west,type=activation": {
+      "model": "alloy_technology:block/alloy_altar_activation",
+      "y": 270
+    },
+    "facing=east,type=not_activation": {
+      "model": "alloy_technology:block/alloy_altar_not_activation",
+      "y": 90
+    },
+    "facing=north,type=not_activation": {
+      "model": "alloy_technology:block/alloy_altar_not_activation"
+    },
+    "facing=south,type=not_activation": {
+      "model": "alloy_technology:block/alloy_altar_not_activation",
+      "y": 180
+    },
+    "facing=west,type=not_activation": {
+      "model": "alloy_technology:block/alloy_altar_not_activation",
+      "y": 270
+    }
+  }
+}

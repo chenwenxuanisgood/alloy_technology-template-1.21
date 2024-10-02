@@ -43,6 +43,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK)
                 .add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK)
                 .add(ModBlocks.TUNGSTEN_BLOCK)
-                .add(ModBlocks.TUNGSTEN_ORE);
+                .add(ModBlocks.TUNGSTEN_ORE)
+                .add(ModBlocks.ALLOY_ALTAR);
     }
 }

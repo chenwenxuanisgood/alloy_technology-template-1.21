@@ -3,7 +3,6 @@ package com.shuangjiangguyi.datagen.LangProvider;
 import com.shuangjiangguyi.block.ModBlocks;
 import com.shuangjiangguyi.groups.ModGroups;
 import com.shuangjiangguyi.item.ModItems;
-import com.shuangjiangguyi.sound.ModSoundEvent;
 import com.shuangjiangguyi.tags.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -82,6 +81,10 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
         translationBuilder.add(ModItems.SEA_ALLOY_HORN, "§5Sea Alloy Horn");
 
         translationBuilder.add("sound.alloy_technology.sea_alloy_horn", "Sea Alloy Horn");
+
+        translationBuilder.add("key.alloy_technology.man", "Man");
+
+        translationBuilder.add("key.alloy_technology.alloy_technology", "Alloy Technology");
 
         translationBuilder.add("entity.minecraft.villager.alloy_master", "§6Alloy Merchant");
     }
