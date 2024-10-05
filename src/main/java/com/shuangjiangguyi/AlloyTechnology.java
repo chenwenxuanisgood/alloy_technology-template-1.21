@@ -4,6 +4,7 @@ import com.shuangjiangguyi.block.ModBlocks;
 import com.shuangjiangguyi.block.entity.ModBlockEntities;
 import com.shuangjiangguyi.groups.ModGroups;
 import com.shuangjiangguyi.item.ModItems;
+import com.shuangjiangguyi.particle.ModParticles;
 import com.shuangjiangguyi.recipe.ModRecipeTypes;
 import com.shuangjiangguyi.screen.ModScreenHandlers;
 import com.shuangjiangguyi.sound.ModSoundEvent;
@@ -38,6 +39,7 @@ public class AlloyTechnology implements ModInitializer {
 		ModCustomTrades.registerModCustomTrades();
 		ModItemTags.registerModItemTags();
 		ModSoundEvent.registerModSoundEvents();
+		ModParticles.registerModParticles();
 		LOGGER.info("Mod Name:Alloy Technology");
 	}
 }

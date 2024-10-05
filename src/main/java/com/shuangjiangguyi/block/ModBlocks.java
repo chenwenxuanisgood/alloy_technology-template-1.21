@@ -34,7 +34,9 @@ public class ModBlocks {
     public static final Block DIAMOND_ALLOY_SYNTHESIZER = register("diamond_alloy_synthesizer",
             new DiamondAlloySynthesizer(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK)));
     public static final Block ALLOY_ALTAR = register("alloy_altar",
-            new AlloyAltar(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK)));
+            new AlloyAltar(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).luminance(state -> 6)));
+    public static final Block ALLOY_ALTAR_ITEM_TABLE = register("alloy_altar_item_table",
+            new AlloyAltarItemTable(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).luminance(state -> 8)));
     public static void registerBlockItem(String id, Block block) {
         Item item = Registry.register(Registries.ITEM, Identifier.of(AlloyTechnology.MOD_ID, id), new BlockItem(block, new Item.Settings()));
         if (item instanceof BlockItem) {

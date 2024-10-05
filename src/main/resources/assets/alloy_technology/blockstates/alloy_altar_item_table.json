@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "type=activation": {
+      "model": "alloy_technology:block/alloy_altar_item_table_activation"
+    },
+    "type=not_activation": {
+      "model": "alloy_technology:block/alloy_altar_item_table_not_activation"
+    }
+  }
+}

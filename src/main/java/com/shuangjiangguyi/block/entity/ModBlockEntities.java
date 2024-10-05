@@ -22,6 +22,8 @@ public class ModBlockEntities {
             BlockEntityType.Builder.create(DiamondAlloySynthesizerBlockEntity::new, ModBlocks.DIAMOND_ALLOY_SYNTHESIZER));
     public static final BlockEntityType<AlloyAltarBlockEntity> ALLOY_ALTAR = create("alloy_altar_block_entity",
             BlockEntityType.Builder.create(AlloyAltarBlockEntity::new, ModBlocks.ALLOY_ALTAR));
+    public static final BlockEntityType<AlloyAltarItemTableBlockEntity> ALLOY_ALTAR_ITEM_TABLE = create("alloy_altar_item_table_block_entity",
+            BlockEntityType.Builder.create(AlloyAltarItemTableBlockEntity::new, ModBlocks.ALLOY_ALTAR_ITEM_TABLE));
     private static <T extends BlockEntity> BlockEntityType<T> create(String id, BlockEntityType.Builder<T> builder) {
         Type<?> type = Util.getChoiceType(TypeReferences.BLOCK_ENTITY, id);
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(AlloyTechnology.MOD_ID,id), builder.build(type));

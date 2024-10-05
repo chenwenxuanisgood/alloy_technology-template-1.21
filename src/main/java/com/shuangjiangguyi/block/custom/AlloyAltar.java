@@ -3,7 +3,6 @@ package com.shuangjiangguyi.block.custom;
 import com.mojang.serialization.MapCodec;
 import com.shuangjiangguyi.block.ModBlocks;
 import com.shuangjiangguyi.block.entity.AlloyAltarBlockEntity;
-import com.shuangjiangguyi.block.entity.AlloyForgingTableBlockEntity;
 import com.shuangjiangguyi.block.entity.ModBlockEntities;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -30,12 +29,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.Stream;
 
 public class AlloyAltar extends BlockWithEntity {
+    public static double radius = 0;
+    public static char ys = ' ';
     @Override
     protected BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
-
-    public static boolean hasAlloyBlock = false;
 
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
     public static final MapCodec<AlloyAltar> CODEC = createCodec(AlloyAltar::new);
@@ -83,16 +82,55 @@ public class AlloyAltar extends BlockWithEntity {
         builder.add(FACING, TYPE);
     }
 
-    @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        return getRelatedBlockState(state, world, pos, state.get(FACING));
+    public static BlockState getRelatedBlockState(BlockState state, WorldAccess world, BlockPos pos, Direction direction) {
+        final boolean HAS_ITEM_TABLE =
+                determineIfItHasBlock(pos.east(2), ModBlocks.ALLOY_ALTAR_ITEM_TABLE, world) &&
+                determineIfItHasBlock(pos.west(2), ModBlocks.ALLOY_ALTAR_ITEM_TABLE, world) &&
+                determineIfItHasBlock(pos.north(2), ModBlocks.ALLOY_ALTAR_ITEM_TABLE, world) &&
+                determineIfItHasBlock(pos.south(2), ModBlocks.ALLOY_ALTAR_ITEM_TABLE, world) &&
+                determineIfItHasBlock(pos.east(2).south(2), ModBlocks.ALLOY_ALTAR_ITEM_TABLE, world) &&
+                determineIfItHasBlock(pos.east(2).north(2), ModBlocks.ALLOY_ALTAR_ITEM_TABLE, world) &&
+                determineIfItHasBlock(pos.west(2).south(2), ModBlocks.ALLOY_ALTAR_ITEM_TABLE, world) &&
+                determineIfItHasBlock(pos.west(2).north(2), ModBlocks.ALLOY_ALTAR_ITEM_TABLE, world);
+        final boolean HAS_ALLOY_BLOCK = isRelatedBlock(world, pos);
+        final boolean HAS_ALLOY_ALTAR = determinesIfThereIsABlockWithinARange(9, 9, 9, pos, ModBlocks.ALLOY_ALTAR, world);
+        if (!(HAS_ALLOY_BLOCK && HAS_ITEM_TABLE)) {
+            return state.with(TYPE, Type.NOT_ACTIVATION);
+        }else if(HAS_ALLOY_ALTAR) {
+            return state.with(TYPE, Type.NOT_ACTIVATION);
+        }else {
+            if (state.get(TYPE) == Type.NOT_ACTIVATION) {
+                radius = 0.5;
+                ys = ' ';
+            }
+            return state.with(TYPE, Type.ACTIVATION);
+        }
     }
 
-    public static BlockState getRelatedBlockState(BlockState state, WorldAccess world, BlockPos pos, Direction direction) {
-        hasAlloyBlock = isRelatedBlock(world, pos);
-        if (hasAlloyBlock) {
-            return state.with(TYPE, Type.ACTIVATION);
-        }else return state.with(TYPE, Type.NOT_ACTIVATION);
+    private static boolean determinesIfThereIsABlockWithinARange(int length, int width, int height, BlockPos pos, Block block, WorldAccess world) {
+        boolean whetherThereIsABlockInTheRange = false;
+        for (int h = 0; h < height; h++) {
+            for (int w = 0; w < width; w++) {
+                for (int l = 0; l < length; l++) {
+                    int x = pos.getX() - width / 2 + w;
+                    int y = pos.getY() - height / 2 + h;
+                    int z = pos.getZ() - length / 2 + l;
+                    if (!new BlockPos(pos.getX(), pos.getY(), pos.getZ()).equals(new BlockPos(x, y, z))) {
+                        if (world.getBlockState(new BlockPos(x, y, z)).getBlock() == block) {
+                            whetherThereIsABlockInTheRange = true;
+                            break;
+                        }
+                    }
+                }
+                if (whetherThereIsABlockInTheRange) {
+                    break;
+                }
+            }
+            if (whetherThereIsABlockInTheRange) {
+                break;
+            }
+        }
+        return whetherThereIsABlockInTheRange;
     }
 
     private static boolean determineIfItIsEqualToASquare(int length, int width, int height, BlockPos pos, Block block, WorldAccess world) {
@@ -123,6 +161,14 @@ public class AlloyAltar extends BlockWithEntity {
         return !notEqual;
     }
 
+    private static boolean determineIfItHasBlock(int z, int y, int x, Block block, WorldAccess world) {
+        return world.getBlockState(new BlockPos(x, y, z)).getBlock() == block;
+    }
+
+    private static boolean determineIfItHasBlock(BlockPos pos, Block block, WorldAccess world) {
+        return world.getBlockState(pos).getBlock() == block;
+    }
+
     public static boolean isRelatedBlock(WorldAccess world, BlockPos pos) {
         if (!(determineIfItIsEqualToASquare(3, 3, 1, pos.down(1), ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK, world))) {
             return false;
@@ -131,6 +177,16 @@ public class AlloyAltar extends BlockWithEntity {
         } else if (!(determineIfItIsEqualToASquare(7, 7, 1, pos.down(3), ModBlocks.COPPER_IRON_ALLOY_BLOCK, world))) {
             return false;
         } else if (!(determineIfItIsEqualToASquare(9, 9, 1, pos.down(4), ModBlocks.COPPER_TIN_ALLOY_BLOCK, world))) {
+            return false;
+        } else if (!(determineIfItHasBlock(pos.down(1).east(2).south(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world) &&
+                determineIfItHasBlock(pos.down(1).west(2).south(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world) &&
+                determineIfItHasBlock(pos.down(1).west(2).north(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world) &&
+                determineIfItHasBlock(pos.down(1).east(2).north(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world) &&
+                determineIfItHasBlock(pos.down(1).south(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world) &&
+                determineIfItHasBlock(pos.down(1).west(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world) &&
+                determineIfItHasBlock(pos.down(1).north(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world) &&
+                determineIfItHasBlock(pos.down(1).east(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world)
+                )){
             return false;
         } else return true;
     }
