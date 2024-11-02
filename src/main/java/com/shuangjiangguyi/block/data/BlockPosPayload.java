@@ -14,7 +14,7 @@ public interface BlockPosPayload {
     BlockPos pos();
 
     default boolean isWithinDistance(PlayerEntity player,double distance){
-        return player.getBlockPos().isWithinDistance(pos(), distance);
+        return !player.getBlockPos().isWithinDistance(pos(), distance);
     }
 
     default boolean canUse(ServerPlayerEntity player, Predicate<ScreenHandler> screenHandlerPredicate) {
@@ -29,8 +29,9 @@ public interface BlockPosPayload {
         return currentScreenHandler.canUse(player);
     }
 
+    @SuppressWarnings("unchecked")
     default <T extends BlockEntity> T getBlockEntity(BlockEntityType<T> type, PlayerEntity player) {
-        if (!isWithinDistance(player, 64)) {
+        if (isWithinDistance(player, 64)) {
             throw new IllegalStateException("Player cannot use this block entity as its too far away");
         }
         BlockEntity blockEntity = getBlockEntity(player);
@@ -42,7 +43,7 @@ public interface BlockPosPayload {
     }
 
     default <T extends BlockEntity> T getBlockEntity(Class<T> baseClass, PlayerEntity player) {
-        if (!isWithinDistance(player, 64)) {
+        if (isWithinDistance(player, 64)) {
             throw new IllegalStateException("Player cannot use this block entity as its too far away");
         }
 
@@ -57,7 +58,7 @@ public interface BlockPosPayload {
     }
 
     default BlockEntity getBlockEntity(PlayerEntity player) {
-        if (!isWithinDistance(player, 64)) {
+        if (isWithinDistance(player, 64)) {
             throw new IllegalStateException("Player cannot use this block entity as its too far away");
         }
 
