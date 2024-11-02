@@ -10,6 +10,9 @@
     "alloy_technology:aluminium_tin_alloy_block",
     "alloy_technology:tin_ore",
     "alloy_technology:tungsten_ore",
-    "alloy_technology:tin_block"
+    "alloy_technology:tin_block",
+    "alloy_technology:alloy_altar",
+    "alloy_technology:damaged_alloy_altar",
+    "alloy_technology:alloy_altar_item_table"
   ]
 }

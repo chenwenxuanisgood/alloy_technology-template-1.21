@@ -25,6 +25,6 @@ public class ModScreenHandlers {
             Registry.register(Registries.SCREEN_HANDLER, Identifier.of(AlloyTechnology.MOD_ID, "diamond_alloy_synthesizer"),
                     new ExtendedScreenHandlerType<>(DiamondAlloySynthesizerScreenHandler::new, DiamondAlloySynthesizerData.CODEC));
     public static void registerScreenHandlers() {
-        AlloyTechnology.LOGGER.info("Alloy Technology Registering Screen Handlers");
+        AlloyTechnology.LOGGER.info("合金科技方块屏幕处理程序注册");
     }
 }

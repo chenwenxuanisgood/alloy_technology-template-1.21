@@ -30,6 +30,6 @@ public class ModVillagers {
         return PointOfInterestHelper.register(Identifier.of(AlloyTechnology.MOD_ID, id), 1, 1, block);
     }
     public static void registerModVillager() {
-
+        AlloyTechnology.LOGGER.info("合金科技村民注册");
     }
 }

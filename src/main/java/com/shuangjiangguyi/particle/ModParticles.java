@@ -15,6 +15,6 @@ public class ModParticles {
     }
 
     public static void registerModParticles() {
-
+        AlloyTechnology.LOGGER.info("合金科技粒子注册");
     }
 }

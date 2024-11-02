@@ -1,0 +1,16 @@
+{
+  "name": "铁合金合成器",
+  "sortnum": 0,
+  "icon": "alloy_technology:iron_alloy_synthesizer",
+  "category": "alloy_technology:make_alloy",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "铁合金合成器是合金制造机，它可以制造两种金属的合金，是迈入合金科技的第一步"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alloy_technology:iron_alloy_synthesizer"
+    }
+  ]
+}

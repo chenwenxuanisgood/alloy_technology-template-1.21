@@ -1,6 +1,7 @@
 package com.shuangjiangguyi;
 
 import com.shuangjiangguyi.block.entity.ModBlockEntities;
+import com.shuangjiangguyi.client.render.block.entity.AlloyAltarBlockEntityRenderer;
 import com.shuangjiangguyi.client.render.block.entity.AlloyAltarItemTableBlockEntityRenderer;
 import com.shuangjiangguyi.key.ModKeyBindings;
 import com.shuangjiangguyi.particle.ModParticles;
@@ -8,12 +9,10 @@ import com.shuangjiangguyi.screen.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
-import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 public class AlloyTechnologyClient implements ClientModInitializer {
-    private static KeyBinding MAN;
     @Override
     public void onInitializeClient() {
         HandledScreens.register(ModScreenHandlers.ALLOY_SYNTHESIZER, IronAlloySynthesizerScreen::new);
@@ -24,5 +23,6 @@ public class AlloyTechnologyClient implements ClientModInitializer {
         ModKeyBindings.ModKeyBindingEvent();
         ParticleFactoryRegistry.getInstance().register(ModParticles.GOLD_PARTICLE, FlameParticle.Factory::new);
         BlockEntityRendererFactories.register(ModBlockEntities.ALLOY_ALTAR_ITEM_TABLE, AlloyAltarItemTableBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.ALLOY_ALTAR, AlloyAltarBlockEntityRenderer::new);
     }
 }

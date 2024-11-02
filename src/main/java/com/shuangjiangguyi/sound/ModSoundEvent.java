@@ -16,6 +16,6 @@ public class ModSoundEvent {
     }
 
     public static void registerModSoundEvents() {
-
+        AlloyTechnology.LOGGER.info("合金科技音效事件注册");
     }
 }

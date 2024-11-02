@@ -61,5 +61,7 @@ public class ModItemTagsProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.COPPER_IRON_ALLOY_HAMMER)
                 .add(ModItems.ALUMINIUM_TIN_ALLOY_HAMMER)
                 .add(ModItems.TUNGSTEN_IRON_ALLOY_HAMMER);
+        getOrCreateTagBuilder(ModItemTags.ALLOY_ALTAR_NEED_COPPER_IRON_ALLOY_HAMMER)
+                .add(ModItems.SEA_ALLOY_HORN);
     }
 }

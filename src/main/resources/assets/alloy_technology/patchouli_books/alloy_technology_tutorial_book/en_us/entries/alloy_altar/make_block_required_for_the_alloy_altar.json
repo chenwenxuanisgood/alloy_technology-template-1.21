@@ -1,0 +1,27 @@
+{
+  "name": "Make block required for the Alloy Altar",
+  "sortnum": 0,
+  "icon": "alloy_technology:alloy_altar",
+  "category": "alloy_technology:alloy_altar",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The following blocks are required to craft an Alloy Altar:Alloy Altar x 1, Alloy Altar Item Table x 8, Copper Tin Alloy Block x 225, Copper Iron Alloy Block x 121, Aluminum Tin Alloy Block x 57, Tungsten Iron Alloy Block x 9."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alloy_technology:alloy_altar",
+      "recipe2": "alloy_technology:alloy_altar_item_table"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alloy_technology:copper_tin_alloy_block",
+      "recipe2": "alloy_technology:copper_iron_alloy_block"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alloy_technology:aluminium_tin_alloy_block",
+      "recipe2": "alloy_technology:tungsten_iron_alloy_block"
+    }
+  ]
+}

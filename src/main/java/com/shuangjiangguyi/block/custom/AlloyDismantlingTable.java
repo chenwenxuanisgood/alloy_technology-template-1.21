@@ -30,8 +30,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.Stream;
 
 public class AlloyDismantlingTable extends BlockWithEntity implements BlockEntityProvider {
-    public static boolean[] canProduceAlloy = new boolean[4];
-
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
     public static final MapCodec<AlloyDismantlingTable> CODEC = createCodec(AlloyDismantlingTable::new);
     public static final VoxelShape SHAPE_N = Stream.of(

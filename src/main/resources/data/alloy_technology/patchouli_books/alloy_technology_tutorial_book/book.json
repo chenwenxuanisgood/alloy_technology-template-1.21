@@ -1,0 +1,9 @@
+{
+  "name": "tutorial_book_name",
+  "landing_text": "tutorial_book_landing_text",
+  "version": 1,
+  "creative_tab": "alloy_technology:alloy_technology",
+  "use_resource_pack": true,
+  "book_texture": "patchouli:textures/gui/book_gray.png",
+  "model": "patchouli:book_gray"
+}

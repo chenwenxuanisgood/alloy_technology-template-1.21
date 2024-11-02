@@ -24,11 +24,13 @@ public class ModBlockEntities {
             BlockEntityType.Builder.create(AlloyAltarBlockEntity::new, ModBlocks.ALLOY_ALTAR));
     public static final BlockEntityType<AlloyAltarItemTableBlockEntity> ALLOY_ALTAR_ITEM_TABLE = create("alloy_altar_item_table_block_entity",
             BlockEntityType.Builder.create(AlloyAltarItemTableBlockEntity::new, ModBlocks.ALLOY_ALTAR_ITEM_TABLE));
+    public static final BlockEntityType<DamagedAlloyAltarBlockEntity> DAMAGE_ALLOY_ALTAR = create("damage_alloy_altar_block_entity",
+            BlockEntityType.Builder.create(DamagedAlloyAltarBlockEntity::new, ModBlocks.DAMAGED_ALLOY_ALTAR));
     private static <T extends BlockEntity> BlockEntityType<T> create(String id, BlockEntityType.Builder<T> builder) {
         Type<?> type = Util.getChoiceType(TypeReferences.BLOCK_ENTITY, id);
-        return Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(AlloyTechnology.MOD_ID,id), builder.build(type));
+        return Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(AlloyTechnology.MOD_ID, id), builder.build(type));
     }
     public static void registerBlockEntities() {
-        AlloyTechnology.LOGGER.info("Alloy Technology Registering Block Entities");
+        AlloyTechnology.LOGGER.info("合金科技方块实体注册");
     }
 }

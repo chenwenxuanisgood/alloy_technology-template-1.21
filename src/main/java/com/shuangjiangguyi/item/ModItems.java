@@ -1,6 +1,7 @@
 package com.shuangjiangguyi.item;
 
 import com.shuangjiangguyi.AlloyTechnology;
+import com.shuangjiangguyi.item.custom.Detector;
 import com.shuangjiangguyi.item.custom.SeaAlloyHorn;
 import com.shuangjiangguyi.item.tools.Hammer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -56,6 +57,7 @@ public class ModItems {
     public static final Item TUNGSTEN_IRON_ALLOY_HAMMER = registerPickaxe("tungsten_iron_alloy_hammer", ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 7f, -2.6f);
 
     public static final Item SEA_ALLOY_HORN = registerItems("sea_alloy_horn", new SeaAlloyHorn(new Item.Settings().maxDamage(249)));
+    public static final Item DETECTOR = registerItems("detector", new Detector(new Item.Settings()));
 
     private static void addItemToIG(FabricItemGroupEntries fabricItemGroupEntries){
         fabricItemGroupEntries.add(COPPER_IRON_ALLOY_INGOT);
@@ -74,6 +76,6 @@ public class ModItems {
     }
     public static void registerModItems(){
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemToIG);
-        AlloyTechnology.LOGGER.info("Alloy Technology Registering Items");
+        AlloyTechnology.LOGGER.info("合金科技物品注册");
     }
 }

@@ -4,19 +4,21 @@ import com.mojang.serialization.MapCodec;
 import com.shuangjiangguyi.block.ModBlocks;
 import com.shuangjiangguyi.block.entity.AlloyAltarBlockEntity;
 import com.shuangjiangguyi.block.entity.ModBlockEntities;
+import com.shuangjiangguyi.tags.ModItemTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.*;
 import net.minecraft.util.function.BooleanBiFunction;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -47,6 +49,19 @@ public class AlloyAltar extends BlockWithEntity {
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {
         return CODEC;
+    }
+
+    @Override
+    public ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (state.get(AlloyAltar.TYPE) == AlloyAltar.Type.ACTIVATION) {
+            AlloyAltarBlockEntity alloyAltarBlockEntity = (AlloyAltarBlockEntity) world.getBlockEntity(pos);
+            if (stack.isIn(ModItemTags.GREATER_THAN_AND_ABOUT_COPPER_IRON_ALLOY_HAMMER)) {
+                if (alloyAltarBlockEntity.judgmentRecipes()) {
+                    alloyAltarBlockEntity.output(player);
+                }
+            }
+        }
+        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 
     private static final VoxelShape SHAPE = Stream.of(
@@ -165,18 +180,18 @@ public class AlloyAltar extends BlockWithEntity {
         return world.getBlockState(new BlockPos(x, y, z)).getBlock() == block;
     }
 
-    private static boolean determineIfItHasBlock(BlockPos pos, Block block, WorldAccess world) {
+    public static boolean determineIfItHasBlock(BlockPos pos, Block block, WorldAccess world) {
         return world.getBlockState(pos).getBlock() == block;
     }
 
     public static boolean isRelatedBlock(WorldAccess world, BlockPos pos) {
         if (!(determineIfItIsEqualToASquare(3, 3, 1, pos.down(1), ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK, world))) {
             return false;
-        } else if (!(determineIfItIsEqualToASquare(5, 5, 1, pos.down(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world))) {
+        } else if (!(determineIfItIsEqualToASquare(7, 7, 1, pos.down(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world))) {
             return false;
-        } else if (!(determineIfItIsEqualToASquare(7, 7, 1, pos.down(3), ModBlocks.COPPER_IRON_ALLOY_BLOCK, world))) {
+        } else if (!(determineIfItIsEqualToASquare(11, 11, 1, pos.down(3), ModBlocks.COPPER_IRON_ALLOY_BLOCK, world))) {
             return false;
-        } else if (!(determineIfItIsEqualToASquare(9, 9, 1, pos.down(4), ModBlocks.COPPER_TIN_ALLOY_BLOCK, world))) {
+        } else if (!(determineIfItIsEqualToASquare(15, 15, 1, pos.down(4), ModBlocks.COPPER_TIN_ALLOY_BLOCK, world))) {
             return false;
         } else if (!(determineIfItHasBlock(pos.down(1).east(2).south(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world) &&
                 determineIfItHasBlock(pos.down(1).west(2).south(2), ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK, world) &&

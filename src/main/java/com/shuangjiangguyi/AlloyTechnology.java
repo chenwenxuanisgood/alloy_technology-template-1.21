@@ -2,12 +2,13 @@ package com.shuangjiangguyi;
 
 import com.shuangjiangguyi.block.ModBlocks;
 import com.shuangjiangguyi.block.entity.ModBlockEntities;
-import com.shuangjiangguyi.groups.ModGroups;
+import com.shuangjiangguyi.enchantment.ModEnchantments;
+import com.shuangjiangguyi.groups.ModItemGroups;
 import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.particle.ModParticles;
-import com.shuangjiangguyi.recipe.ModRecipeTypes;
 import com.shuangjiangguyi.screen.ModScreenHandlers;
 import com.shuangjiangguyi.sound.ModSoundEvent;
+import com.shuangjiangguyi.tags.ModBlockTags;
 import com.shuangjiangguyi.tags.ModItemTags;
 import com.shuangjiangguyi.util.ModCustomTrades;
 import com.shuangjiangguyi.villager.ModVillagers;
@@ -15,6 +16,8 @@ import com.shuangjiangguyi.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.swing.*;
 
 public class AlloyTechnology implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -30,16 +33,17 @@ public class AlloyTechnology implements ModInitializer {
 		// Proceed with mild caution.
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
-		ModGroups.registerModGroups();
-		ModRecipeTypes.registerRecipeType();
 		ModBlockEntities.registerBlockEntities();
+		ModItemGroups.registerModItemGroups();
 		ModScreenHandlers.registerScreenHandlers();
 		ModWorldGeneration.generateModWorldGen();
 		ModVillagers.registerModVillager();
 		ModCustomTrades.registerModCustomTrades();
 		ModItemTags.registerModItemTags();
+		ModBlockTags.registerModBlockTags();
 		ModSoundEvent.registerModSoundEvents();
 		ModParticles.registerModParticles();
-		LOGGER.info("Mod Name:Alloy Technology");
+		ModEnchantments.registerModEnchantments();
+		LOGGER.info("合金科技");
 	}
 }

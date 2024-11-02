@@ -26,17 +26,19 @@ public class ModBlocks {
     public static final Block TIN_ORE = ordinaryBlockRegister("tin_ore", 2.0f,3.0f);
     public static final Block TUNGSTEN_ORE = ordinaryBlockRegister("tungsten_ore", 5.0f,6.0f);
     public static final Block IRON_ALLOY_SYNTHESIZER = register("iron_alloy_synthesizer",
-            new IronAlloySynthesizer(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+            new IronAlloySynthesizer(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
     public static final Block ALLOY_FORGING_TABLE = register("alloy_forging_table",
-            new AlloyForgingTable(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+            new AlloyForgingTable(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
     public static final Block ALLOY_DISMANTLING_TABLE = register("alloy_dismantling_table",
-            new AlloyDismantlingTable(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+            new AlloyDismantlingTable(AbstractBlock.Settings.create().requiresTool().strength(5.0f,6.0f)));
     public static final Block DIAMOND_ALLOY_SYNTHESIZER = register("diamond_alloy_synthesizer",
-            new DiamondAlloySynthesizer(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK)));
+            new DiamondAlloySynthesizer(AbstractBlock.Settings.create().requiresTool().strength(6.0f,7.0f)));
     public static final Block ALLOY_ALTAR = register("alloy_altar",
-            new AlloyAltar(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).luminance(state -> 6)));
+            new AlloyAltar(AbstractBlock.Settings.create().requiresTool().strength(6.0f,7.0f).luminance(state -> 6)));
     public static final Block ALLOY_ALTAR_ITEM_TABLE = register("alloy_altar_item_table",
-            new AlloyAltarItemTable(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).luminance(state -> 8)));
+            new AlloyAltarItemTable(AbstractBlock.Settings.create().requiresTool().strength(6.0f,7.0f).luminance(state -> 8)));
+    public static final Block DAMAGED_ALLOY_ALTAR = register("damaged_alloy_altar",
+            new DamagedAlloyAltar(AbstractBlock.Settings.create().requiresTool().strength(6.0f,7.0f).luminance(state -> 6)));
     public static void registerBlockItem(String id, Block block) {
         Item item = Registry.register(Registries.ITEM, Identifier.of(AlloyTechnology.MOD_ID, id), new BlockItem(block, new Item.Settings()));
         if (item instanceof BlockItem) {
@@ -48,6 +50,6 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, RegistryKey.of(Registries.BLOCK.getKey(), Identifier.of(AlloyTechnology.MOD_ID, id)),block);
     }
     public static void registerModBlocks() {
-        AlloyTechnology.LOGGER.info("Alloy Technology Registering Block");
+        AlloyTechnology.LOGGER.info("合金科技方块注册");
     }
 }

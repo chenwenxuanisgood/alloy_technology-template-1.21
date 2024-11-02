@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "alloy_technology:block/damaged_alloy_altar",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "alloy_technology:block/damaged_alloy_altar"
+    },
+    "facing=south": {
+      "model": "alloy_technology:block/damaged_alloy_altar",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alloy_technology:block/damaged_alloy_altar",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Iron Alloy Synthesizer",
+  "sortnum": 0,
+  "icon": "alloy_technology:iron_alloy_synthesizer",
+  "category": "alloy_technology_tutorial_book:make_alloy",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Iron alloy synthesizer is alloy make machine, it can make alloy of two metals, it is the first step into alloy technology."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alloy_technology:iron_alloy_synthesizer"
+    }
+  ]
+}

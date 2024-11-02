@@ -1,0 +1,27 @@
+{
+  "name": "制作合金祭坛所需的方块",
+  "sortnum": 0,
+  "icon": "alloy_technology:alloy_altar",
+  "category": "alloy_technology:alloy_altar",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "制作合金祭坛需要以下方块：合金祭坛 x 1，合金祭坛物品台 x 8，铜锡合金块 x 225，铜铁合金块 x 121，铝锡合金块 x 57，钨铁合金块 x 9。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alloy_technology:alloy_altar",
+      "recipe2": "alloy_technology:alloy_altar_item_table"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alloy_technology:copper_tin_alloy_block",
+      "recipe2": "alloy_technology:copper_iron_alloy_block"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alloy_technology:aluminium_tin_alloy_block",
+      "recipe2": "alloy_technology:tungsten_iron_alloy_block"
+    }
+  ]
+}

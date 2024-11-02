@@ -104,6 +104,16 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.ALUMINIUM_TIN_ALLOY_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.ALUMINIUM_TIN_ALLOY_INGOT))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModBlocks.ALLOY_ALTAR).pattern("c c").pattern("ccc")
+                .input('c', ModItems.CAST_IRON_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.CAST_IRON_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.CAST_IRON_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModBlocks.ALLOY_ALTAR_ITEM_TABLE).pattern("ccc").pattern(" c ").pattern("ccc")
+                .input('c', ModItems.CAST_IRON_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.CAST_IRON_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.CAST_IRON_INGOT))
+                .offerTo(exporter);
         offerSmelting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 600, "tin_ingot");
         offerBlasting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 300, "tin_ingot");
     }

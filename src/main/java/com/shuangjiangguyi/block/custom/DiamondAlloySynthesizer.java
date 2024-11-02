@@ -30,8 +30,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.Stream;
 
 public class DiamondAlloySynthesizer extends BlockWithEntity implements BlockEntityProvider {
-    public static boolean[] canProduceAlloy = new boolean[4];
-
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
 
     public static final MapCodec<DiamondAlloySynthesizer> CODEC = createCodec(DiamondAlloySynthesizer::new);

@@ -28,8 +28,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class AlloyForgingTable extends BlockWithEntity implements BlockEntityProvider {
-    public static boolean[] canProduceAlloy = new boolean[4];
-
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
     public static final MapCodec<AlloyForgingTable> CODEC = createCodec(AlloyForgingTable::new);
     public static final VoxelShape SHAPE = VoxelShapes.combineAndSimplify(Block.createCuboidShape(2, 0, 2, 14, 9, 14), Block.createCuboidShape(0, 8, 0, 16, 11, 16), BooleanBiFunction.OR);

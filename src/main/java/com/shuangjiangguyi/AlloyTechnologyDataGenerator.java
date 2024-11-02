@@ -19,8 +19,6 @@ public class AlloyTechnologyDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(ModENUSLANProvider::new);
 		pack.addProvider(ModZHCNLANProvider::new);
-		pack.addProvider(ModZHHKLANProvider::new);
-		pack.addProvider(ModZHTWLANProvider::new);
 
 		pack.addProvider(ModRecipesProvider::new);
 		pack.addProvider(ModLootTableProvider::new);

@@ -14,6 +14,8 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
+import java.awt.*;
+
 public class IronAlloySynthesizerScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
@@ -57,7 +59,6 @@ public class IronAlloySynthesizerScreenHandler extends ScreenHandler {
                 return stack.isIn(ModItemTags.ALLOY_INGOT);
             }
         });
-
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

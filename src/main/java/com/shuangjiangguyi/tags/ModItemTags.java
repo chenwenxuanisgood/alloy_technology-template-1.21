@@ -19,10 +19,15 @@ public class ModItemTags {
     public static final TagKey<Item> TUNGSTEN_IRON_ALLOY_ITEM = of("tungsten_iron_alloy_item");
     public static final TagKey<Item> SWORD = of("sword");
     public static final TagKey<Item> HAMMER = of("hammer");
+    public static final TagKey<Item> ALLOY_ALTAR_NEED_COPPER_TIN_ALLOY_HAMMER = of("alloy_altar_need_copper_tin_alloy_hammer");
+    public static final TagKey<Item> ALLOY_ALTAR_NEED_COPPER_IRON_ALLOY_HAMMER = of("alloy_altar_need_copper_iron_alloy_hammer");
+    public static final TagKey<Item> ALLOY_ALTAR_NEED_ALUMINIUM_TIN_ALLOY_HAMMER = of("alloy_altar_need_aluminium_tin_alloy_hammer");
+    public static final TagKey<Item> ALLOY_ALTAR_NEED_TUNGSTEN_IRON_ALLOY_HAMMER = of("alloy_altar_need_tungsten_iron_alloy_hammer");
 
     private static TagKey<Item> of(String id) {
         return TagKey.of(RegistryKeys.ITEM, Identifier.of(AlloyTechnology.MOD_ID, id));
     }
     public static void registerModItemTags() {
+        AlloyTechnology.LOGGER.info("合金科技物品标签注册");
     }
 }

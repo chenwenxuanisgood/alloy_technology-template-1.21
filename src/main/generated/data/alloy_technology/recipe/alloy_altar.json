@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "alloy_technology:cast_iron_ingot"
+    }
+  },
+  "pattern": [
+    "c c",
+    "ccc"
+  ],
+  "result": {
+    "count": 1,
+    "id": "alloy_technology:alloy_altar"
+  }
+}

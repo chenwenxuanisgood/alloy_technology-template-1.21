@@ -3,7 +3,6 @@ package com.shuangjiangguyi.block.custom;
 import com.mojang.serialization.MapCodec;
 import com.shuangjiangguyi.block.ModBlocks;
 import com.shuangjiangguyi.block.entity.AlloyAltarItemTableBlockEntity;
-import com.shuangjiangguyi.block.entity.AlloyDismantlingTableBlockEntity;
 import com.shuangjiangguyi.block.entity.ModBlockEntities;
 import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.tags.ModItemTags;
@@ -15,7 +14,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtElement;
+import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
@@ -37,12 +36,21 @@ import java.util.stream.Stream;
 
 public class AlloyAltarItemTable extends BlockWithEntity {
 
+    public static Item[] ItemsL = {
+            ModItems.COPPER_TIN_ALLOY_INGOT,
+            ModItems.COPPER_IRON_ALLOY_INGOT,
+            ModItems.ALUMINIUM_TIN_ALLOY_INGOT,
+            ModItems.TUNGSTEN_IRON_ALLOY_INGOT,
+            ModItems.CAST_IRON_INGOT,
+            Items.HEART_OF_THE_SEA
+    };
+
     @Override
     protected BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
 
-    private String itemToString(Item item) {
+    private static String itemToString(Item item) {
         return item.toString();
     }
 
@@ -51,30 +59,33 @@ public class AlloyAltarItemTable extends BlockWithEntity {
         AlloyAltarItemTableBlockEntity alloyAltarItemTableBlockEntity = (AlloyAltarItemTableBlockEntity) world.getBlockEntity(pos);
         if (player.getStackInHand(Hand.MAIN_HAND).isEmpty()) {
             if (alloyAltarItemTableBlockEntity.storedItems != null) {
-                String[] itemString = {
-                        itemToString(ModItems.COPPER_TIN_ALLOY_INGOT),
-                        itemToString(ModItems.COPPER_IRON_ALLOY_INGOT),
-                        itemToString(ModItems.ALUMINIUM_TIN_ALLOY_INGOT),
-                        itemToString(ModItems.TUNGSTEN_IRON_ALLOY_INGOT)
-                };
-                Item[] Items = {
-                        ModItems.COPPER_TIN_ALLOY_INGOT,
-                        ModItems.COPPER_IRON_ALLOY_INGOT,
-                        ModItems.ALUMINIUM_TIN_ALLOY_INGOT,
-                        ModItems.TUNGSTEN_IRON_ALLOY_INGOT
-                };
-                for (int i = 0; i < itemString.length; i++) {
-                    if (Objects.equals(alloyAltarItemTableBlockEntity.storedItems, itemString[i])) {
-                        player.getInventory().insertStack(new ItemStack(Items[i], 1));
+                for (int i = 0; i < ItemsL.length; i++) {
+                    if (Objects.equals(alloyAltarItemTableBlockEntity.storedItems, ItemsL[i].toString())) {
+                        player.getInventory().insertStack(new ItemStack(ItemsL[i], 1));
                     }
                 }
                 alloyAltarItemTableBlockEntity.storedItems = null;
             }
         } else {
             if (alloyAltarItemTableBlockEntity.storedItems == null) {
-                if (player.getStackInHand(Hand.MAIN_HAND).isIn(ModItemTags.ALLOY_INGOT)) {
-                    alloyAltarItemTableBlockEntity.storedItems = player.getStackInHand(Hand.MAIN_HAND).getItem().toString();
-                    player.getStackInHand(Hand.MAIN_HAND).decrement(1);
+                for (int i = 0; i < ItemsL.length; i++) {
+                    if (player.getStackInHand(Hand.MAIN_HAND).getItem() == ItemsL[i]) {
+                        alloyAltarItemTableBlockEntity.storedItems = player.getStackInHand(Hand.MAIN_HAND).getItem().toString();
+                        player.getStackInHand(Hand.MAIN_HAND).decrement(1);
+                    }
+                }
+            } else {
+                for (int i = 0; i < ItemsL.length; i++) {
+                    if (player.getStackInHand(Hand.MAIN_HAND).getItem() == ItemsL[i]) {
+                        Item itemes = player.getStackInHand(Hand.MAIN_HAND).getItem();
+                        player.getStackInHand(Hand.MAIN_HAND).decrement(1);
+                        for (int j = 0; j < ItemsL.length; j++) {
+                            if (ItemsL[j].toString().equals(alloyAltarItemTableBlockEntity.storedItems)) {
+                                player.getInventory().insertStack(new ItemStack(ItemsL[j], 1));
+                            }
+                        }
+                        alloyAltarItemTableBlockEntity.storedItems = itemes.toString();
+                    }
                 }
             }
         }

@@ -1,10 +1,12 @@
 package com.shuangjiangguyi.datagen;
 
 import com.shuangjiangguyi.block.ModBlocks;
+import com.shuangjiangguyi.tags.ModBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
@@ -29,7 +31,10 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.TUNGSTEN_ORE)
-                .add(ModBlocks.TIN_BLOCK);
+                .add(ModBlocks.TIN_BLOCK)
+                .add(ModBlocks.ALLOY_ALTAR)
+                .add(ModBlocks.DAMAGED_ALLOY_ALTAR)
+                .add(ModBlocks.ALLOY_ALTAR_ITEM_TABLE);
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_ORE);
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
@@ -44,6 +49,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK)
                 .add(ModBlocks.TUNGSTEN_BLOCK)
                 .add(ModBlocks.TUNGSTEN_ORE)
-                .add(ModBlocks.ALLOY_ALTAR);
+                .add(ModBlocks.ALLOY_ALTAR)
+                .add(ModBlocks.ALLOY_ALTAR_ITEM_TABLE);
     }
 }

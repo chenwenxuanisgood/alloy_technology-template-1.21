@@ -1,14 +1,21 @@
 package com.shuangjiangguyi.block.entity;
 
+import com.shuangjiangguyi.AlloyTechnology;
 import com.shuangjiangguyi.block.custom.AlloyAltarItemTable;
+import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.particle.ModParticles;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class AlloyAltarItemTableBlockEntity extends BlockEntity {
     public String storedItems = null;
@@ -20,7 +27,7 @@ public class AlloyAltarItemTableBlockEntity extends BlockEntity {
     @Override
     public void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup wrapper) {
         super.writeNbt(nbt, wrapper);
-        if (storedItems != null && !storedItems.isEmpty()) {
+        if (storedItems != null) {
             nbt.putString("Item", storedItems);
         }
     }
@@ -28,9 +35,7 @@ public class AlloyAltarItemTableBlockEntity extends BlockEntity {
     @Override
     public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup wrapper) {
         super.readNbt(nbt, wrapper);
-        if (storedItems != null && !storedItems.isEmpty()) {
-            storedItems = nbt.getString("item");
-        }
+        storedItems = nbt.getString("Item");
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
@@ -56,5 +61,16 @@ public class AlloyAltarItemTableBlockEntity extends BlockEntity {
         }
         world.setBlockState(pos, AlloyAltarItemTable.getRelatedBlockState(state, world, pos, state.get(AlloyAltarItemTable.FACING)));
         markDirty(world, pos, state);
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientPlayPacketListener> toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
+    }
+
+    @Override
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
+        return createNbt(registryLookup);
     }
 }

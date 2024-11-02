@@ -1,0 +1,35 @@
+{
+  "name": "Build altar",
+  "sortnum": 1,
+  "icon": "alloy_technology:alloy_altar",
+  "category": "alloy_technology:alloy_altar",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Now let's start building the altar。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Alloy Altar",
+      "multiblock": {
+        "pattern": [
+          [ "               ", "               ", "               ", "               ", "               ", "     B B B     ", "               ", "     B R B     ", "               ", "     B B B     ", "               ", "               ", "               ", "               ", "               " ],
+          [ "               ", "               ", "               ", "               ", "               ", "     A A A     ", "      TTT      ", "     ATTTA     ", "      TTT      ", "     A A A     ", "               ", "               ", "               ", "               ", "               " ],
+          [ "               ", "               ", "               ", "               ", "    AAAAAAA    ", "    AAAAAAA    ", "    AAAAAAA    ", "    AAAAAAA    ", "    AAAAAAA    ", "    AAAAAAA    ", "    AAAAAAA    ", "               ", "               ", "               ", "               " ],
+          [ "               ", "               ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "  IIIIIIIIIII  ", "               ", "               " ],
+          [ "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNN0NNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN", "NNNNNNNNNNNNNNN" ]
+        ],
+        "mapping": {
+          "R": "alloy_technology:alloy_altar",
+          "B": "alloy_technology:alloy_altar_item_table",
+          "T": "alloy_technology:tungsten_iron_alloy_block",
+          "A": "alloy_technology:aluminium_tin_alloy_block",
+          "I": "alloy_technology:copper_iron_alloy_block",
+          "N": "alloy_technology:copper_tin_alloy_block",
+          "0": "alloy_technology:copper_tin_alloy_block"
+        },
+        "symmetrical": true
+      }
+    }
+  ]
+}
