@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 0.7,
+  "group": "tungsten_ingot",
+  "ingredient": {
+    "item": "alloy_technology:tungsten_ore"
+  },
+  "result": {
+    "id": "alloy_technology:tungsten_ingot"
+  }
+}

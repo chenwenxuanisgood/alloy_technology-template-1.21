@@ -59,9 +59,7 @@
   "tag.item.alloy_technology.sword": "§e剑",
   "tag.item.alloy_technology.tungsten_iron_alloy_item": "§e钨铁合金物品",
   "text.detector.alloy_altar_proficiency": "合金祭坛熟练度是",
-  "text.detector.incorrect_placement": "请摆放正确。",
   "text.detector.need_copper_iron_alloy_hammer": "需要铜铁合金锤",
-  "text.detector.not_altar": "请不要对着非合金祭坛的方块右键。",
   "text.detector.not_player": "请不要对着非玩家的实体右键",
   "tutorial_book_landing_text": "这是合金科技教程书",
   "tutorial_book_name": "合金科技教程书"

@@ -56,9 +56,7 @@
   "tag.item.alloy_technology.sword": "§eSword",
   "tag.item.alloy_technology.tungsten_iron_alloy_item": "§eTungsten-Iron Alloy Item",
   "text.detector.alloy_altar_proficiency": "Alloy altar proficiency is ",
-  "text.detector.incorrect_placement": "Please place it correctly.",
   "text.detector.need_copper_iron_alloy_hammer": "Need Copper-Iron Alloy Hammer.",
-  "text.detector.not_altar": "Please confront alloy altar press the right mouse button.",
   "text.detector.not_player": "Please confront player press the right mouse button.",
   "tutorial_book_landing_text": "This is alloy technology tutorial book.",
   "tutorial_book_name": "Alloy Technology Tutorial Book"

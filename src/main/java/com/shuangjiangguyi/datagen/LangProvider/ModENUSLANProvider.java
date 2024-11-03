@@ -69,8 +69,6 @@ public class ModENUSLANProvider extends FabricLanguageProvider{
         translationBuilder.add("connect.alloy_forging_table", "§eAlloy Tool Forging Table");
         translationBuilder.add("connect.alloy_dismantling_table", "§eAlloy Tool Dismantling Table");
 
-        translationBuilder.add("text.detector.not_altar", "Please confront alloy altar press the right mouse button.");
-        translationBuilder.add("text.detector.incorrect_placement", "Please place it correctly.");
         translationBuilder.add("text.detector.need_copper_iron_alloy_hammer", "Need Copper-Iron Alloy Hammer.");
         translationBuilder.add("text.detector.not_player", "Please confront player press the right mouse button.");
         translationBuilder.add("text.detector.alloy_altar_proficiency", "Alloy altar proficiency is ");

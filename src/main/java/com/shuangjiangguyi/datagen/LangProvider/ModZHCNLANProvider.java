@@ -69,8 +69,6 @@ public class ModZHCNLANProvider extends FabricLanguageProvider{
         translationBuilder.add("connect.alloy_forging_table", "§e合金锻造台");
         translationBuilder.add("connect.alloy_dismantling_table", "§e合金工具拆解台");
 
-        translationBuilder.add("text.detector.not_altar", "请不要对着非合金祭坛的方块右键。");
-        translationBuilder.add("text.detector.incorrect_placement", "请摆放正确。");
         translationBuilder.add("text.detector.need_copper_iron_alloy_hammer", "需要铜铁合金锤");
         translationBuilder.add("text.detector.not_player", "请不要对着非玩家的实体右键");
         translationBuilder.add("text.detector.alloy_altar_proficiency", "合金祭坛熟练度是");

@@ -6,6 +6,7 @@ import com.shuangjiangguyi.item.custom.SeaAlloyHorn;
 import com.shuangjiangguyi.item.tools.Hammer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.PickaxeItem;
@@ -57,7 +58,7 @@ public class ModItems {
     public static final Item TUNGSTEN_IRON_ALLOY_HAMMER = registerPickaxe("tungsten_iron_alloy_hammer", ModToolMaterials.TUNGSTEN_IRON_ALLOY_INGOT, 7f, -2.6f);
 
     public static final Item SEA_ALLOY_HORN = registerItems("sea_alloy_horn", new SeaAlloyHorn(new Item.Settings().maxDamage(249)));
-    public static final Item DETECTOR = registerItems("detector", new Detector(new Item.Settings()));
+    public static final Item DETECTOR = registerItems("detector", new Detector(new Item.Settings().component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)));
 
     private static void addItemToIG(FabricItemGroupEntries fabricItemGroupEntries){
         fabricItemGroupEntries.add(COPPER_IRON_ALLOY_INGOT);

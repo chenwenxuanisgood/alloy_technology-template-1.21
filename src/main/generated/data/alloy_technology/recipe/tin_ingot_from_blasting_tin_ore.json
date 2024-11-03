@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.7,
+  "group": "tin_ingot",
+  "ingredient": {
+    "item": "alloy_technology:tin_ore"
+  },
+  "result": {
+    "id": "alloy_technology:tin_ingot"
+  }
+}

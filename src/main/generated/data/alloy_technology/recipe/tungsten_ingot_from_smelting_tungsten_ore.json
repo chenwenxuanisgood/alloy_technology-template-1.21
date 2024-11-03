@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 800,
+  "experience": 0.7,
+  "group": "tungsten_ingot",
+  "ingredient": {
+    "item": "alloy_technology:tungsten_ore"
+  },
+  "result": {
+    "id": "alloy_technology:tungsten_ingot"
+  }
+}

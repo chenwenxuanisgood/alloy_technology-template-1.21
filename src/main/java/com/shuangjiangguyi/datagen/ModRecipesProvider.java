@@ -4,9 +4,11 @@ import com.shuangjiangguyi.item.ModItems;
 import com.shuangjiangguyi.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Block;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -22,20 +24,19 @@ public class ModRecipesProvider extends FabricRecipeProvider {
         super(output, registriesFuture);
     }
 
+    private void itemWithBlock(RecipeExporter exporter, Item item, Block block) {
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, item,
+                RecipeCategory.BUILDING_BLOCKS, block);
+    }
+
     @Override
     public void generate(RecipeExporter exporter) {
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.COPPER_IRON_ALLOY_INGOT,
-                RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPER_IRON_ALLOY_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.COPPER_TIN_ALLOY_INGOT,
-                RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPER_TIN_ALLOY_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TUNGSTEN_IRON_ALLOY_INGOT,
-                RecipeCategory.BUILDING_BLOCKS, ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TIN_INGOT,
-                RecipeCategory.BUILDING_BLOCKS, ModBlocks.TIN_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ALUMINIUM_TIN_ALLOY_INGOT,
-                RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
-                RecipeCategory.BUILDING_BLOCKS, ModBlocks.TUNGSTEN_BLOCK);
+        itemWithBlock(exporter, ModItems.COPPER_TIN_ALLOY_INGOT, ModBlocks.COPPER_TIN_ALLOY_BLOCK);
+        itemWithBlock(exporter, ModItems.COPPER_IRON_ALLOY_INGOT, ModBlocks.COPPER_IRON_ALLOY_BLOCK);
+        itemWithBlock(exporter, ModItems.ALUMINIUM_TIN_ALLOY_INGOT, ModBlocks.ALUMINIUM_TIN_ALLOY_BLOCK);
+        itemWithBlock(exporter, ModItems.TUNGSTEN_IRON_ALLOY_INGOT, ModBlocks.TUNGSTEN_IRON_ALLOY_BLOCK);
+        itemWithBlock(exporter, ModItems.TIN_INGOT, ModBlocks.TIN_BLOCK);
+        itemWithBlock(exporter, ModItems.TUNGSTEN_INGOT, ModBlocks.TUNGSTEN_BLOCK);
         ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModBlocks.IRON_ALLOY_SYNTHESIZER).pattern("bib").pattern("iii").pattern("iii")
                 .input('i', Items.IRON_INGOT)
                 .input('b', Items.BUCKET)
@@ -114,7 +115,24 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.CAST_IRON_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.CAST_IRON_INGOT))
                 .offerTo(exporter);
-        offerSmelting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 600, "tin_ingot");
-        offerBlasting(exporter, TIN_INGOT, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 300, "tin_ingot");
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DETECTOR).pattern("crc").pattern("ctc").pattern("crc")
+                .input('c', ModItems.CAST_IRON_INGOT)
+                .input('r', Items.REDSTONE)
+                .input('t', ModItems.TUNGSTEN_IRON_ALLOY_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.CAST_IRON_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.CAST_IRON_INGOT))
+                .criterion(FabricRecipeProvider.hasItem(Items.REDSTONE),
+                        FabricRecipeProvider.conditionsFromItem(Items.REDSTONE))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.TUNGSTEN_IRON_ALLOY_INGOT))
+                .offerTo(exporter);
+        offerSmelting(exporter, List.of(ModItems.RAW_TIN), RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 600, "tin_ingot");
+        offerSmelting(exporter, List.of(ModBlocks.TIN_ORE), RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 800, "tungsten_ingot");
+        offerSmelting(exporter, List.of(ModBlocks.TUNGSTEN_ORE), RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT, 0.7f, 800, "tungsten_ingot");
+
+        offerBlasting(exporter, List.of(ModItems.RAW_TIN), RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 300, "tin_ingot");
+        offerBlasting(exporter, List.of(ModBlocks.TIN_ORE), RecipeCategory.MISC, ModItems.TIN_INGOT, 0.7f, 300, "tin_ingot");
+        offerBlasting(exporter, List.of(ModBlocks.TUNGSTEN_ORE), RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT, 0.7f, 400, "tungsten_ingot");
+
     }
 }
